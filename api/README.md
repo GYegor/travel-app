@@ -1,4 +1,4 @@
-# Travel-app фзш
+# Travel-app (описание взято из шаблона предоставленного школой)
 
 Demo API for "travel-app" task.
 
@@ -13,7 +13,7 @@ Demo API for "travel-app" task.
 ## Локальный запуск
 
 1. ```git clone https://github.com/rolling-scopes-school/travel-app-be.git```
-2. Создайте файл .env в корне приложения
+2. Создайте файл .env в корне приложения (создан, монго строка указана для примера, хорошая практика добавлять .env в гитигнор, но поскольку проект приватный, добавил)
 3. В созданном файе укажите переменные окружения:  
 ```MONGO_CONNECTION_STRING=<адрес вашей локальной или облачной mongodb>```
 4. npm install
