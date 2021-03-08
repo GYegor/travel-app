@@ -1,6 +1,6 @@
 # travel-app
 
-### STACK (to be with Redux + thunk or saga at least): 
+### STACK (to be extended with Redux + thunk or saga at least): 
 React, Typescript, SCSS, Material-UI, Express
 
 ## While develop:
