@@ -1,3 +1,3 @@
-const ENTITY_NAME = 'country';
+// const ENTITY_NAME = 'country';
 
-module.exports = { ENTITY_NAME };
+// module.exports = { ENTITY_NAME };

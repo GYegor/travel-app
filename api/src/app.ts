@@ -1,15 +1,15 @@
 require('dotenv').config();
-const path = require('path');
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const swaggerUi = require('swagger-ui-express');
-const YAML = require('yamljs');
+import path = require('path');
+import express = require('express');
+import cors = require('cors');
+import helmet = require('helmet');
+import swaggerUi = require('swagger-ui-express');
+import YAML = require('yamljs');
 
-const { StatusCodes, ReasonPhrases } = require('http-status-codes');
+import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 
-const errorMiddleware = require('./middleware/error-middleware');
-const requestLogMiddleware = require('./middleware/request-logger');
+import errorMiddleware = require('./middleware/error-middleware');
+import requestLogMiddleware = require('./middleware/request-logger');
 
 const app = express();
 const swaggerDoc = YAML.load(path.join(__dirname, './docs/doc.yaml'));
@@ -36,11 +36,11 @@ app.get('/api', (req,res) => {  console.log('api called!!!'); res.json({smth: 'W
 
 
 // Routers
-const countryRouter = require('./modules/countries/country.router');
+// import countryRouter = require('./modules/countries/country.router');
 
-app.use('/countries', countryRouter);
+// app.use('/countries', countryRouter);
 
-app.use('/smth', countryRouter);
+// app.use('/smth', countryRouter);
 
 
 // app.use((req, res) => {
@@ -49,4 +49,4 @@ app.use('/smth', countryRouter);
 
 app.use(errorMiddleware);
 
-module.exports = app;
+export = app;
