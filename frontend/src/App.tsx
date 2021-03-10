@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import './App.scss';
+import HomePage from "./pages/HomePage";
 
 
 // simple api request
@@ -23,17 +24,28 @@ function App() {
     });
   }, [ smth ] )
 
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: '#558b2f',
+      },
+      secondary: {
+        main: '#ffee58',
+      }
+    },
+    spacing: 10, 
+  })
 
-  return ( 
-    <div className="App">
-      <header className="App-header">
-        <h1>OUR TRAVEL-APP</h1>
-        <img src={logo} className="App-logo" alt="logo" />
+
+  return (
+    <ThemeProvider theme={theme}> 
+      <div className="App">
+        <HomePage></HomePage>        
         <p>
           {smth}
-        </p>
-      </header>
-    </div>
+        </p>      
+      </div>
+    </ThemeProvider>
   );
 }
 
