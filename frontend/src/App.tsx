@@ -1,50 +1,53 @@
 import React, { useEffect, useState } from 'react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { createMuiTheme,createStyles,makeStyles,Theme,ThemeProvider } from '@material-ui/core';
 import './App.scss';
 import HomePage from "./pages/HomePage";
-
+import { theme } from './mui-style';
+import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Spacer from './components/Spacer';
 
 // simple api request
-export async function getAllSmth() {
-  const response = await fetch("/api", {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    pageWrapper: {
+      display: 'flex',
+      'flex-direction': 'column',
+
     },
-  });
-  return await response.json();
-}
+    input: {
+      display: 'none',
+    },
+  }),
+);
+
 
 function App() {
-  const [ smth, setSmth ] = useState('');
-  useEffect(() => {
-    getAllSmth().then(res => {
-        console.log(res)
-      setSmth(res.smth)
-    });
-  }, [ smth ] )
-
-  const theme = createMuiTheme({
-    palette: {
-      primary: {
-        main: '#558b2f',
-      },
-      secondary: {
-        main: '#ffee58',
-      }
-    },
-    spacing: 10, 
-  })
-
+  const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme}> 
-      <div className="App">
-        <HomePage></HomePage>        
-        <p>
-          {smth}
-        </p>      
-      </div>
+      <Router>
+        <Header />
+        <div className={classes.pageWrapper}>
+          <Switch>
+
+            <Route path="/country">
+            </Route>
+
+            <Route path="/">
+              <HomePage />       
+            </Route>
+
+          </Switch>
+        </div>
+
+        <Spacer/>
+        
+        <Footer />
+      </Router>
     </ThemeProvider>
   );
 }
