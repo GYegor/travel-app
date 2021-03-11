@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core';
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import Algambra from '../assets/images/algambra.jpg'
-
+import { ICardProps } from "../interfaces";
+import { theme } from "../mui-style";
 
 const useStyles = makeStyles({
   root: {
@@ -19,41 +18,49 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  link: {
+    textDecoration: "none",
+    padding: theme.spacing(0.3, 0),
+  },
+  content: {
+    backgroundColor: 'rgb(248, 255, 247)',
+  },
+  buttonCont: {
+    justifyContent: 'center',
+    backgroundColor: 'rgb(248, 255, 247)',
+  }
 });
 
-const CountryCard: React.FC = () => {
+const CountryCard: React.FC<ICardProps> = (props) => {
+  const { country, capital, imageUrl } = props;
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={Algambra}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Algambra
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Link to={`/country`}>
-          <Button size="small" color="primary">
+      <CardMedia
+        className={classes.media}
+        component="img"
+        alt={country}
+        image={imageUrl}
+      />
+      <CardContent className={classes.content}>
+        <Typography gutterBottom variant="h5" component="h2">
+          {country}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {capital}
+        </Typography>
+      </CardContent>
+
+      <CardActions className={classes.buttonCont}>
+        <Link to={`/country`} className={classes.link}>
+          <Button variant="contained" size="small" color="secondary">
             Learn More
           </Button>
         </Link>
       </CardActions>
     </Card>
-  )
-}
+  );
+};
 
 export default CountryCard;
