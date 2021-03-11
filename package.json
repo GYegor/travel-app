@@ -1,0 +1,13 @@
+{
+  "name": "travel-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "client": "npm start --prefix frontend",
+    "server": "npm run start:dev --prefix api",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
