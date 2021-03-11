@@ -1,16 +1,42 @@
-import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+import { makeStyles } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import CountryCard from '../components/CountryCard';
+
+export async function getAllSmth() {
+  const response = await fetch("/api", {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+  return await response.json();
+}
+
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    padding: '2vmin',
+    'flex-direction': 'column',
+  },
+});
 
 const HomePage: React.FC = () => {
-  return (
-    <>
-      <Header />
-      <main>
+  const classes = useStyles();
 
-      </main>
-      <Footer />
-    </>
+  const [ smth, setSmth ] = useState('');
+  useEffect(() => {
+    getAllSmth().then(res => {
+      setSmth(res.smth)
+    });
+  }, [ smth ] )
+
+  return (
+    <div className={classes.root}>
+      <CountryCard />       
+      <p>
+        {smth}
+      </p>      
+    </div>
   )
 }
 
