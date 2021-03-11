@@ -1,0 +1,45 @@
+{
+  "countries": [
+    {
+      "lang": 1,
+      "id": 1,
+      "name": "Turkey",
+      "capital": "Ankara",
+      "smallImageUrl": "turkey.jpg",
+      "description": "What can surprise Turkey? If you think that apart from beaches and all-inclusive hotels there is nothing attractive, then you do not know the real Turkey - with magnificent Istanbul, which was once Byzantine Constantinople, ancient Christian monuments and amazing natural wonders, which are a must worth seeing. The Republic of Turkey is located at the crossroads of East and West. Has access to four seas. This country has stunning nature, architecture, history. For tourists and travelers, Turkey is interesting as a place where you can enjoy the sun, beaches, healing springs, go skiing, and go mountaineering.",
+      "sightseeings": [
+        {
+          "imageUrl": "maidens_tower.jpg",
+          "name": "Maidens Tower",
+          "description": "Located in the Asian part of Istanbul on a small island of the Bosphorus Strait in the Uskudar region. During the Ottoman Empire, the tower mainly served as a beacon that showed ships the way at night and even during the day in foggy weather."
+        },
+        {
+          "imageUrl": "hagia_sophia.jpg",
+          "name": "Hagia Sophia",
+          "description": "Former Patriarchal Orthodox Cathedral located in the historical center of modern Istanbul. The symbol of the Golden age of Byzantium. In 1453, after the capture of Constantinople by the Ottomans, the cathedral was turned into a mosque, and in 1935 it acquired the status of a museum."
+        },
+        {
+          "imageUrl": "efes.jpg",
+          "name": "Efes",
+          "description": "The old antique city, from which many buildings have been well preserved to this day. The city is famous primarily for the Temple of Artemis, which is one of the seven wonders of the ancient world."
+        },
+        {
+          "imageUrl": "blue_lagune.jpg",
+          "name": "Blue lagune",
+          "description": "The Blue Lagoon is a very beautiful and famous place in the whole country. The Blue Lagoon is located next to the small village of Oludeniz in Turkey on the shores of the two seas of the Mediterranean and the Aegean."
+        },
+        {
+          "imageUrl": "cappadocia.jpg",
+          "name": "Cappadocia",
+          "description": "Semi-desert region in central Turkey. It is known for its magical chimneys - tall, cone-shaped rock formations."
+        },
+        {
+          "imageUrl": "pamukkale.jpg",
+          "name": "Pamukkale",
+          "description": "Famous for its thermal springs located on terraces of white limestone. Here you can also see the ruins of the ancient spa town of Hierapolis during the Roman Empire."
+        }        
+      ],
+      "videoUrl": "https://www.youtube.com/watch?v=6nGoj2TVe2I" 
+    }
+  ]
+}

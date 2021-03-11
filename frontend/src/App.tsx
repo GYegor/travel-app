@@ -1,39 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import { createMuiTheme,createStyles,makeStyles,Theme,ThemeProvider } from '@material-ui/core';
 import './App.scss';
-
+import HomePage from "./pages/HomePage";
+import { theme } from './mui-style';
+import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Spacer from './components/Spacer';
 
 // simple api request
-export async function getAllSmth() {
-  const response = await fetch("/api", {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    pageWrapper: {
+      display: 'flex',
+      'flex-direction': 'column',
+
     },
-  });
-  return await response.json();
-}
+    input: {
+      display: 'none',
+    },
+  }),
+);
+
 
 function App() {
-  const [ smth, setSmth ] = useState('');
-  useEffect(() => {
-    getAllSmth().then(res => {
-        console.log(res)
-      setSmth(res.smth)
-    });
-  }, [ smth ] )
+  const classes = useStyles();
 
+  return (
+    <ThemeProvider theme={theme}> 
+      <Router>
+        <Header />
+        <div className={classes.pageWrapper}>
+          <Switch>
 
-  return ( 
-    <div className="App">
-      <header className="App-header">
-        <h1>OUR TRAVEL-APP</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {smth}
-        </p>
-      </header>
-    </div>
+            <Route path="/country">
+            </Route>
+
+            <Route path="/">
+              <HomePage />       
+            </Route>
+
+          </Switch>
+        </div>
+
+        <Spacer/>
+        
+        <Footer />
+      </Router>
+    </ThemeProvider>
   );
 }
 
