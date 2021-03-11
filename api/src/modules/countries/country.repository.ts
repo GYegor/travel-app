@@ -3,14 +3,14 @@ import errors = require('../../common/errors/errors-list');
 import types = require('./country.types');
 
 const getBasicData = (country: types.ICountryDocument, lang: number) => ({
-    countryId: country.countryId,
+    id: country.countryId,
     smallImageUrl: country.smallImageUrl,
     name: country.localizations[lang].name,
     capital: country.localizations[lang].capital,
 });
 
 const getFullBasicData = (country: types.ICountryDocument) => ({
-    countryId: country.countryId,
+    id: country.countryId,
     imageUrl: country.imageUrl,
     videoUrl: country.videoUrl,
     coordinates: country.coordinates,
@@ -26,7 +26,7 @@ const getSights = (sights: Array<types.ISightSchema>, lang: types.Language) => {
     const arr =  sights.map((sight) => ({
         name: sight.localizations[lang].name,
         description: sight.localizations[lang].description,
-        sightId: sight.sightId,
+        id: sight.sightId,
         imageUrl: sight.imageUrl,
         rating: sight.rating,
     }));

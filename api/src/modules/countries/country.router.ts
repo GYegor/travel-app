@@ -71,7 +71,7 @@ router.get('/', wrap(async (req, res): Promise<void> => {
     res.json(data);
 }));
 
-router.get('/country/:id', wrap(async (req, res): Promise<void> => {
+router.get('/:id', wrap(async (req, res): Promise<void> => {
     const lang: string = req.query.lang || config.DEFAULT_LANG;
     const { id } = req.params;
     const data = await countryService.getOne(id, types.Language[lang]);

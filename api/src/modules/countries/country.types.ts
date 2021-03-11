@@ -23,7 +23,7 @@ export interface IRating {
 }
 
 export interface ISight {
-    sightId: number;
+    id: number;
     imageUrl: string;
     name: string;
     description: string;
@@ -31,7 +31,7 @@ export interface ISight {
 }
 
 export interface ICountryBase {
-    countryId: number;
+    id: number;
     name: string;
     capital: string;
     smallImageUrl?: string;
