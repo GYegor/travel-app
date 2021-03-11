@@ -41,47 +41,46 @@
       ],
       "videoUrl": "https://www.youtube.com/watch?v=6nGoj2TVe2I" 
     },
-
     {
-      "lang": 1,
-      "id": 1,
-      "name": "Turkey",
-      "capital": "Ankara",
-      "smallImageUrl": "turkey.jpg",
-      "description": "What can surprise Turkey? If you think that apart from beaches and all-inclusive hotels there is nothing attractive, then you do not know the real Turkey - with magnificent Istanbul, which was once Byzantine Constantinople, ancient Christian monuments and amazing natural wonders, which are a must worth seeing. The Republic of Turkey is located at the crossroads of East and West. Has access to four seas. This country has stunning nature, architecture, history. For tourists and travelers, Turkey is interesting as a place where you can enjoy the sun, beaches, healing springs, go skiing, and go mountaineering.",
+      "lang": 2,
+      "id": 2,
+      "name": "Испания",
+      "capital": "Мадрид",
+      "smallImageUrl": "spain.jpg",
+      "description": "Испания – европейская страна, расположенная на Пиренейском полуострове. Территория Испании разделена на 17 автономных регионов. В столице страны, Мадриде, находятся Королевский дворец и музей Прадо, где хранятся произведения европейских мастеров. В Сеговии можно посетить средневековый замок (Алькасар) и увидеть хорошо сохранившийся римский акведук. Барселона – столица автономного сообщества Каталония. Облик этого города определяют многочисленные причудливо-фантастические творения архитектора Антонио Гауди, среди которых храм Святого Семейства. Омывается Атлантическим океаном на севере и западе, Средиземным морем на юге и востоке. Средняя высота поверхности Испании — 650 м над уровнем моря; она является одной из самых гористых стран Европы.",
       "sightseeings": [
         {
-          "imageUrl": "maidens_tower.jpg",
-          "name": "Maidens Tower",
-          "description": "Located in the Asian part of Istanbul on a small island of the Bosphorus Strait in the Uskudar region. During the Ottoman Empire, the tower mainly served as a beacon that showed ships the way at night and even during the day in foggy weather."
+          "imageUrl": "alhambra.jpg",
+          "name": "Альгамбра",
+          "description": "Архитектурно-парковый ансамбль, расположенный на холмистой террасе в восточной части города Гранада в Южной Испании. Основное развитие получил во времена правления мусульманской династии Насридов."
         },
         {
-          "imageUrl": "hagia_sophia.jpg",
-          "name": "Hagia Sophia",
-          "description": "Former Patriarchal Orthodox Cathedral located in the historical center of modern Istanbul. The symbol of the Golden age of Byzantium. In 1453, after the capture of Constantinople by the Ottomans, the cathedral was turned into a mosque, and in 1935 it acquired the status of a museum."
+          "imageUrl": "malaga.jpg",
+          "name": "Малага",
+          "description": "Портовый город в регионе Коста-дель-Соль на юге Испании, известный своими многоэтажными гостиничными комплексами, которые выходят прямо на пляжи со светлым песком. Над современными зданиями города возвышаются две огромные крепости: алькасаба Малаги и Хибральфаро."
         },
         {
-          "imageUrl": "efes.jpg",
-          "name": "Efes",
-          "description": "The old antique city, from which many buildings have been well preserved to this day. The city is famous primarily for the Temple of Artemis, which is one of the seven wonders of the ancient world."
+          "imageUrl": "montserrat.jpg",
+          "name": "Монсеррат",
+          "description": "Бенедиктинский монастырь, духовный символ и религиозный центр Каталонии и центр паломничества католиков со всего мира. Природный комплекс, прилегающий к монастырю, объявлен национальным парком Каталонии."
         },
         {
-          "imageUrl": "blue_lagune.jpg",
-          "name": "Blue lagune",
-          "description": "The Blue Lagoon is a very beautiful and famous place in the whole country. The Blue Lagoon is located next to the small village of Oludeniz in Turkey on the shores of the two seas of the Mediterranean and the Aegean."
+          "imageUrl": "park_guell.jpg",
+          "name": "Парк Гуэль",
+          "description": "Парк в верхней части Барселоны, созданный Антонио Гауди в 1900—1914 годах. Парк был задуман Эусеби Гуэлем как зелёная жилая зона в стиле модной в то время в Англии градостроительной концепции города-сада."
         },
         {
-          "imageUrl": "cappadocia.jpg",
-          "name": "Cappadocia",
-          "description": "Semi-desert region in central Turkey. It is known for its magical chimneys - tall, cone-shaped rock formations."
+          "imageUrl": "sagrada_familia.jpg",
+          "name": "Храм Святого Семейства",
+          "description": "В Барселоне есть здание, которое с незначительными перерывами возводят уже 120 лет. Заложенный в 1882 году грандиозный Искупительный храм Святого Семейства («Саграда Фамилия») постепенно приобретает вид завершенного творения. Такого, каким его задумал один из величайших архитекторов XX века Антонио Гауди."
         },
         {
-          "imageUrl": "pamukkale.jpg",
-          "name": "Pamukkale",
-          "description": "Famous for its thermal springs located on terraces of white limestone. Here you can also see the ruins of the ancient spa town of Hierapolis during the Roman Empire."
+          "imageUrl": "spain_square.jpg",
+          "name": "Площадь Испании",
+          "description": "Одно из самых впечатляющих мест в Севилье. Этот архитектурный ансамбль расположен в парке Марии Луизы и поражает своим величием и красотой. Была задумана как центральное сооружение Иберо-американской выставки 1929 года."
         }        
       ],
-      "videoUrl": "https://www.youtube.com/watch?v=6nGoj2TVe2I" 
+      "videoUrl": "https://www.youtube.com/watch?v=I78hhm620zc" 
     }
   ]
 }
