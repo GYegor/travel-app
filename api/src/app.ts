@@ -23,7 +23,7 @@ app.use(requestLogMiddleware);
 app.use('/favicon.ico', (req, res) => res.sendStatus(StatusCodes.NO_CONTENT));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
-app.get('/api', (req,res) => {  console.log('api called!!!'); res.json({smth: 'WOW it works with API!!!'}); });
+// app.get('/api', (req,res) => {  console.log('api called!!!'); res.json({smth: 'WOW it works with API!!!'}); });
 
 
 // app.use('/', (req, res, next) => {
@@ -36,9 +36,9 @@ app.get('/api', (req,res) => {  console.log('api called!!!'); res.json({smth: 'W
 
 
 // Routers
-// import countryRouter = require('./modules/countries/country.router');
+import countryRouter = require('./modules/countries/country.router');
 
-// app.use('/countries', countryRouter);
+app.use('/api/countries', countryRouter);
 
 // app.use('/smth', countryRouter);
 
