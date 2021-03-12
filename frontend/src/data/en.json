@@ -6,6 +6,7 @@
       "name": "Turkey",
       "capital": "Ankara",
       "smallImageUrl": "turkey.jpg",
+      "imageUrl": "turkey_full.jpg",
       "description": "What can surprise Turkey? If you think that apart from beaches and all-inclusive hotels there is nothing attractive, then you do not know the real Turkey - with magnificent Istanbul, which was once Byzantine Constantinople, ancient Christian monuments and amazing natural wonders, which are a must worth seeing. The Republic of Turkey is located at the crossroads of East and West. Has access to four seas. This country has stunning nature, architecture, history. For tourists and travelers, Turkey is interesting as a place where you can enjoy the sun, beaches, healing springs, go skiing, and go mountaineering.",
       "sightseeings": [
         {
@@ -47,6 +48,7 @@
       "name": "Spain",
       "capital": "Madrid",
       "smallImageUrl": "spain.jpg",
+      "imageUrl": "spain_full.jpg",
       "description": "Spain is a European country located on the Iberian Peninsula. The territory of Spain is divided into 17 autonomous regions. The capital of the country, Madrid, houses the Royal Palace and the Prado Museum, which houses works of European masters. In Segovia, you can visit the medieval castle (Alcazar) and see the well-preserved Roman aqueduct. Barcelona is the capital of the autonomous community of Catalonia. The appearance of this city is determined by the numerous fanciful creations of the architect Antoni Gaudí, including the Sagrada Familia. It is washed by the Atlantic Ocean in the north and west, the Mediterranean Sea in the south and east. The average height of the surface of Spain is 650 m above sea level; it is one of the most mountainous countries in Europe.",
       "sightseeings": [
         {
