@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Spacer from './components/Spacer';
-
-// simple api request
+import { CloudinaryContext } from 'cloudinary-react';
+import cloudName from './constants/cloudName';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,27 +28,29 @@ function App() {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme}> 
-      <Router>
-        <Header />
-        <div className={classes.pageWrapper}>
-          <Switch>
+    <CloudinaryContext cloudName={cloudName}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Header />
+          <div className={classes.pageWrapper}>
+            <Switch>
 
-            <Route path="/country">
-            </Route>
+              <Route path="/country">
+              </Route>
 
-            <Route path="/">
-              <HomePage />       
-            </Route>
+              <Route path="/">
+                <HomePage />
+              </Route>
 
-          </Switch>
-        </div>
+            </Switch>
+          </div>
 
-        <Spacer/>
-        
-        <Footer />
-      </Router>
-    </ThemeProvider>
+          <Spacer/>
+
+          <Footer />
+        </Router>
+      </ThemeProvider>
+    </CloudinaryContext>
   );
 }
 
