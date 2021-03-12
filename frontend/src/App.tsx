@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Spacer from './components/Spacer';
 import { CloudinaryContext } from 'cloudinary-react';
+import cloudName from './constants/cloudName';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,7 +28,7 @@ function App() {
   const classes = useStyles();
 
   return (
-    <CloudinaryContext cloudName="dshffjhdkjj">
+    <CloudinaryContext cloudName={cloudName}>
       <ThemeProvider theme={theme}>
         <Router>
           <Header />
