@@ -1,8 +1,43 @@
 import React from "react";
 import { Container, Box, Typography } from "@material-ui/core";
-import { useStyles } from "../mui-style";
+import { makeStyles } from "@material-ui/core/styles";
+import { theme } from "../mui-style";
 
-const logoPath = process.env.PUBLIC_URL + "/assets/icons/rs_school_logo.svg";
+const useStyles = makeStyles({
+  footer: {    
+    backgroundColor: theme.palette.primary.light,
+    padding: theme.spacing(1, 0), 
+  },
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    columnGap: theme.spacing(5),
+  },  
+  logo: {
+    width: "100px",
+    height: "75px",
+  },  
+  logoLink: {
+    cursor: "pointer",
+    display: "block",
+    boxSizing: "content-box",
+    textAlign: "center",
+  },  
+  creators: {    
+    display: "flex",
+    flexWrap: "wrap",
+    columnGap: "10px",
+    justifyContent: "center",
+    alignItems: "center",    
+  },    
+  author: {
+    textDecoration: "none",
+    cursor: "pointer",
+    color: theme.palette.primary.contrastText,
+  },
+})
 
 const Footer: React.FC = () => {
   const classes = useStyles();

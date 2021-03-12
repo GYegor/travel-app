@@ -1,20 +1,25 @@
-const { InternalServerError, MongoDuplicateError } = require('./errors-list');
-const logger = require('../logging/logger');
+import errorsList = require('./errors-list');
+import logger = require('../logging/logger');
 
-module.exports = (err, path) => {
+interface IResponse {
+  status?: number,
+  data?: object,
+}
+
+export = (err, path) => {
   // Handle mongoose duplicate errors
   if (err.code === 11000) {
-    err = new MongoDuplicateError(
+    err = new errorsList.MongoDuplicateError(
       `'${Object.keys(err.keyValue)}' already used`
     );
   }
 
   if (!err.reason) {
     logger.error(err.message, err.stack);
-    err = new InternalServerError();
+    err = new errorsList.InternalServerError();
   }
 
-  const response = {};
+  const response: IResponse = {};
   const { reason, statusText, status } = err;
 
   response.status = status;

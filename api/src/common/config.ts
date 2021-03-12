@@ -4,14 +4,20 @@
 //   MONGO_CONNECTION_STRING: process.env.MONGO_CONNECTION_STRING,
 // };
 
-const dotenv = require('dotenv');
-const path = require('path');
+import dotenv = require('dotenv');
+import path = require('path');
 
 dotenv.config({
   path: path.join(__dirname, '../../.env')
 });
 
-module.exports = {
+interface IExports {
+  DEFAULT_LANG: string
+  DEV_PORT: number
+  MONGO_CONNECTION_STRING: string
+}
+
+export = {
   DEFAULT_LANG: 'en',
   DEV_PORT:  process.env.PORT,
   MONGO_CONNECTION_STRING: process.env.MONGO_CONNECTION_STRING,
