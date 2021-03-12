@@ -37,7 +37,7 @@ const CountryCard: React.FC<ICardProps> = (props) => {
       <Link to={`/country`} className="card__link">
         <CardActionArea className="card">
           <Box
-            style={{ backgroundImage: `url('${cloudUrl}/${cloudName}/${idImage}')` }}
+            style={{ backgroundImage: `url('${cloudUrl}/${cloudName}/image/upload/h_150/${idImage}')` }}
             className={classes.media}
           />
           <CardContent>
