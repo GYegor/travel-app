@@ -9,7 +9,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core';
 import { Link } from "react-router-dom";
-import Algambra from '../assets/images/algambra.jpg'
+import Algambra from '../assets/images/algambra.jpg';
+import { Image } from 'cloudinary-react';
+import Box from '@material-ui/core/Box';
+import cloudName from '../constants/cloudName';
+import cloudUrl from '../constants/cloudUrl';
 
 
 const useStyles = makeStyles({
@@ -18,19 +22,22 @@ const useStyles = makeStyles({
   },
   media: {
     height: 140,
+    backgroundSize: 'cover',
+    backgroundPosition: 'bottom',
   },
 });
 
 const CountryCard: React.FC = () => {
   const classes = useStyles();
 
+  const idImage: string = 'travelApp/algambra_un0ac7';
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
+        <Box
+          style={{ backgroundImage: `url('${cloudUrl}/${cloudName}/${idImage}')` }}
           className={classes.media}
-          image={Algambra}
-          title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
