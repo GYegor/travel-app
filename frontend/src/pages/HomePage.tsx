@@ -4,19 +4,29 @@ import CountryCard from '../components/CountryCard';
 import Turkey from "../assets/images/turkey.jpg";
 import Spain from "../assets/images/spain.jpg";
 import { theme } from "../mui-style";
+import { relative } from 'path';
+import SideBar from '../components/SideBar';
 
-export async function getAllSmth() {
-  const response = await fetch("/api", {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  });
-  return await response.json();
-}
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { shallowEqual, useSelector } from 'react-redux'
+import { getDataFromBE } from '../actions/country-actions'
+import Spacer from '../components/Spacer';
+
 
 const useStyles = makeStyles({
   root: {
+    'min-height': '100%',
+    position: 'relative',
+    display: 'flex',
+    'flex-direction': 'column',
+    justifyContent: 'center',
+    rowGap: theme.spacing(4),
+    columnGap: theme.spacing(3),
+    padding: theme.spacing(3, 1.5)
+  },
+  contentWrapper: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
@@ -26,36 +36,34 @@ const useStyles = makeStyles({
   },
 });
 
-const fakeData = [
-  {country: 'Turkey', capital: 'Ankara', imageUrl: Turkey},
-  {country: 'Spain', capital: 'Madrid', imageUrl: Spain},
-  {country: 'Poland', capital: 'Warsaw', imageUrl: Turkey},
-  {country: 'Germany', capital: 'Berlin', imageUrl: Spain},
-  {country: 'China', capital: 'Pekin', imageUrl: Turkey},
-  {country: 'Italy', capital: 'Rome', imageUrl: Spain},
-  {country: 'England', capital: 'London', imageUrl: Turkey},
-  {country: 'Egypt', capital: 'Cairo', imageUrl: Spain},
-]
-
-const HomePage: React.FC = () => {
+const HomePage: React.FC<any> = ( { countryList, getDataFromBE } ) => {
   const classes = useStyles();
 
-  const [ smth, setSmth ] = useState('');
   useEffect(() => {
-    getAllSmth().then(res => {
-      setSmth(res.smth)
-    });
-  }, [ smth ] )
+    getDataFromBE('/api/countries?lang=by');
+  }, [ ])
 
   return (
-    <div className={classes.root}>
-      {fakeData.map((card, index) => {
-        return (
-          <CountryCard {...card} key={index} />
-        )
-      })}            
-    </div>
+    <>
+      <div className={classes.contentWrapper}>
+        {countryList.map((card: any) => {
+          return (
+            <>
+            <CountryCard {...card} key={card.id} />
+            </>
+          )
+        })}            
+      </div>
+      <SideBar />
+      <Spacer/>
+    </>
   )
 }
 
-export default HomePage;
+const mapStateToProps = ({ countryList }: any) => ({ countryList })
+
+const mapDispatchToProps = (dispatch: any) => bindActionCreators({
+  getDataFromBE: getDataFromBE
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);;
