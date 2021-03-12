@@ -37,4 +37,4 @@ const logger = createLogger({
   rejectionHandlers: [new transports.File({ filename: 'rejections.log' })],
 });
 
-module.exports = logger;
+export = logger;

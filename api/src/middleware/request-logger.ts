@@ -1,5 +1,5 @@
-const morgan = require('morgan');
-const logger = require('../common/logging/logger');
+import morgan = require('morgan');
+import logger = require('../common/logging/logger');
 
 const format = process.env.NODE_ENV === 'production' ? 'short' : 'dev';
 const options = {
@@ -8,4 +8,4 @@ const options = {
   },
 };
 
-module.exports = morgan(format, options);
+export = morgan(format, options);
