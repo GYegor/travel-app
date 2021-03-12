@@ -4,6 +4,8 @@ import CountryCard from '../components/CountryCard';
 import Turkey from "../assets/images/turkey.jpg";
 import Spain from "../assets/images/spain.jpg";
 import { theme } from "../mui-style";
+import { relative } from 'path';
+import SideBar from '../components/SideBar';
 
 export async function getAllSmth() {
   const response = await fetch("/api", {
@@ -17,6 +19,7 @@ export async function getAllSmth() {
 
 const useStyles = makeStyles({
   root: {
+    position: 'relative',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
@@ -51,7 +54,10 @@ const HomePage: React.FC = () => {
     <div className={classes.root}>
       {fakeData.map((card, index) => {
         return (
+          <>
+          <SideBar />
           <CountryCard {...card} key={index} />
+          </>
         )
       })}            
     </div>
