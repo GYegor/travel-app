@@ -39,9 +39,6 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
     spacer: {
       flex: 1,
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
     title: {
       marginRight: theme.spacing(2),
       '&:first-letter': {

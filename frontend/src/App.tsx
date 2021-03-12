@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Spacer from './components/Spacer';
+import SidePanel from './components/SidePanel';
+import { relative } from 'path';
+
 
 // simple api request
 
@@ -14,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     pageWrapper: {
       display: 'flex',
+      position: 'relative',
       'flex-direction': 'column',
 
     },
