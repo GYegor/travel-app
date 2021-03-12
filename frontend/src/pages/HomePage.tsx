@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import CountryCard from '../components/CountryCard';
+import Turkey from "../assets/images/turkey.jpg";
+import Spain from "../assets/images/spain.jpg";
+import { theme } from "../mui-style";
 
 export async function getAllSmth() {
   const response = await fetch("/api", {
@@ -15,10 +18,24 @@ export async function getAllSmth() {
 const useStyles = makeStyles({
   root: {
     display: 'flex',
-    padding: '2vmin',
-    'flex-direction': 'column',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    rowGap: theme.spacing(4),
+    columnGap: theme.spacing(3),
+    padding: theme.spacing(3, 1.5)
   },
 });
+
+const fakeData = [
+  {country: 'Turkey', capital: 'Ankara', imageUrl: Turkey},
+  {country: 'Spain', capital: 'Madrid', imageUrl: Spain},
+  {country: 'Poland', capital: 'Warsaw', imageUrl: Turkey},
+  {country: 'Germany', capital: 'Berlin', imageUrl: Spain},
+  {country: 'China', capital: 'Pekin', imageUrl: Turkey},
+  {country: 'Italy', capital: 'Rome', imageUrl: Spain},
+  {country: 'England', capital: 'London', imageUrl: Turkey},
+  {country: 'Egypt', capital: 'Cairo', imageUrl: Spain},
+]
 
 const HomePage: React.FC = () => {
   const classes = useStyles();
@@ -32,10 +49,11 @@ const HomePage: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <CountryCard />       
-      <p>
-        {smth}
-      </p>      
+      {fakeData.map((card, index) => {
+        return (
+          <CountryCard {...card} key={index} />
+        )
+      })}            
     </div>
   )
 }

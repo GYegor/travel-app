@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
-const { MONGO_CONNECTION_STRING } = require('../config');
-const logger = require('../logging/logger');
+import mongoose = require('mongoose');
+import config = require('../config');
+import logger = require('../logging/logger');
 
 const connectToDB = () => {
   mongoose
-    .connect(MONGO_CONNECTION_STRING, {
+    .connect(config.MONGO_CONNECTION_STRING, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
@@ -18,4 +18,4 @@ const connectToDB = () => {
   });
 };
 
-module.exports = { connectToDB };
+export = connectToDB;
