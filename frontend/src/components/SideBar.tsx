@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     padding: theme.spacing(1, 0), 
     opacity: 0.1,
     height: '100%',
-    width: '200px',
+    width: '240px',
     position: 'absolute',
     top: 0,
     left: 0

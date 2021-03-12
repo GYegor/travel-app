@@ -12,10 +12,13 @@ import cloudName from './constants/cloudName';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    pageWrapper: {
+    root: {
+      'min-height': '100vh',
       display: 'flex',
-      'flex-direction': 'column',
-
+      'flex-direction': 'column'
+    },
+    pageWrapper: {
+      flex: 1,
     },
     input: {
       display: 'none',
@@ -23,12 +26,11 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-
 function App() {
   const classes = useStyles();
 
   return (
-    <CloudinaryContext cloudName={cloudName}>
+    <CloudinaryContext cloudName={cloudName} className={classes.root}>
       <ThemeProvider theme={theme}>
         <Router>
           <Header />
@@ -45,7 +47,6 @@ function App() {
             </Switch>
           </div>
 
-          <Spacer/>
 
           <Footer />
         </Router>
