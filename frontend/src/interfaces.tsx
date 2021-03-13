@@ -1,3 +1,8 @@
+export interface AppState {
+  countryList?: ICountryCard[],
+  lang?: Language
+}
+
 export interface ICountryCard {
   id: number;
   name: string,
