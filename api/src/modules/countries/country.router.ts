@@ -16,6 +16,7 @@ const China: types.ICountrySchema = {
     imageId: 'travelApp/china_zfbnes',
     smallImageId: 'travelApp/china_zfbnes',
     videoUrl: 'https://youtu.be/nGkaYARL48s',
+    localTimeDiff: 8,
     coordinates: '39.90663716589455, 116.41625179481245',
     sights: [
       {

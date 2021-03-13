@@ -37,8 +37,10 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 // Routers
 import countryRouter = require('./modules/countries/country.router');
+import userRouter = require('./modules/users/users.router');
 
 app.use('/api/countries', countryRouter);
+app.use('/api/users', userRouter);
 
 // app.use('/smth', countryRouter);
 

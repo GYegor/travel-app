@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Spacer from './components/Spacer';
 import { CloudinaryContext } from 'cloudinary-react';
 import cloudName from './constants/cloudName';
+import Registration from './components/Registration';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
