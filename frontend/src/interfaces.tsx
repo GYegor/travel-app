@@ -7,6 +7,7 @@ export interface ICountryCard {
 
 export interface IDateTimeCard {
   lang: Language;
+  utcOffset: number;
 }
 
 export enum Language {

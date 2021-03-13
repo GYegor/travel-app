@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from "@material-ui/core/CardContent";
@@ -23,17 +23,17 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }));
 
-const DateTimeCard: React.FC<IDateTimeCard> = ({ lang }) => {
+const DateTimeCard: React.FC<IDateTimeCard> = ({ lang, utcOffset }) => {
   const classes = useStyles();
-  const currentDate = new Date();
+
   const enMonthNames = [
     'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
   ];
   const ruMonthNames = [
-    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Ноябрь', 'Декабрь'
+    'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Ноября', 'Декабря'
   ];
   const byMonthNames = [
-    'Студзень', 'Люты', 'Сакавiк', 'Красавiк', 'Май', 'Червень', 'Лiпень', 'Жнiвень', 'Верасень', 'Кастрычнiк', 'Лiстапад', 'Снежань'
+    'Студзеня', 'Лютага', 'Сакавiка', 'Красавiка', 'Мая', 'Чэрвеня', 'Лiпеня', 'Жнiуня', 'Верасня', 'Кастрычнiка', 'Лiстапада', 'Снежня'
   ];
 
   const enDayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -50,6 +50,18 @@ const DateTimeCard: React.FC<IDateTimeCard> = ({ lang }) => {
     [Language.ru]: ruMonthNames,
     [Language.by]: byMonthNames
   }
+
+  const [currentDate, setCurrentDate] = useState<Date>(
+    new Date(Date.now() + (60 * utcOffset + new Date().getTimezoneOffset()) * 1000 * 60)
+  );
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setCurrentDate(new Date(Date.now() + (60 * utcOffset + new Date().getTimezoneOffset()) * 1000 * 60));
+    }, 1000);
+    return () => clearInterval(timerId);
+  });
+
   function getCurrentTime(): string {
     const minutes = (currentDate.getMinutes() < 10 ? '0' : '') + currentDate.getMinutes();
     const seconds = (currentDate.getSeconds() < 10 ? '0' : '') + currentDate.getSeconds();
@@ -60,8 +72,11 @@ const DateTimeCard: React.FC<IDateTimeCard> = ({ lang }) => {
     return dayLocales[lang][currentDate.getDay()];
   }
 
-  function getCurrentMonth() {
+  function getCurrentMonth(): string {
     return monthLocales[lang][currentDate.getMonth()];
+  }
+  function getCurrentYear() {
+    return currentDate.getFullYear();
   }
 
   return (
@@ -69,7 +84,10 @@ const DateTimeCard: React.FC<IDateTimeCard> = ({ lang }) => {
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">
-            {currentDate.getDate()} {getCurrentMonth()}, {getCurrentDay()}
+            {currentDate.getDate()} {getCurrentMonth()}, {getCurrentYear()}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="h3">
+            {getCurrentDay()}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
             {getCurrentTime()}

@@ -20,7 +20,7 @@ const SideBar: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <DateTimeCard lang={Language.en} />
+      <DateTimeCard lang={Language.by} utcOffset={+8} />
     </div>
   )
 }
