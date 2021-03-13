@@ -4,7 +4,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
-import { IDateTimeCard } from "../interfaces";
+import { IDateTimeCard, Language } from "../interfaces";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -26,14 +26,40 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const DateTimeCard: React.FC<IDateTimeCard> = ({ lang }) => {
   const classes = useStyles();
   const currentDate = new Date();
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  const enMonthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
   ];
-  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const ruMonthNames = [
+    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Ноябрь', 'Декабрь'
+  ];
+  const byMonthNames = [
+    'Студзень', 'Люты', 'Сакавiк', 'Красавiк', 'Май', 'Червень', 'Лiпень', 'Жнiвень', 'Верасень', 'Кастрычнiк', 'Лiстапад', 'Снежань'
+  ];
 
+  const enDayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const ruDayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  const byDayNames = ['Нядзеля', 'Панядзелак', 'Аўторак', 'Серада', 'Чацвер', 'Пятніца', 'Субота'];
 
+  const dayLocales = {
+    [Language.en]: enDayNames,
+    [Language.ru]: ruDayNames,
+    [Language.by]: byDayNames
+  }
+  const monthLocales = {
+    [Language.en]: enMonthNames,
+    [Language.ru]: ruMonthNames,
+    [Language.by]: byMonthNames
+  }
   function getCurrentTime(): string {
     return currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
+  }
+
+  function getCurrentDay(): string {
+    return dayLocales[lang][currentDate.getDay()];
+  }
+
+  function getCurrentMonth() {
+    return monthLocales[lang][currentDate.getMonth()];
   }
 
   return (
@@ -41,7 +67,7 @@ const DateTimeCard: React.FC<IDateTimeCard> = ({ lang }) => {
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">
-            {currentDate.getDate()} {monthNames[currentDate.getMonth()]}, {dayNames[currentDate.getDay()]}
+            {currentDate.getDate()} {getCurrentMonth()}, {getCurrentDay()}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
             {getCurrentTime()}

@@ -1,5 +1,3 @@
-import { Language } from "./components/SideBar";
-
 export interface ICountryCard {
   id: number;
   name: string,
@@ -9,4 +7,10 @@ export interface ICountryCard {
 
 export interface IDateTimeCard {
   lang: Language;
+}
+
+export enum Language {
+  en = 1,
+  ru = 2,
+  by = 3
 }
