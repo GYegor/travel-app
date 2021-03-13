@@ -25,21 +25,29 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const DateTimeCard: React.FC<IDateTimeCard> = ({ lang }) => {
   const classes = useStyles();
+  const currentDate = new Date();
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  ];
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-  const idImage: string = 'travelApp/algambra_un0ac7';
+
+  function getCurrentTime(): string {
+    return currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
+  }
 
   return (
     <Card className={classes.root}>
-        <CardActionArea className={classes.action}>
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="h3">
-                13 March, Monday
-            </Typography>
-            <Typography variant="body1" color="textSecondary" component="p">
-                12:00:00
-            </Typography>
-            </CardContent>
-        </CardActionArea>
+      <CardActionArea className={classes.action}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h3">
+            {currentDate.getDate()} {monthNames[currentDate.getMonth()]}, {dayNames[currentDate.getDay()]}
+          </Typography>
+          <Typography variant="body1" color="textSecondary" component="p">
+            {getCurrentTime()}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 };
