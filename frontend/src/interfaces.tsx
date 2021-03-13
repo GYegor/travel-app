@@ -1,18 +1,15 @@
 export interface AppState {
-  countryList?: ICountryCard[],
-  lang?: Language
+  countryList?: ICountryCard[];
+  lang?: Language;
+  utcOffset?: number;
 }
 
 export interface ICountryCard {
   id: number;
-  name: string,
-  capital: string,
-  smallImageId: string,
-}
-
-export interface IDateTimeCard {
-  lang: Language;
-  utcOffset: number;
+  name: string;
+  capital: string;
+  smallImageId: string;
+  localTimeDiff: number;
 }
 
 export enum Language {

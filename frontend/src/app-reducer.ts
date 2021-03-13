@@ -3,7 +3,8 @@ import { AppState, Language } from './interfaces'
 
 export const initialState: AppState = {
   countryList: [],
-  lang: Language.en
+  lang: Language.en,
+  utcOffset: 3
 }
 
 const appReducer = (state = initialState, action: AnyAction) => {
@@ -21,6 +22,12 @@ const appReducer = (state = initialState, action: AnyAction) => {
         lang : action.lang
       })
 
+    case 'UTC_OFFSET_CHANGE' :
+      return ({
+        ...state,
+        utcOffset : action.utcOffset
+      })
+  
     default:
       return state
   }

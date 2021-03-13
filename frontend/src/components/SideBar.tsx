@@ -8,11 +8,12 @@ const useStyles = makeStyles({
   root: {
     backgroundColor: theme.palette.primary.light,
     padding: theme.spacing(1, 0),
-    height: '100%',
     width: '240px',
+    opacity: 0.1,
     position: 'absolute',
-    top: '69px',
-    left: 0
+    top: 0,
+    left: 0,
+    bottom: 0
   },
 })
 
@@ -20,7 +21,7 @@ const SideBar: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <DateTimeCard lang={Language.by} utcOffset={+8} />
+      <DateTimeCard />
     </div>
   )
 }
