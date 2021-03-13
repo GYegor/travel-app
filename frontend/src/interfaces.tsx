@@ -10,6 +10,11 @@ export interface ICountryCard {
   smallImageId: string,
 }
 
+export interface IDateTimeCard {
+  lang: Language;
+  utcOffset: number;
+}
+
 export enum Language {
   en = 1,
   ru = 2,
