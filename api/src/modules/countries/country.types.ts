@@ -9,7 +9,7 @@ export enum Language {
 export interface IUser {
     userId: number;
     name: string;
-    imageUrl: string;
+    imageId: string;
 }
 
 export interface IVotedUser extends IUser {
@@ -24,7 +24,8 @@ export interface IRating {
 
 export interface ISight {
     id: number;
-    imageUrl: string;
+    smallImageId: string,
+    imageId: string;
     name: string;
     description: string;
     rating?: IRating;
@@ -34,11 +35,11 @@ export interface ICountryBase {
     id: number;
     name: string;
     capital: string;
-    smallImageUrl?: string;
+    smallImageId?: string;
 }
 
 export interface ICountry extends ICountryBase {
-    imageUrl: string;
+    imageId: string;
     videoUrl: string;
     description: string;
     coordinates: string;
@@ -48,7 +49,7 @@ export interface ICountry extends ICountryBase {
 interface IVotedUserSchema {
     userId: number;
     name: string;
-    imageUrl: string;
+    imageId: string;
     points: number;
 }
 
@@ -64,15 +65,16 @@ interface ILocaleSchema {
 }
 export interface ISightSchema {
     sightId: number;
-    imageUrl: string;
+    smallImageId: string,
+    imageId: string;
     rating?: IRatingSchema;
     localizations: Array<ILocaleSchema>;
 }
 
 export interface ICountrySchema {
     countryId: number,
-    imageUrl: string,
-    smallImageUrl: string,
+    imageId: string,
+    smallImageId: string,
     videoUrl: string,
     coordinates: string,
     sights: Array<ISightSchema>,

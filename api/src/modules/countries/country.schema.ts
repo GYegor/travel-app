@@ -10,7 +10,7 @@ const VotedUsersSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    imageUrl: String,
+    imageId: String,
     points: {
         type: Number,
         required: true,
@@ -37,7 +37,8 @@ const SightSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    imageUrl: String,
+    smallImageId: String,
+    imageId: String,
     rating: [RatingSchema],
     localizations: [localeSchema],
 });
@@ -47,8 +48,8 @@ const CountrySchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    imageUrl: String,
-    smallImageUrl: String,
+    imageId: String,
+    smallImageId: String,
     videoUrl: String,
     coordinates: {
         type: String,
@@ -86,7 +87,7 @@ export = CountrySchema;
 // });
 
 // const countrySchema = new Schema({
-//   imageUrl: String,
+//   imageId: String,
 //   videoUrl: String,
 //   currency: {
 //     type: String,
