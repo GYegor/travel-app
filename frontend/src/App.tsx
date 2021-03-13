@@ -32,7 +32,6 @@ function App() {
     <CloudinaryContext cloudName={cloudName}>
       <ThemeProvider theme={theme}>
         <Router>
-          <Registration/>
           <Header />
           <div className={classes.pageWrapper}>
             <Switch>
