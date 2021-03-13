@@ -51,7 +51,9 @@ const DateTimeCard: React.FC<IDateTimeCard> = ({ lang }) => {
     [Language.by]: byMonthNames
   }
   function getCurrentTime(): string {
-    return currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
+    const minutes = (currentDate.getMinutes() < 10 ? '0' : '') + currentDate.getMinutes();
+    const seconds = (currentDate.getSeconds() < 10 ? '0' : '') + currentDate.getSeconds();
+    return currentDate.getHours() + ':' + minutes + ':' + seconds;
   }
 
   function getCurrentDay(): string {
