@@ -27,11 +27,15 @@ const MenuButton: React.FC = () => {
 
   return (
     <Route exact path="/">
-      <IconButton edge="start" className={classes.root} color="inherit" aria-label="menu">
-          <MenuIcon  
-            className={`${classes.button} ${!isSideBarOpened ? classes.opened : ''}`} 
-            onClick={() => dispatch(onToggleSideBar(!isSideBarOpened))}
-          />
+      <IconButton edge="start" 
+        className={classes.root} 
+        color="inherit" 
+        aria-label="menu" 
+        onClick={() => dispatch(onToggleSideBar(!isSideBarOpened))}
+      >
+        <MenuIcon  
+          className={`${classes.button} ${!isSideBarOpened ? classes.opened : ''}`} 
+        />
       </IconButton>
     </Route>
   );
