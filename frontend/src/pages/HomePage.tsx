@@ -1,18 +1,15 @@
 import { makeStyles } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import CountryCard from '../components/CountryCard';
-import Turkey from "../assets/images/turkey.jpg";
-import Spain from "../assets/images/spain.jpg";
 import { theme } from "../mui-style";
-import { relative } from 'path';
 import SideBar from '../components/SideBar';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { shallowEqual, useSelector } from 'react-redux'
 import { getDataFromBE } from '../actions/country-actions'
 import Spacer from '../components/Spacer';
+import { Language } from '../interfaces';
 
 
 const useStyles = makeStyles({
@@ -36,12 +33,12 @@ const useStyles = makeStyles({
   },
 });
 
-const HomePage: React.FC<any> = ( { countryList, getDataFromBE } ) => {
+const HomePage: React.FC<any> = ( { lang, countryList, getDataFromBE } ) => {
   const classes = useStyles();
 
   useEffect(() => {
-    getDataFromBE('/api/countries?lang=by');
-  }, [ ])
+    getDataFromBE(`/api/countries?lang=${Language[lang]}`);
+  }, [ lang ])
 
   return (
     <>
@@ -60,7 +57,7 @@ const HomePage: React.FC<any> = ( { countryList, getDataFromBE } ) => {
   )
 }
 
-const mapStateToProps = ({ countryList }: any) => ({ countryList })
+const mapStateToProps = ({ countryList, lang }: any) => ({ countryList, lang })
 
 const mapDispatchToProps = (dispatch: any) => bindActionCreators({
   getDataFromBE: getDataFromBE
