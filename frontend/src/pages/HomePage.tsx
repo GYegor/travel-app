@@ -4,12 +4,14 @@ import CountryCard from '../components/CountryCard';
 import { theme } from "../mui-style";
 import SideBar from '../components/SideBar';
 
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { getDataFromBE } from '../actions/country-actions'
 import Spacer from '../components/Spacer';
 import { Language } from '../interfaces';
+import { onUtcOffsetChanged } from '../actions/utc-offset-action'
+
 
 
 const useStyles = makeStyles({
@@ -33,12 +35,19 @@ const useStyles = makeStyles({
   },
 });
 
-const HomePage: React.FC<any> = ( { lang, countryList, getDataFromBE } ) => {
+const HomePage: React.FC<any> = ({ lang, countryList, getDataFromBE }) => {
   const classes = useStyles();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     getDataFromBE(`/api/countries?lang=${Language[lang]}`);
-  }, [ lang ])
+  }, [lang])
+
+  useEffect(() => {
+    if (countryList.length) {
+      dispatch(onUtcOffsetChanged(countryList[0].localTimeDiff))
+    }
+  }, [countryList])
 
   return (
     <>
@@ -46,13 +55,13 @@ const HomePage: React.FC<any> = ( { lang, countryList, getDataFromBE } ) => {
         {countryList.map((card: any) => {
           return (
             <>
-            <CountryCard {...card} key={card.id} />
+              <CountryCard {...card} key={card.id} />
             </>
           )
-        })}            
+        })}
       </div>
       <SideBar />
-      <Spacer/>
+      <Spacer />
     </>
   )
 }

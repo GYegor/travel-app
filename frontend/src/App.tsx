@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     pageWrapper: {
       flex: 1,
+      position: 'relative'
     },
     input: {
       display: 'none',

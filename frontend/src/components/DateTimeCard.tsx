@@ -4,7 +4,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
-import { IDateTimeCard, Language } from "../interfaces";
+import { AppState, Language } from "../interfaces";
+import { useSelector } from "react-redux";
+
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -23,8 +25,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }));
 
-const DateTimeCard: React.FC<IDateTimeCard> = ({ lang, utcOffset }) => {
+const DateTimeCard: React.FC = () => {
   const classes = useStyles();
+  const lang = useSelector<AppState>(state => state.lang);
+  const utcOffset = useSelector<AppState>(state => state.utcOffset);
+
 
   const enMonthNames = [
     'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
@@ -52,12 +57,12 @@ const DateTimeCard: React.FC<IDateTimeCard> = ({ lang, utcOffset }) => {
   }
 
   const [currentDate, setCurrentDate] = useState<Date>(
-    new Date(Date.now() + (60 * utcOffset + new Date().getTimezoneOffset()) * 1000 * 60)
+    new Date(Date.now() + (60 * (utcOffset as number) + new Date().getTimezoneOffset()) * 1000 * 60)
   );
 
   useEffect(() => {
     const timerId = setInterval(() => {
-      setCurrentDate(new Date(Date.now() + (60 * utcOffset + new Date().getTimezoneOffset()) * 1000 * 60));
+      setCurrentDate(new Date(Date.now() + (60 * (utcOffset as number) + new Date().getTimezoneOffset()) * 1000 * 60));
     }, 1000);
     return () => clearInterval(timerId);
   });
@@ -69,11 +74,11 @@ const DateTimeCard: React.FC<IDateTimeCard> = ({ lang, utcOffset }) => {
   }
 
   function getCurrentDay(): string {
-    return dayLocales[lang][currentDate.getDay()];
+    return dayLocales[lang as Language][currentDate.getDay()];
   }
 
   function getCurrentMonth(): string {
-    return monthLocales[lang][currentDate.getMonth()];
+    return monthLocales[lang as Language][currentDate.getMonth()];
   }
   function getCurrentYear() {
     return currentDate.getFullYear();
