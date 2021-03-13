@@ -76,6 +76,7 @@ export interface ICountrySchema {
     imageId: string,
     smallImageId: string,
     videoUrl: string,
+    localTimeDiff: number,
     coordinates: string,
     sights: Array<ISightSchema>,
     localizations: Array<ILocaleSchema>,

@@ -1,32 +1,49 @@
 import React, { useRef } from 'react';
 import { Image } from 'cloudinary-react';
+import cloudName from '../constants/cloudName';
 
 const Registration: React.FC = () => {
-    const input = useRef<HTMLInputElement>(null);
+  const inputName = useRef<HTMLInputElement>(null);
+  const inputFile = useRef<HTMLInputElement>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    const url = "https://api.cloudinary.com/v1_1/dshffjhdkjj/image/upload";
+  const requestToBackend = async (id: string) => {
+    const response = await fetch("/api/users/registration", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ name: inputName.current?.value, imageId: id }),
+    });
+    // return await response.json();
+  }
 
-    const formData = new FormData();
-    const file = input.current?.files && input.current.files[0];
-    if (file) {
-      formData.append("file", file);
-      formData.append("upload_preset", "ujwcmlol");
-      fetch(url, {
+  const requestToCloudinary = async (formData: FormData): Promise<any> => {
+    const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+
+    const response = await fetch(url, {
         method: "POST",
         body: formData
-      })
-        .then((response) => {
-          return response.text();
-        })
-        .then((data) => {
-          const obj = JSON.parse(data);
-          console.log(obj.public_id);
-          // do request
-        });
-    };
-    console.log(file);
+      });
+
+    return await response.json();
+  }
+
+  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    const formData = new FormData();
+    const file = inputFile.current?.files && inputFile.current.files[0];
+
+    if (file) {
+      const upload_preset: string = 'ujwcmlol';
+      formData.append("file", file);
+      formData.append("upload_preset", upload_preset);
+      const data = await requestToCloudinary(formData);
+      requestToBackend(data.public_id);
+    } else {
+      const imageId: string ='travelApp/avatar_ltzdkha';
+      requestToBackend(imageId);
+    }
   };
 
   return (
@@ -34,7 +51,10 @@ const Registration: React.FC = () => {
         <Image publicId="sample" />
         <form method="post" encType="multipart/form-data">
             <input
-              ref={input}
+              ref={inputName}
+            />
+            <input
+              ref={inputFile}
               name="file"
               type="file"
               data-cloudinary-field="image_id"
