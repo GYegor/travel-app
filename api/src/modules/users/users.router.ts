@@ -15,4 +15,13 @@ router.post('/registration', wrap(async (req, res): Promise<void> => {
     res.status(409).send({ message: 'this user is already registered' }).end();
 }));
 
+router.post('/login', wrap(async (req, res): Promise<void> => {
+    const result = await userService.loginUser(req.body);
+    if (result) {
+        res.json(result);
+        return;
+    }
+    res.status(401).send({ message: 'this user is no registered' }).end();
+}));
+
 export = router;

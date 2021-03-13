@@ -17,3 +17,8 @@ export const checkAndReg = async (obj: any): Promise<types.IUserSchema | null> =
 
     return newUser;
 }
+
+export const checkAndLogin = async (obj: any): Promise<types.IUserSchema | null> => {
+    const data: types.IUserDocument = await model.UserModel.findOne({ name: obj.name });
+    return data;
+};
