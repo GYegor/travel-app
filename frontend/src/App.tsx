@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { createMuiTheme,createStyles,makeStyles,Theme,ThemeProvider } from '@material-ui/core';
+import React from 'react';
+import { createStyles,makeStyles,Theme,ThemeProvider } from '@material-ui/core';
 import './App.scss';
 import HomePage from "./pages/HomePage";
 import { theme } from './mui-style';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Spacer from './components/Spacer';
-import SidePanel from './components/SidePanel';
-import { relative } from 'path';
 
 
 // simple api request

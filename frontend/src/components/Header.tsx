@@ -4,11 +4,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { useStyles } from '../mui-style';
-import Search from './Search';
-import { Route } from "react-router-dom";
 import Spacer from './Spacer';
 import HomeBtn from './HomeBtn';
-import SidePanel from './SidePanel'
 import LanguageSelect from './LanguageSelect';
 import MenuButton from './MenuButton';
 

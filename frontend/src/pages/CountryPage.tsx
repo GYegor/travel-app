@@ -1,7 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
-import CountryCard from '../components/CountryCard';
-import SidePanel from '../components/SidePanel';
+import React, { useState } from 'react';
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +15,6 @@ const HomePage: React.FC = () => {
   
   return (
     <div className={classes.root}>
-      <SidePanel />       
       <p>
         {smth}
       </p>      
