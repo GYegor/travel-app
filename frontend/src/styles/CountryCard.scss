@@ -4,12 +4,10 @@
   
   .card {
     transition: all 0.25s;
-  }
-
-  &:hover {
-    color: #558b2f;   
-    .card {
+    &:hover {
+      color: #558b2f;
       background-color: rgb(250, 255, 240);
     }
   }
+
 }

@@ -1,5 +1,6 @@
-export interface ICardProps {
-  country: string,
+export interface ICountryCard {
+  id: number;
+  name: string,
   capital: string,
-  imageUrl: string,
+  smallImageId: string,
 }
