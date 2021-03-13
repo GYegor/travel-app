@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createMuiTheme,createStyles,makeStyles,Theme,ThemeProvider } from '@material-ui/core';
 import './App.scss';
 import HomePage from "./pages/HomePage";
+import CountryPage from "./pages/CountryPage";
 import { theme } from './mui-style';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Footer from './components/Footer';
@@ -35,6 +36,7 @@ function App() {
           <Switch>
 
             <Route path="/country">
+              <CountryPage />
             </Route>
 
             <Route path="/">
