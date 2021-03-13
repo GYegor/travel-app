@@ -15,7 +15,7 @@ const Registration: React.FC = () => {
       },
       body: JSON.stringify({ name: inputName.current?.value, imageId: id }),
     });
-    // return await response.json();
+    return await response.json();
   }
 
   const requestToCloudinary = async (formData: FormData): Promise<any> => {
@@ -33,17 +33,17 @@ const Registration: React.FC = () => {
     event.preventDefault();
     const formData = new FormData();
     const file = inputFile.current?.files && inputFile.current.files[0];
+    let imageId: string ='travelApp/avatar_ltzdkha';
 
     if (file) {
       const upload_preset: string = 'ujwcmlol';
       formData.append("file", file);
       formData.append("upload_preset", upload_preset);
       const data = await requestToCloudinary(formData);
-      requestToBackend(data.public_id);
-    } else {
-      const imageId: string ='travelApp/avatar_ltzdkha';
-      requestToBackend(imageId);
+      imageId = data.public_id;
     }
+    const result = await requestToBackend(imageId);
+    console.log(result);
   };
 
   return (
