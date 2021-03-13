@@ -51,6 +51,10 @@ const CountrySchema = new mongoose.Schema({
     imageId: String,
     smallImageId: String,
     videoUrl: String,
+    localTimeDiff: {
+        type: Number,
+        required: true,
+    },
     coordinates: {
         type: String,
         required: true,
