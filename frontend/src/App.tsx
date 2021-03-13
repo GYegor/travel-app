@@ -12,14 +12,20 @@ import { relative } from 'path';
 
 
 // simple api request
+import { CloudinaryContext } from 'cloudinary-react';
+import cloudName from './constants/cloudName';
+import Registration from './components/Registration';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    pageWrapper: {
+    root: {
+      'min-height': '100vh',
       display: 'flex',
-      position: 'relative',
-      'flex-direction': 'column',
-
+      'flex-direction': 'column'
+    },
+    pageWrapper: {
+      flex: 1,
+      position: 'relative'
     },
     input: {
       display: 'none',
@@ -27,32 +33,32 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-
 function App() {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme}> 
-      <Router>
-        <Header />
-        <div className={classes.pageWrapper}>
-          <Switch>
+    <CloudinaryContext cloudName={cloudName} className={classes.root}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Header />
+          <div className={classes.pageWrapper}>
+            <Switch>
 
-            <Route path="/country">
-            </Route>
+              <Route path="/country">
+              </Route>
 
-            <Route path="/">
-              <HomePage />       
-            </Route>
+              <Route path="/">
+                <HomePage />
+              </Route>
 
-          </Switch>
-        </div>
+            </Switch>
+          </div>
 
-        <Spacer/>
-        
-        <Footer />
-      </Router>
-    </ThemeProvider>
+
+          <Footer />
+        </Router>
+      </ThemeProvider>
+    </CloudinaryContext>
   );
 }
 

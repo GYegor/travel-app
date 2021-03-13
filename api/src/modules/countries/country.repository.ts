@@ -4,16 +4,18 @@ import types = require('./country.types');
 
 const getBasicData = (country: types.ICountryDocument, lang: number) => ({
     id: country.countryId,
-    smallImageUrl: country.smallImageUrl,
+    smallImageId: country.smallImageId,
     name: country.localizations[lang].name,
     capital: country.localizations[lang].capital,
+    localTimeDiff: country.localTimeDiff,
 });
 
 const getFullBasicData = (country: types.ICountryDocument) => ({
     id: country.countryId,
-    imageUrl: country.imageUrl,
+    imageId: country.imageId,
     videoUrl: country.videoUrl,
     coordinates: country.coordinates,
+    localTimeDiff: country.localTimeDiff,
 });
 
 const getLocalization = (country: types.ICountryDocument, lang: types.Language) => ({
@@ -27,7 +29,8 @@ const getSights = (sights: Array<types.ISightSchema>, lang: types.Language) => {
         name: sight.localizations[lang].name,
         description: sight.localizations[lang].description,
         id: sight.sightId,
-        imageUrl: sight.imageUrl,
+        smallImageId: sight.smallImageId,
+        imageId: sight.imageId,
         rating: sight.rating,
     }));
     return {sights: arr};

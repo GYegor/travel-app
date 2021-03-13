@@ -9,6 +9,7 @@ import { Route } from "react-router-dom";
 import Spacer from './Spacer';
 import HomeBtn from './HomeBtn';
 import SidePanel from './SidePanel'
+import LanguageSelect from './LanguageSelect';
 
 
 const Header: React.FC = () => {
@@ -21,14 +22,16 @@ const Header: React.FC = () => {
         <Typography variant="h6" className={classes.title}>
           Путешествуй
         </Typography>
+        <HomeBtn />
 
-        <Route exact path="/">
+
+        {/* <Route exact path="/">
           <Search/>
-        </Route>
+        </Route> */}
 
         <Spacer />
+        <LanguageSelect />
 
-        <HomeBtn />
         <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>  

@@ -1,6 +1,5 @@
 import { createMuiTheme, createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
-
 export const theme = createMuiTheme({
   palette: {
     primary: {
@@ -35,7 +34,6 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
       color: 'white'
     },
 
-
     spacer: {
       flex: 1,
     },
@@ -45,42 +43,5 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
         color: theme.palette.secondary.light,
         'font-size': theme.spacing(3)
       }
-    },
-    footer: {
-      height: '10vh',
-      backgroundColor: theme.palette.primary.light,
-      padding: theme.spacing(1, 2),
-    },
-
-    container: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
-  
-    logo: {
-      width: "100px",
-      height: "75px",
-    },
-  
-    logoLink: {
-      cursor: "pointer",
-      display: "block",
-      boxSizing: "content-box",
-      textAlign: "center",
-    },
-  
-    creators: {
-      // flex: '0 1 50%',
-      display: "flex",
-      columnGap: "10px",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    
-    author: {
-      textDecoration: "none",
-      cursor: "pointer",
-      color: theme.palette.primary.contrastText,
-    },
+    },    
 }));
