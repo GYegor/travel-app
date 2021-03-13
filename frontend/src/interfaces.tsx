@@ -2,6 +2,7 @@ export interface AppState {
   countryList?: ICountryCard[];
   lang?: Language;
   utcOffset?: number;
+  isSideBarOpened?: boolean;
 }
 
 export interface ICountryCard {

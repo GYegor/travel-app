@@ -10,6 +10,7 @@ import Spacer from './Spacer';
 import HomeBtn from './HomeBtn';
 import SidePanel from './SidePanel'
 import LanguageSelect from './LanguageSelect';
+import MenuButton from './MenuButton';
 
 
 const Header: React.FC = () => {
@@ -18,20 +19,16 @@ const Header: React.FC = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <SidePanel/>
+        <MenuButton />
         <Typography variant="h6" className={classes.title}>
           Путешествуй
         </Typography>
         <HomeBtn />
-
-
         {/* <Route exact path="/">
           <Search/>
         </Route> */}
-
         <Spacer />
         <LanguageSelect />
-
         <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>  

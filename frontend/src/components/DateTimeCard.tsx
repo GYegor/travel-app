@@ -1,35 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import { AppState, Language } from "../interfaces";
-import { useSelector } from "react-redux";
-
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     maxWidth: 300,
-    width: 200,
-    transition: 'all 0.3s;',
-    '&:hover': {
-      'background-color': 'rgb(250, 255, 240)',
-      transform: 'scale(1.1)',
-    }
+    width: 260,
+    'border-radius': 12,
+    color: 'white',
+    'background-color': fade(theme.palette.primary.light, 0.7),
+
   },
   action: {
     '&:hover': {
-      color: theme.palette.primary.main,
+      cursor: 'unset'
     }
   },
 }));
 
 const DateTimeCard: React.FC = () => {
   const classes = useStyles();
-  const lang = useSelector<AppState>(state => state.lang);
-  const utcOffset = useSelector<AppState>(state => state.utcOffset);
-
+  const { lang, utcOffset } = useSelector<AppState, AppState>(state => state);
 
   const enMonthNames = [
     'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'

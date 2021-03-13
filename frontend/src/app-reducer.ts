@@ -4,7 +4,8 @@ import { AppState, Language } from './interfaces'
 export const initialState: AppState = {
   countryList: [],
   lang: Language.en,
-  utcOffset: 3
+  utcOffset: 3,
+  isSideBarOpened: false,
 }
 
 const appReducer = (state = initialState, action: AnyAction) => {
@@ -26,6 +27,12 @@ const appReducer = (state = initialState, action: AnyAction) => {
       return ({
         ...state,
         utcOffset : action.utcOffset
+      })
+
+    case 'TOGGLE_SIDE_BAR' :
+      return ({
+        ...state,
+        isSideBarOpened : action.isSideBarOpened
       })
   
     default:
