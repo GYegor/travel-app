@@ -85,7 +85,7 @@ const DateTimeCardWidget: React.FC = () => {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea className={classes.action}>
+      <CardActionArea className={classes.action} onClick={(event) => event.stopPropagation()}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">
             {currentDate.getDate()} {getCurrentMonth()}, 

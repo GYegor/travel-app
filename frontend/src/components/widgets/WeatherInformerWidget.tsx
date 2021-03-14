@@ -73,7 +73,7 @@ const WeatherInformerWidget: React.FC = () => {
   }, [])
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root}  onClick={(event) => event.stopPropagation()}>
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">

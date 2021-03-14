@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
@@ -7,6 +7,7 @@ import { theme } from '../mui-style';
 import { AppState } from '../interfaces';
 import DateTimeCardWidget from './widgets/DateTimeCardWidget';
 import WeatherInformerWidget from './widgets/WeatherInformerWidget'
+import { onToggleSideBar } from '../actions/side-bar-action';
 
 const useStyles = makeStyles({
   root: {
@@ -29,11 +30,16 @@ const useStyles = makeStyles({
 
 const SideBar: React.FC = () => {
   const classes = useStyles();
+  
+  const dispatch = useDispatch();
 
   const isSideBarOpened = useSelector<AppState>(state => state.isSideBarOpened);
 
   return (
-    <div className={`${classes.root} ${!isSideBarOpened ? classes.closed : ''}`}>
+    <div 
+      className={`${classes.root} ${!isSideBarOpened ? classes.closed : ''}`} 
+      onClick={() => dispatch(onToggleSideBar(!isSideBarOpened))}
+    >
       <DateTimeCardWidget />
       <WeatherInformerWidget />
     </div>
