@@ -55,9 +55,8 @@ const WeatherInformerWidget: React.FC = () => {
       .then(res => res.json())
       .then(result => {
         setWeather(result);
-        console.log(result);
-        console.log(result.main.temp);
-
+        // console.log(result);
+        // console.log(result.main.temp);
       })
   }, [])
 
