@@ -55,11 +55,16 @@ const WeatherInformerWidget: React.FC = () => {
     key: '1b49f5edda5dd68a6e6fa012bd990fb5',
     base: 'https://api.openweathermap.org/data/2.5/'
   }
-
-  const [query, setQuery] = useState('Minsk');
+  const weatherInformation = {
+    [Language.en]: ['feels like', 'humidity', 'wind speed'],
+    [Language.ru]: ['ощущается как', 'влажность','скорость ветра'],
+    [Language.by]: ['адчуваецца як', 'вільготнасць','хуткасць ветру']
+  }
+  console.log(process.env.WEATHER_API_BASE_URL);
+  const [city, setCity] = useState('Barnaul');
   const [weather, setWeather] = useState<IWheather | null>(null);
   useEffect(() => {
-    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}&lang=by`)
+    fetch(`${api.base}weather?q=${city}&units=metric&APPID=${api.key}&lang=by`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);
@@ -71,7 +76,7 @@ const WeatherInformerWidget: React.FC = () => {
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">
-            Weather {weather?.name}
+            {weather?.name}
           </Typography>
           <Typography gutterBottom variant="h5" component="h3">
             {weather?.main.temp} °C
@@ -80,15 +85,18 @@ const WeatherInformerWidget: React.FC = () => {
             image={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}.png`}
             title={weather?.weather[0].main}
           />
+          {/* <Typography variant="body1" color="textSecondary" component="p">
+             {weather?.weather[0].main}
+          </Typography> */}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
-            feels like: {weather?.main.feels_like} °C
+            {weatherInformation[lang as Language][0]}: {weather?.main.feels_like} °C
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
-            humidity: {weather?.main.humidity} %
+          {weatherInformation[lang as Language][1]}: {weather?.main.humidity} %
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
-            wind speed: {weather?.wind.speed} m / s
+          {weatherInformation[lang as Language][2]}: {weather?.wind.speed} m/s
           </Typography>
         </CardContent>
       </CardActionArea>
