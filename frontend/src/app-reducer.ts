@@ -4,6 +4,7 @@ import { AppState, Language } from './interfaces'
 export const initialState: AppState = {
   countryList: [],
   lang: Language.en,
+  filterString: '',
   utcOffset: 3,
   isSideBarOpened: false,
 }
@@ -22,7 +23,13 @@ const appReducer = (state = initialState, action: AnyAction) => {
         ...state,
         lang : action.lang
       })
-
+    
+    case 'FILTER_STRING_CHANGED' :
+      return ({
+        ...state,
+        filterString : action.filterString
+      })
+  
     case 'UTC_OFFSET_CHANGE' :
       return ({
         ...state,
@@ -34,7 +41,7 @@ const appReducer = (state = initialState, action: AnyAction) => {
         ...state,
         isSideBarOpened : action.isSideBarOpened
       })
-  
+
     default:
       return state
   }
