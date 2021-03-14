@@ -10,13 +10,13 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
       fontWeight:500,
       borderStyle:'none',
       borderWidth: 2,
-      borderRadius: 12,
+      borderRadius: 8,
       paddingLeft: 20,
       paddingTop: 10,
       paddingBottom: 10,
       boxShadow: '0px 5px 8px -3px rgba(0,0,0,0.14)',
       "&:focus":{
-        borderRadius: 12,
+        borderRadius: 8,
         background: theme.palette.primary.light,
         borderColor: theme.palette.primary.dark
       },
@@ -29,7 +29,7 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
       pointerEvents: 'none',
     },
     paper: {
-      borderRadius: 12,
+      borderRadius: 8,
       marginTop: 18,
       width: '135px !important',
     },

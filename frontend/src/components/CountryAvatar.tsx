@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      marginBottom: theme.spacing(2),            
+      marginBottom: theme.spacing(2), 
+      borderRadius: 'unset'           
     },
     details: {
       display: 'flex',      
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
+      filter: 'blur(5px)'
     },
     title: {
       marginTop: theme.spacing(2),

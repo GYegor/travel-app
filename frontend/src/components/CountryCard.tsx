@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     maxWidth: 400,
     width: 300,
-    'border-radius': 12,
+    'border-radius': 8,
     transition: 'all 0.3s;',
     '&:hover': {
       transform: 'scale(1.1)',

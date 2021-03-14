@@ -12,8 +12,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     maxWidth: 300,
-    width: 260,
-    'border-radius': 12,
+    width: 240,
+    marginBottom: theme.spacing(2),
+    'border-radius': 8,
     color: 'white',
     'background-color': fade(theme.palette.primary.light, 0.7),
   },

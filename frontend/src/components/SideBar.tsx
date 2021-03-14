@@ -11,8 +11,8 @@ import WeatherInformerWidget from './widgets/WeatherInformerWidget'
 const useStyles = makeStyles({
   root: {
     backgroundColor: fade(theme.palette.primary.light, 0.2),
-    padding: theme.spacing(2, 0),
-    width: 300,
+    padding: theme.spacing(3, 0),
+    width: 320,
     position: 'absolute',
     display: 'flex',
     'flex-direction': 'column',
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     bottom: 0,
     transition: 'all 400ms ease'
   },
-  opened: {
+  closed: {
     transform: 'translateX(-100%)'
   }
 })
@@ -33,7 +33,7 @@ const SideBar: React.FC = () => {
   const isSideBarOpened = useSelector<AppState>(state => state.isSideBarOpened);
 
   return (
-    <div className={`${classes.root} ${isSideBarOpened ? classes.opened : ''}`}>
+    <div className={`${classes.root} ${!isSideBarOpened ? classes.closed : ''}`}>
       <DateTimeCardWidget />
       <WeatherInformerWidget />
     </div>

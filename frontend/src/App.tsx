@@ -8,11 +8,10 @@ import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Footer from './components/Footer';
 import Header from './components/Header';
 
-
 // simple api request
 import { CloudinaryContext } from 'cloudinary-react';
 import cloudName from './constants/cloudName';
-import Registration from './components/Registration';
+import SideBar from './components/SideBar';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,8 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
       'flex-direction': 'column'
     },
     pageWrapper: {
-      flex: 1,
-      position: 'relative'
+      position: 'relative',
+      height: 'calc(100vh - 162px)'
     },
     input: {
       display: 'none',
@@ -44,6 +43,7 @@ function App() {
 
               <Route path="/country/:id">
                 <CountryPage />
+                <SideBar />     
               </Route>
 
               <Route path="/">
@@ -51,6 +51,7 @@ function App() {
               </Route>
 
             </Switch>
+
           </div>
 
 

@@ -16,13 +16,17 @@ import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
 
 const useStyles = makeStyles({
+  container: {
+    height: '100%',
+    overflowY: 'auto',
+  },
   wrapper: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap',
     margin: theme.spacing(0, 'auto'),
-    padding: theme.spacing(1, 2, 3, 2)
+    padding: theme.spacing(0, 2, 3, 2)
   },
 });
 
@@ -70,20 +74,21 @@ const CountryPage: React.FC = () => {
   }, [id, lang])
 
   return (
-    <div className={classes.wrapper}>
-      { loading && <Loader />}
-      { avatar && <CountryAvatar {...avatar} />}        
-      { images.length !== 0 && <ImageGallery 
-          items={images}
-          thumbnailPosition={"bottom"}
-          infinite={false}
-          lazyLoad={true}
-          showBullets={true}
-          slideDuration={700}
-          slideInterval={2000}
-        />
-      }
-      <SideBar />     
+    <div className={classes.container}>
+      <div className={classes.wrapper}>
+        { loading && <Loader />}
+        { avatar && <CountryAvatar {...avatar} />}        
+        { images.length !== 0 && <ImageGallery 
+            items={images}
+            thumbnailPosition={"bottom"}
+            infinite={false}
+            lazyLoad={true}
+            showBullets={true}
+            slideDuration={700}
+            slideInterval={2000}
+          />
+        }
+      </div>
     </div>
   );
 };
