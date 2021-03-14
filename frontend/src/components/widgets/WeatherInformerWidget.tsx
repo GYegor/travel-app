@@ -85,18 +85,15 @@ const WeatherInformerWidget: React.FC = () => {
             image={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}.png`}
             title={weather?.weather[0].main}
           />
-          {/* <Typography variant="body1" color="textSecondary" component="p">
-             {weather?.weather[0].main}
-          </Typography> */}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
-            {weatherInformation[lang as Language][0]}: {weather?.main.feels_like} °C
+            {weatherInformation[lang as Language][0]}: <span style={{color:"white"}}>{weather?.main.feels_like} °C</span>
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
-          {weatherInformation[lang as Language][1]}: {weather?.main.humidity} %
+          {weatherInformation[lang as Language][1]}: <span style={{color:"white"}}>{weather?.main.humidity} %</span>
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
-          {weatherInformation[lang as Language][2]}: {weather?.wind.speed} m/s
+          {weatherInformation[lang as Language][2]}: <span style={{color:"white"}}>{weather?.wind.speed} m/s</span>
           </Typography>
         </CardContent>
       </CardActionArea>
