@@ -1,8 +1,9 @@
 export interface AppState {
-  countryList?: ICountryCard[];
-  lang?: Language;
-  utcOffset?: number;
-  isSideBarOpened?: boolean;
+  countryList: ICountryCard[];
+  lang: Language;
+  filterString: string;
+  utcOffset: number;
+  isSideBarOpened: boolean;
 }
 
 export interface ICountryCard {

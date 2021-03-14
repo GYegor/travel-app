@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,6 +9,7 @@ import Spacer from './Spacer';
 import HomeBtn from './HomeBtn';
 import LanguageSelect from './LanguageSelect';
 import MenuButton from './MenuButton';
+import SearchField from './SearchField';
 
 
 const Header: React.FC = () => {
@@ -21,9 +23,9 @@ const Header: React.FC = () => {
           Путешествуй
         </Typography>
         <HomeBtn />
-        {/* <Route exact path="/">
-          <Search/>
-        </Route> */}
+        <Route exact path="/">
+          <SearchField />
+        </Route>
         <Spacer />
         <LanguageSelect />
         <Button color="inherit">Login</Button>

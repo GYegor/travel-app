@@ -1,13 +1,15 @@
 import React from 'react';
 import { useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+
 import { theme } from '../mui-style';
-import DateTimeCard from './DateTimeCard';
 import { AppState } from '../interfaces';
+import DateTimeCard from './DateTimeCard';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: '#77a2581a',
+    backgroundColor: fade(theme.palette.primary.light, 0.2),
     padding: theme.spacing(2, 0),
     width: 300,
     position: 'absolute',
@@ -25,10 +27,10 @@ const useStyles = makeStyles({
 })
 
 const SideBar: React.FC = () => {
+  const classes = useStyles();
+
   const isSideBarOpened = useSelector<AppState>(state => state.isSideBarOpened);
 
-
-  const classes = useStyles();
   return (
     <div className={`${classes.root} ${isSideBarOpened ? classes.opened : ''}`}>
       <DateTimeCard />
