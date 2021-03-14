@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core';
 import { theme } from '../mui-style';
-import DateTimeCard from './DateTimeCard';
+import DateTimeCardWidget from './widgets/DateTimeCardWidget';
 import { AppState } from '../interfaces';
+import WeatherInformerWidget from './widgets/WeatherInformerWidget'
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +32,8 @@ const SideBar: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={`${classes.root} ${isSideBarOpened ? classes.opened : ''}`}>
-      <DateTimeCard />
+      <DateTimeCardWidget />
+      <WeatherInformerWidget />
     </div>
   )
 }
