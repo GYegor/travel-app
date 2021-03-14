@@ -23,12 +23,21 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
   },
 }));
-
 interface IWheather {
+  weather: [
+    {
+      main: string;
+    }
+  ]
   main: {
-    temp: number,
-    feels_like: number,
+    temp: number;
+    feels_like: number;
+    humidity: number;
   }
+  wind: {
+    speed: number;
+  },
+  name: string;
 }
 
 const WeatherInformerWidget: React.FC = () => {
@@ -39,10 +48,10 @@ const WeatherInformerWidget: React.FC = () => {
     base: 'https://api.openweathermap.org/data/2.5/'
   }
 
-  const [query, setQuery] = useState('Moscow');
-  const [weather, setWeather] = useState<IWheather|null>(null);
+  const [query, setQuery] = useState('Rome');
+  const [weather, setWeather] = useState<IWheather | null>(null);
   useEffect(() => {
-    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}&lang=by`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);
@@ -52,19 +61,24 @@ const WeatherInformerWidget: React.FC = () => {
       })
   }, [])
 
-  // console.log(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`);
   return (
     <Card className={classes.root}>
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">
-            Weather
+            Weather {weather?.name}
           </Typography>
           <Typography gutterBottom variant="h5" component="h3">
-            {weather?.main.temp} °C
+            {weather?.main.temp} °C {weather?.weather[0].main}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
             feels like: {weather?.main.feels_like} °C
+          </Typography>
+          <Typography variant="body1" color="textSecondary" component="p">
+            humidity: {weather?.main.humidity} %
+          </Typography>
+          <Typography variant="body1" color="textSecondary" component="p">
+            wind speed: {weather?.wind.speed} m / s
           </Typography>
         </CardContent>
       </CardActionArea>
