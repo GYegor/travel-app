@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { ListItemIcon, SvgIcon, Select, MenuItem, FormControl } from '@material-ui/core';
+import { ListItemIcon, SvgIcon, Select, MenuItem } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { AppState } from '../interfaces';
@@ -42,41 +42,39 @@ const LanguageSelect: React.FC = () => {
   };
 
   return (
-    <FormControl>
-      <Select
-        disableUnderline
-        classes={{ root: classes.select }}
-        MenuProps={menuProps as any}
-        IconComponent={ArrowIcon}
-        value={lang}
-        onChange={handleChange}
-      >
-        <MenuItem value={1}>
-          <ListItemIcon classes={{ root: classes.listIcon }}>
-            <SvgIcon ><US/></SvgIcon>
-          </ListItemIcon>
-          <span style={{marginTop:3}}>
-            English
-          </span>
-        </MenuItem>
-        <MenuItem value={2}>
-          <ListItemIcon classes={{ root: classes.listIcon }}>
-            <SvgIcon ><RU/></SvgIcon>
-          </ListItemIcon>
-          <span style={{marginTop:3}}>
-            Русский
-          </span>
-        </MenuItem>
-        <MenuItem value={3}>
-          <ListItemIcon classes={{ root: classes.listIcon } as any}>
-            <SvgIcon ><BY/></SvgIcon>
-          </ListItemIcon>
-          <span style={{marginTop:3}}>
-            Беларуская
-          </span>
-        </MenuItem>
-      </Select>
-    </FormControl>
+    <Select
+      disableUnderline
+      classes={{ root: classes.select }}
+      MenuProps={menuProps as any}
+      IconComponent={ArrowIcon}
+      value={lang}
+      onChange={handleChange}
+    >
+      <MenuItem value={1}>
+        <ListItemIcon classes={{ root: classes.listIcon }}>
+          <SvgIcon ><US/></SvgIcon>
+        </ListItemIcon>
+        <span style={{marginTop:3}}>
+          English
+        </span>
+      </MenuItem>
+      <MenuItem value={2}>
+        <ListItemIcon classes={{ root: classes.listIcon }}>
+          <SvgIcon ><RU/></SvgIcon>
+        </ListItemIcon>
+        <span style={{marginTop:3}}>
+          Русский
+        </span>
+      </MenuItem>
+      <MenuItem value={3}>
+        <ListItemIcon classes={{ root: classes.listIcon } as any}>
+          <SvgIcon ><BY/></SvgIcon>
+        </ListItemIcon>
+        <span style={{marginTop:3}}>
+          Беларуская
+        </span>
+      </MenuItem>
+    </Select>
   );
 };
 

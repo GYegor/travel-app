@@ -1,17 +1,13 @@
-import { makeStyles } from '@material-ui/core';
 import React, { useEffect } from 'react';
-import CountryCard from '../components/CountryCard';
+import { useSelector, useDispatch } from 'react-redux';
+import { makeStyles } from '@material-ui/core';
+
 import { theme } from "../mui-style";
-import SideBar from '../components/SideBar';
-
-import { connect, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
+import { AppState, ICountryCard, Language } from '../interfaces';
 import { getDataFromBE } from '../actions/country-actions'
-import Spacer from '../components/Spacer';
-import { Language } from '../interfaces';
 import { onUtcOffsetChanged } from '../actions/utc-offset-action'
-
+import CountryCard from '../components/CountryCard';
+import SideBar from '../components/SideBar';
 
 
 const useStyles = makeStyles({
@@ -35,41 +31,42 @@ const useStyles = makeStyles({
   },
 });
 
-const HomePage: React.FC<any> = ({ lang, countryList, getDataFromBE }) => {
+const HomePage: React.FC<any> = () => {
   const classes = useStyles();
-  const dispatch = useDispatch()
 
+  const dispatch = useDispatch();
+
+  const { lang, countryList, filterString } = useSelector<AppState, AppState>(state => state);
+  
   useEffect(() => {
-    getDataFromBE(`/api/countries?lang=${Language[lang]}`);
-  }, [lang])
+    dispatch(getDataFromBE(`/api/countries?lang=${Language[lang]}`));
+  }, [ lang ])
 
   useEffect(() => {
     if (countryList.length) {
       dispatch(onUtcOffsetChanged(countryList[0].localTimeDiff))
     }
-  }, [countryList])
+  }, [ countryList ])
+
+  const filteredCountryList = (filterString: string = '', list: ICountryCard[]) => {
+    const normalisedString = filterString.toLowerCase().trim();
+    return list.filter(
+      (item) =>
+        item.name.toLowerCase().includes(normalisedString) ||
+        item.capital.toLowerCase().includes(normalisedString)
+    );
+  };
 
   return (
     <>
       <div className={classes.contentWrapper}>
-        {countryList.map((card: any) => {
-          return (
-            <>
-              <CountryCard {...card} key={card.id} />
-            </>
-          )
-        })}
+        {filteredCountryList(filterString, countryList).map((card: any) => (
+          <CountryCard {...card} key={card.smallImageId} />
+        ))}
       </div>
       <SideBar />
-      <Spacer />
     </>
-  )
+  );
 }
 
-const mapStateToProps = ({ countryList, lang }: any) => ({ countryList, lang })
-
-const mapDispatchToProps = (dispatch: any) => bindActionCreators({
-  getDataFromBE: getDataFromBE
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);;
+export default HomePage;
