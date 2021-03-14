@@ -26,7 +26,7 @@ const MenuButton: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <Route exact path="/">
+    <Route exact path="/country/:id">
       <IconButton edge="start" 
         className={classes.root} 
         color="inherit" 

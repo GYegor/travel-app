@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { onUtcOffsetChanged } from '../actions/utc-offset-action';
 import { useParams } from "react-router-dom";
 import "react-image-gallery/styles/scss/image-gallery.scss";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
@@ -8,8 +10,8 @@ import { makeStyles } from '@material-ui/core';
 import { theme } from "../mui-style";
 import { Loader } from "../components/Loader";
 import { CountryAvatar } from "../components/CountryAvatar";
-import blueLagune from "../assets/images/blue_lagune.jpg";
-import { ICountryAvatarProps, ISightseeing } from "../interfaces";
+import SideBar from '../components/SideBar';
+import { ICountryAvatarProps, ISightseeing, AppState, Language } from "../interfaces";
 import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
 
@@ -29,11 +31,14 @@ const CountryPage: React.FC = () => {
   const { id } = useParams<Record<string, string | undefined>>();
   const [loading, setLoading] = useState(true);
   const [images, setImages] = useState<ReactImageGalleryItem[]>([]);  
-  const [avatar, setAvatar] = useState<ICountryAvatarProps | null>(null);  
+  const [avatar, setAvatar] = useState<ICountryAvatarProps | null>(null);
   
+  const dispatch = useDispatch();
+
+  const lang = useSelector<AppState, Language>(state => state.lang);  
 
   useEffect(() => {
-    fetch(`/api/countries/${id}?lang=en`)
+    fetch(`/api/countries/${id}?lang=${Language[lang]}`)
       .then(response => response.json())
       .then(data => {
         console.log(data);        
@@ -59,9 +64,10 @@ const CountryPage: React.FC = () => {
 
         setImages(getImagesFromData());
         setAvatar(getAvatarFromData());
+        dispatch(onUtcOffsetChanged(data.localTimeDiff))
         setLoading(false);                       
       })
-  }, [id])
+  }, [id, lang])
 
   return (
     <div className={classes.wrapper}>
@@ -76,7 +82,8 @@ const CountryPage: React.FC = () => {
           slideDuration={700}
           slideInterval={2000}
         />
-      }     
+      }
+      <SideBar />     
     </div>
   );
 };

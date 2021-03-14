@@ -3,11 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core';
 import { theme } from "../mui-style";
 import { AppState, ICountryCard, Language } from '../interfaces';
-import { getDataFromBE } from '../actions/country-actions'
-import { onUtcOffsetChanged } from '../actions/utc-offset-action'
+import { getDataFromBE } from '../actions/country-actions';
 import CountryCard from '../components/CountryCard';
-import SideBar from '../components/SideBar';
-
 
 const useStyles = makeStyles({
   root: {
@@ -39,13 +36,7 @@ const HomePage: React.FC<any> = () => {
   
   useEffect(() => {
     dispatch(getDataFromBE(`/api/countries?lang=${Language[lang]}`));
-  }, [ lang ])
-
-  useEffect(() => {
-    if (countryList.length) {
-      dispatch(onUtcOffsetChanged(countryList[0].localTimeDiff))
-    }
-  }, [ countryList ])
+  }, [ lang ])  
 
   const filteredCountryList = (filterString: string = '', list: ICountryCard[]) => {
     const normalisedString = filterString.toLowerCase().trim();
@@ -62,8 +53,7 @@ const HomePage: React.FC<any> = () => {
         {filteredCountryList(filterString, countryList).map((card: any) => (
           <CountryCard {...card} key={card.smallImageId} />
         ))}
-      </div>
-      <SideBar />
+      </div>      
     </>
   );
 }
