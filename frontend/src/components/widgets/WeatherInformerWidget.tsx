@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { AppState, Language } from "../../interfaces";
+import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -15,18 +16,25 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     'border-radius': 12,
     color: 'white',
     'background-color': fade(theme.palette.primary.light, 0.7),
-
   },
   action: {
     '&:hover': {
       cursor: 'unset'
     }
   },
+  cover: {
+    width: 50,
+    height: 50,
+    position: "absolute",
+    top: 46,
+    right: 84,
+  }
 }));
 interface IWheather {
   weather: [
     {
       main: string;
+      icon: string;
     }
   ]
   main: {
@@ -48,15 +56,13 @@ const WeatherInformerWidget: React.FC = () => {
     base: 'https://api.openweathermap.org/data/2.5/'
   }
 
-  const [query, setQuery] = useState('Rome');
+  const [query, setQuery] = useState('Minsk');
   const [weather, setWeather] = useState<IWheather | null>(null);
   useEffect(() => {
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}&lang=by`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);
-        // console.log(result);
-        // console.log(result.main.temp);
       })
   }, [])
 
@@ -68,7 +74,12 @@ const WeatherInformerWidget: React.FC = () => {
             Weather {weather?.name}
           </Typography>
           <Typography gutterBottom variant="h5" component="h3">
-            {weather?.main.temp} °C {weather?.weather[0].main}
+            {weather?.main.temp} °C
+          <CardMedia
+            className={classes.cover}
+            image={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}.png`}
+            title={weather?.weather[0].main}
+          />
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
             feels like: {weather?.main.feels_like} °C
