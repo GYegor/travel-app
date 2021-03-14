@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-// import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import { Home } from '@material-ui/icons';
+import { Link, Route } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,18 +23,13 @@ export default function UploadButtons() {
 
   return (
     <div className={classes.root}>
-      {/* <input
-        accept="image/*"
-        className={classes.input}
-        id="contained-button-file"
-        multiple
-        type="file"
-      /> */}
-      <label htmlFor="icon-button-file">
-        <IconButton color="secondary" aria-label="go home" component="span">
-          <Home />
-        </IconButton>
-      </label>
+      <Route path="/country">
+        <Link to={'/'}>
+          <IconButton color="secondary" aria-label="go home" component="span">
+            <Home />
+          </IconButton>
+        </Link>
+      </Route>
     </div>
   );
 }

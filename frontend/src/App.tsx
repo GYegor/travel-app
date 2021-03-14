@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { createStyles, makeStyles, Theme, ThemeProvider } from '@material-ui/core';
+import React from 'react';
+import { createStyles,makeStyles,Theme,ThemeProvider } from '@material-ui/core';
 import './App.scss';
 import HomePage from "./pages/HomePage";
 import CountryPage from "./pages/CountryPage";
@@ -7,8 +7,12 @@ import { theme } from './mui-style';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Footer from './components/Footer';
 import Header from './components/Header';
+
+
+// simple api request
 import { CloudinaryContext } from 'cloudinary-react';
 import cloudName from './constants/cloudName';
+import Registration from './components/Registration';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,6 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     pageWrapper: {
       flex: 1,
+      position: 'relative'
     },
     input: {
       display: 'none',
