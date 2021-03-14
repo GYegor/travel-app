@@ -5,7 +5,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 
 import { theme } from '../mui-style';
 import { AppState } from '../interfaces';
-import DateTimeCard from './DateTimeCard';
+import DateTimeCardWidget from './widgets/DateTimeCardWidget';
+import WeatherInformerWidget from './widgets/WeatherInformerWidget'
 
 const useStyles = makeStyles({
   root: {
@@ -33,7 +34,8 @@ const SideBar: React.FC = () => {
 
   return (
     <div className={`${classes.root} ${isSideBarOpened ? classes.opened : ''}`}>
-      <DateTimeCard />
+      <DateTimeCardWidget />
+      <WeatherInformerWidget />
     </div>
   )
 }

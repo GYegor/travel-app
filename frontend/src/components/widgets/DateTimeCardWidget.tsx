@@ -6,7 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import { AppState, Language } from "../interfaces";
+import { AppState, Language } from "../../interfaces";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }));
 
-const DateTimeCard: React.FC = () => {
+const DateTimeCardWidget: React.FC = () => {
   const classes = useStyles();
   const { lang, utcOffset } = useSelector<AppState, AppState>(state => state);
 
@@ -39,7 +39,7 @@ const DateTimeCard: React.FC = () => {
   ];
 
   const enDayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const ruDayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  const ruDayNames = ['Воскресение', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
   const byDayNames = ['Нядзеля', 'Панядзелак', 'Аўторак', 'Серада', 'Чацвер', 'Пятніца', 'Субота'];
 
   const dayLocales = {
@@ -100,4 +100,4 @@ const DateTimeCard: React.FC = () => {
   );
 };
 
-export default DateTimeCard;
+export default DateTimeCardWidget;
