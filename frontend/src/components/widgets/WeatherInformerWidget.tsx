@@ -24,24 +24,47 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }));
 
+interface IWheather {
+  main: {
+    temp: number,
+    feels_like: number,
+  }
+}
+
 const WeatherInformerWidget: React.FC = () => {
   const classes = useStyles();
   const lang = useSelector<AppState>(state => state.lang);
+  const api = {
+    key: '1b49f5edda5dd68a6e6fa012bd990fb5',
+    base: 'https://api.openweathermap.org/data/2.5/'
+  }
 
-  
+  const [query, setQuery] = useState('Moscow');
+  const [weather, setWeather] = useState<IWheather|null>(null);
+  useEffect(() => {
+    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      .then(res => res.json())
+      .then(result => {
+        setWeather(result);
+        console.log(result);
+        console.log(result.main.temp);
 
+      })
+  }, [])
+
+  // console.log(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`);
   return (
     <Card className={classes.root}>
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">
-            {lang as Language}
+            Weather
           </Typography>
           <Typography gutterBottom variant="h5" component="h3">
-            uryurtiyt
+            {weather?.main.temp} °C
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
-            yjtyiuyiu
+            feels like: {weather?.main.feels_like} °C
           </Typography>
         </CardContent>
       </CardActionArea>
