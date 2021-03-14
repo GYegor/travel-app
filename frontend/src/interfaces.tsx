@@ -4,3 +4,17 @@ export interface ICountryCard {
   capital: string,
   smallImageId: string,
 }
+
+export interface ICountryAvatarProps {
+  name: string,
+  capital: string,
+  description: string,
+  imageUrl: string,
+}
+
+export interface ISightseeing {
+  name: string,
+  imageId: string,
+  description: string,
+  smallImageId: string,
+}

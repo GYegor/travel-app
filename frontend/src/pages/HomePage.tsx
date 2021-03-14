@@ -1,8 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import CountryCard from '../components/CountryCard';
-import Turkey from "../assets/images/turkey.jpg";
-import Spain from "../assets/images/spain.jpg";
 import { theme } from "../mui-style";
 import { relative } from 'path';
 import SideBar from '../components/SideBar';
