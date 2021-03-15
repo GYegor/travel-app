@@ -6,8 +6,15 @@ export enum Language {
     by = 3
 }
 
+export interface IRatingRequest {
+    countryId: number,
+    sightId: number,
+    name: string,
+    imageId: string,
+    points: number,
+}
+
 export interface IUser {
-    userId: number;
     name: string;
     imageId: string;
 }
@@ -42,18 +49,18 @@ export interface ICountry extends ICountryBase {
     imageId: string;
     videoUrl: string;
     description: string;
-    coordinates: string;
+    coords: Array<number>;
+    utcOffset: number,
     sights: Array<ISight>;
 }
 
 interface IVotedUserSchema {
-    userId: number;
     name: string;
     imageId: string;
     points: number;
 }
 
-interface IRatingSchema {
+export interface IRatingSchema {
     points: number;
     votes: number;
     votedUsers: Array<IVotedUserSchema>;
@@ -76,8 +83,8 @@ export interface ICountrySchema {
     imageId: string,
     smallImageId: string,
     videoUrl: string,
-    localTimeDiff: number,
-    coordinates: string,
+    utcOffset: number,
+    coords: Array<number>,
     sights: Array<ISightSchema>,
     localizations: Array<ILocaleSchema>,
 }

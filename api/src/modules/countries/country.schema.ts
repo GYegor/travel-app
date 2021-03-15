@@ -2,10 +2,6 @@ import mongoose = require('mongoose');
 
 const VotedUsersSchema = new mongoose.Schema({
     _id: false,
-    userId: {
-        type: Number,
-        required: true,
-    },
     name: {
         type: String,
         required: true,
@@ -39,7 +35,7 @@ const SightSchema = new mongoose.Schema({
     },
     smallImageId: String,
     imageId: String,
-    rating: [RatingSchema],
+    rating: RatingSchema,
     localizations: [localeSchema],
 });
 
@@ -51,12 +47,12 @@ const CountrySchema = new mongoose.Schema({
     imageId: String,
     smallImageId: String,
     videoUrl: String,
-    localTimeDiff: {
+    utcOffset: {
         type: Number,
         required: true,
     },
-    coordinates: {
-        type: String,
+    coords: {
+        type: [Number],
         required: true,
     },
     sights: {
@@ -109,7 +105,7 @@ export = CountrySchema;
 //       enum: ['Point'],
 //       required: true,
 //     },
-//     coordinates: {
+//     coords: {
 //       type: [Number],
 //       required: true,
 //     },

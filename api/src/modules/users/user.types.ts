@@ -1,13 +1,11 @@
 import mongoose = require('mongoose');
 
-export interface IUser {
+export interface IUserSchema {
     name: String,
-    login: String,
-    password: String,
-    photo: String,
-    token: String,
+    imageId: String,
+    lang: String,
 }
 
-export interface IUserDocument extends IUser, mongoose.Document {}
+export interface IUserDocument extends IUserSchema, mongoose.Document {}
 
 export interface IUserModel extends mongoose.Model<IUserDocument> {}
