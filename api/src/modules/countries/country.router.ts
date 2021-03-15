@@ -24,14 +24,7 @@ router.get('/:id', wrap(async (req, res): Promise<void> => {
 }));
 
 router.get('/rating', wrap(async (req, res): Promise<void> => {
-    const obj = {
-      countryId: 6,
-      sightId: 1,
-      name: 'userName2',
-      imageId: 'imageId',
-      points: 3,
-    }
-    const data = await countryService.putRating(obj);
+    const data = await countryService.putRating(req.body);
     res.json(data);
 }));
 

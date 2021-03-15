@@ -6,6 +6,14 @@ export enum Language {
     by = 3
 }
 
+export interface IRatingRequest {
+    countryId: number,
+    sightId: number,
+    name: string,
+    imageId: string,
+    points: number,
+}
+
 export interface IUser {
     name: string;
     imageId: string;
@@ -52,7 +60,7 @@ interface IVotedUserSchema {
     points: number;
 }
 
-interface IRatingSchema {
+export interface IRatingSchema {
     points: number;
     votes: number;
     votedUsers: Array<IVotedUserSchema>;

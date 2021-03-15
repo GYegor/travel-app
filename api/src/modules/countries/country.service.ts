@@ -11,7 +11,7 @@ export const getOne = async(id: number, lang: number): Promise<types.ICountry> =
     return country;
 }
 
-export const putRating = async (obj: any) => {
+export const putRating = async (obj: types.IRatingRequest): Promise<types.ICountrySchema | null> => {
     const newRating = await countryRepo.putAndGetRating(obj);
     return newRating;
 }

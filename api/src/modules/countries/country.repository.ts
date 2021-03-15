@@ -1,5 +1,4 @@
 import model = require('./country.model');
-import errors = require('../../common/errors/errors-list');
 import types = require('./country.types');
 
 const getBasicData = (country: types.ICountryDocument, lang: number) => ({
@@ -54,8 +53,8 @@ export const getOneByLang = async (id: number, lang: number): Promise<types.ICou
     }
 }
 
-const isVotedUser = (users, name) => {
-    let isUser = false;
+const isVotedUser = (users: Array<types.IVotedUser>, name: string): boolean => {
+    let isUser: boolean = false;
     users.forEach((user) => {
         if (user.name === name) isUser = true;
     });
@@ -63,7 +62,7 @@ const isVotedUser = (users, name) => {
     return isUser;
 }
 
-const changeRating = (rating, obj) => {
+const changeRating = (rating: types.IRatingSchema, obj: types.IRatingRequest): types.IRatingSchema => {
     rating.points = (rating.points * rating.votes + obj.points) / (rating.votes + 1);
         rating.votes += 1;
         rating.votedUsers.push({
@@ -75,17 +74,17 @@ const changeRating = (rating, obj) => {
     return rating;
 }
 
-const setData = async (newData, obj) => {
+const setData = async (newData: types.ICountrySchema, obj: types.IRatingRequest): Promise<void> => {
     await model.CountryModel.updateOne(
         { countryId: obj.countryId },
         { $set: { "sights":newData.sights } }
     );
 }
 
-export const putAndGetRating = async (obj: any) => {
-    const data = await model.CountryModel.findOne({ countryId: obj.countryId });
-    const rating = data.sights[obj.sightId - 1].rating;
-    const users = rating.votedUsers;
+export const putAndGetRating = async (obj: types.IRatingRequest): Promise<types.ICountrySchema | null> => {
+    const data: types.ICountrySchema = await model.CountryModel.findOne({ countryId: obj.countryId });
+    const rating: types.IRatingSchema = data.sights[obj.sightId - 1].rating;
+    const users: Array<types.IVotedUser> = rating.votedUsers;
     if (!isVotedUser(users, obj.name)) {
         data.sights[obj.sightId - 1].rating = changeRating(rating, obj);
         setData(data, obj);
