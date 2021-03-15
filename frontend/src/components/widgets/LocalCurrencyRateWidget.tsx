@@ -81,12 +81,12 @@ const LocalCurrencyRateWidget: React.FC = () => {
     }
     const index = currency + '_' + (country as ICountry).currencyCode;
     if(currency === 'EUR') {
-      return ratesEuro[index] + ' ' + (country as ICountry).currencyCode;
+      return ratesEuro[index].toFixed(2) + ' ' + (country as ICountry).currencyCode;
     }
-    // if(currency === 'RUB') {
-    //   return ratesEuro[index] + ' ' + (country as ICountry).currencyCode;
-    // }
-    return rates[index] + ' ' + (country as ICountry).currencyCode;
+    if(currency === 'RUB') {
+      return (rates[index] * 100).toFixed(2) + ' ' + (country as ICountry).currencyCode;
+    }
+    return rates[index].toFixed(2) + ' ' + (country as ICountry).currencyCode;
   }
 
   return (
