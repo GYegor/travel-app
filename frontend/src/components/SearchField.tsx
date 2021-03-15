@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     maxWidth: 400,
     width: 400,
     display: 'flex',
-    margin: '4px 0 8px'
+    margin: theme.spacing(0.8)
   },
   buttonRoot: {
     padding: theme.spacing(1),
@@ -35,7 +35,7 @@ const SearchField = () => {
       <TextField
         className={classes.root}
         color={'secondary'}
-        label={'Куда направишься?'}
+        // label={'Куда направишься?'}
         placeholder={'Страна или столица'}
         margin={'normal'}
         value={filterString}

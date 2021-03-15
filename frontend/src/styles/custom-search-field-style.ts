@@ -1,4 +1,5 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import { teal } from '@material-ui/core/colors';
 
 export default {
     useLabelStyles: makeStyles((theme: Theme) => createStyles({
@@ -15,13 +16,13 @@ export default {
 
     useBaseStyles: makeStyles((theme: Theme) => createStyles({
       root: {
-        borderRadius: 12,
+        borderRadius: 8,
         border: '1px solid',
         borderColor: theme.palette.primary.main,
         overflow: 'hidden',
-        backgroundColor: '#e4ecde',
+        backgroundColor: teal[100],
         '&:hover:not($disabled)': {
-          borderColor: '#e4ecde',
+          borderColor: theme.palette.primary.main,
         },
         '& > svg': {
           color: theme.palette.grey[500],
@@ -39,13 +40,13 @@ export default {
           },
         },
         '&$colorSecondary': {
-          borderColor: theme.palette.secondary.main,
+          borderColor: theme.palette.primary.main,
           '&:hover:not($disabled)': {
-            borderColor: theme.palette.secondary.main,
+            borderColor: theme.palette.primary.main,
           },
           '&$adornedStart': {
             '& > svg': {
-              color: theme.palette.secondary.light,
+              color: theme.palette.primary.light,
             },
           },
         }
@@ -61,6 +62,7 @@ export default {
         backgroundColor: theme.palette.grey[100],
       },
       input: {
+        color:theme.palette.primary.dark,
         padding: '0.625rem 1rem',
         '&:not(:first-child)': {
           paddingLeft: '0.5rem',
@@ -70,7 +72,7 @@ export default {
         },
         '&::placeholder': {
           textOverflow: 'ellipsis !important',
-          color:theme.palette.primary.main,
+          color:theme.palette.primary.dark,
           'font-weight': 600
         }
       },

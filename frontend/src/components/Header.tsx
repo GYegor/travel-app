@@ -20,7 +20,7 @@ const Header: React.FC = () => {
       <Toolbar>
         <MenuButton />
         <Typography variant="h6" className={classes.title}>
-          Путешествуй
+        П<span className={classes.titleSpan}>оехали</span>
         </Typography>
         <HomeBtn />
         <Route exact path="/">

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     maxWidth: 400,
     width: 300,
-    'border-radius': 12,
+    'border-radius': 8,
     transition: 'all 0.3s;',
     '&:hover': {
       transform: 'scale(1.1)',
@@ -36,14 +36,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }));
 
 const CountryCard: React.FC<ICountryCard> = (props) => {
-  const { name, capital, smallImageId } = props;
-  const classes = useStyles();
-
-  const idImage: string = 'travelApp/algambra_un0ac7';
+  const { name, capital, smallImageId, id } = props;
+  const classes = useStyles();  
 
   return (
     <Card className={classes.root}>
-      <Link to={`/country`} className="card__link">
+      <Link to={`/country/${id}`} className="card__link">
         <CardActionArea className={classes.action}>
           <Box
             style={{ backgroundImage: `url('${cloudUrl}/${cloudName}/image/upload/h_150/${smallImageId}')` }}
