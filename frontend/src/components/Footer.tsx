@@ -2,10 +2,11 @@ import React from "react";
 import { Container, Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { theme } from "../mui-style";
+import { teal } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   footer: {    
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: teal[200],
     padding: theme.spacing(1, 0), 
   },
   container: {

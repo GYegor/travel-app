@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { createMuiTheme,createStyles,makeStyles,Theme,ThemeProvider } from '@material-ui/core';
+import React from 'react';
+import { createStyles,makeStyles,Theme,ThemeProvider } from '@material-ui/core';
 import './App.scss';
 import HomePage from "./pages/HomePage";
+import CountryPage from "./pages/CountryPage";
 import { theme } from './mui-style';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Spacer from './components/Spacer';
+
+// simple api request
 import { CloudinaryContext } from 'cloudinary-react';
 import cloudName from './constants/cloudName';
-import Registration from './components/Registration';
+import SideBar from './components/SideBar';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,7 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
       'flex-direction': 'column'
     },
     pageWrapper: {
-      flex: 1,
+      position: 'relative',
+      height: 'calc(100vh - 162px)'
     },
     input: {
       display: 'none',
@@ -38,7 +41,9 @@ function App() {
           <div className={classes.pageWrapper}>
             <Switch>
 
-              <Route path="/country">
+              <Route path="/country/:id">
+                <CountryPage />
+                <SideBar />     
               </Route>
 
               <Route path="/">
@@ -46,6 +51,7 @@ function App() {
               </Route>
 
             </Switch>
+
           </div>
 
 

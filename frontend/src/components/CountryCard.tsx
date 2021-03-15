@@ -3,12 +3,9 @@ import '../styles/CountryCard.scss';
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import Algambra from '../assets/images/algambra.jpg';
-import { Image } from 'cloudinary-react';
 import Box from '@material-ui/core/Box';
 import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
@@ -16,12 +13,13 @@ import { ICountryCard } from "../interfaces";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
-    maxWidth: 300,
-    width: 200,
+    maxWidth: 400,
+    width: 300,
+    'border-radius': 8,
     transition: 'all 0.3s;',
     '&:hover': {
-      'background-color': 'rgb(250, 255, 240)',
       transform: 'scale(1.1)',
+      'background-color': 'rgb(250, 255, 240)',
     }
     
   },
@@ -31,21 +29,19 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
   },
   media: {
-    height: 150,
+    height: 180,
     backgroundSize: 'cover',
     backgroundPosition: 'bottom',
   },
 }));
 
 const CountryCard: React.FC<ICountryCard> = (props) => {
-  const { name, capital, smallImageId } = props;
-  const classes = useStyles();
-
-  const idImage: string = 'travelApp/algambra_un0ac7';
+  const { name, capital, smallImageId, id } = props;
+  const classes = useStyles();  
 
   return (
     <Card className={classes.root}>
-      <Link to={`/country`} className="card__link">
+      <Link to={`/country/${id}`} className="card__link">
         <CardActionArea className={classes.action}>
           <Box
             style={{ backgroundImage: `url('${cloudUrl}/${cloudName}/image/upload/h_150/${smallImageId}')` }}
