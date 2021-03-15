@@ -4,6 +4,12 @@ export interface AppState {
   filterString: string;
   utcOffset: number;
   isSideBarOpened: boolean;
+  weatherParams: IWeatherParams | null;
+}
+
+export interface IWeatherParams {
+  capital: string;
+  coords: [number, number];
 }
 
 export interface ICountryCard {
@@ -11,7 +17,19 @@ export interface ICountryCard {
   name: string,
   capital: string,
   smallImageId: string,
-  localTimeDiff?: number;
+  utcOffset: number;
+}
+
+export interface ICountryFull {
+  id: number;
+  name: string,
+  capital: string,
+  imageId: string,
+  utcOffset: number;
+  coords: number[];
+  description: string;
+  videoUrl: string;
+  sights: ISightseeing[];
 }
 
 export interface ICountryAvatarProps {
@@ -22,10 +40,29 @@ export interface ICountryAvatarProps {
 }
 
 export interface ISightseeing {
-  name: string,
-  imageId: string,
-  description: string,
-  smallImageId: string,
+  id: number;
+  name: string;
+  imageId: string;
+  description: string;
+  smallImageId: string;
+  rating: IRating;
+}
+
+export interface IRating {
+  points: number;
+  votes: number;
+  votedUsers: IVotedUser[];
+}
+
+export interface IVotedUser extends IUser {
+  points: number;
+}
+
+export interface IUser {
+  id: number;
+  imageId: number;
+  name: IVotedUser;
+  lang: Language;
 }
 
 export enum Language {

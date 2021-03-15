@@ -7,6 +7,7 @@ export const initialState: AppState = {
   filterString: '',
   utcOffset: 3,
   isSideBarOpened: false,
+  weatherParams: null,
 }
 
 const appReducer = (state = initialState, action: AnyAction) => {
@@ -34,6 +35,12 @@ const appReducer = (state = initialState, action: AnyAction) => {
       return ({
         ...state,
         utcOffset : action.utcOffset
+      })
+
+    case 'GET_WEATHER_PARAMS' :
+      return ({
+        ...state,
+        weatherParams : action.weatherParams
       })
 
     case 'TOGGLE_SIDE_BAR' :
