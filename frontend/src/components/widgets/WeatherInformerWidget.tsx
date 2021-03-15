@@ -12,8 +12,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     maxWidth: 300,
-    width: 260,
-    'border-radius': 12,
+    width: 240,
+    marginBottom: theme.spacing(2),
+    'border-radius': 8,
     color: 'white',
     'background-color': fade(theme.palette.primary.light, 0.7),
   },
@@ -72,7 +73,7 @@ const WeatherInformerWidget: React.FC = () => {
   }, [])
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root}  onClick={(event) => event.stopPropagation()}>
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">

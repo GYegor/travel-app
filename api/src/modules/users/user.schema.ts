@@ -1,11 +1,12 @@
 import mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    name: String,
-    login: String,
-    password: String,
-    photo: String,
-    token: String,
+    name: {
+        type: String,
+        required: true,
+    },
+    imageId: String,
+    lang: String,
     },
     {
     versionKey: false

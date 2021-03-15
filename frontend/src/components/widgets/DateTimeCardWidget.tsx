@@ -11,8 +11,10 @@ import { AppState, Language } from "../../interfaces";
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     maxWidth: 300,
-    width: 260,
-    'border-radius': 12,
+    width: 240,
+    marginBottom: theme.spacing(2),
+
+    'border-radius': 8,
     color: 'white',
     'background-color': fade(theme.palette.primary.light, 0.7),
 
@@ -83,10 +85,13 @@ const DateTimeCardWidget: React.FC = () => {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea className={classes.action}>
+      <CardActionArea className={classes.action} onClick={(event) => event.stopPropagation()}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">
-            {currentDate.getDate()} {getCurrentMonth()}, {getCurrentYear()}
+            {currentDate.getDate()} {getCurrentMonth()}, 
+          </Typography>
+          <Typography gutterBottom variant="h5" component="h3">
+            {getCurrentYear()}
           </Typography>
           <Typography gutterBottom variant="h5" component="h3">
             {getCurrentDay()}

@@ -1,5 +1,4 @@
 import model = require('./country.model');
-import errors = require('../../common/errors/errors-list');
 import types = require('./country.types');
 
 const getBasicData = (country: types.ICountryDocument, lang: number) => ({
@@ -7,15 +6,16 @@ const getBasicData = (country: types.ICountryDocument, lang: number) => ({
     smallImageId: country.smallImageId,
     name: country.localizations[lang].name,
     capital: country.localizations[lang].capital,
-    localTimeDiff: country.localTimeDiff,
+    // utcOffset: country.utcOffset,
 });
 
 const getFullBasicData = (country: types.ICountryDocument) => ({
     id: country.countryId,
     imageId: country.imageId,
     videoUrl: country.videoUrl,
-    coordinates: country.coordinates,
-    localTimeDiff: country.localTimeDiff,
+    coords: country.coords,
+    utcOffset: country.utcOffset,
+    currencyCode: country.currencyCode,
 });
 
 const getLocalization = (country: types.ICountryDocument, lang: types.Language) => ({
@@ -52,4 +52,46 @@ export const getOneByLang = async (id: number, lang: number): Promise<types.ICou
         ...getLocalization(data, lang - 1),
         ...getSights(data.sights, lang - 1),
     }
+}
+
+const isVotedUser = (users: Array<types.IVotedUser>, name: string): boolean => {
+    let isUser: boolean = false;
+    users.forEach((user) => {
+        if (user.name === name) isUser = true;
+    });
+
+    return isUser;
+}
+
+const changeRating = (rating: types.IRatingSchema, obj: types.IRatingRequest): types.IRatingSchema => {
+    rating.points = (rating.points * rating.votes + obj.points) / (rating.votes + 1);
+        rating.votes += 1;
+        rating.votedUsers.push({
+            name: obj.name,
+            imageId: obj.imageId,
+            points: obj.points,
+        });
+
+    return rating;
+}
+
+const setData = async (newData: types.ICountrySchema, obj: types.IRatingRequest): Promise<void> => {
+    await model.CountryModel.updateOne(
+        { countryId: obj.countryId },
+        { $set: { "sights":newData.sights } }
+    );
+}
+
+export const putAndGetRating = async (obj: types.IRatingRequest): Promise<types.ICountrySchema | null> => {
+    const data: types.ICountrySchema = await model.CountryModel.findOne({ countryId: obj.countryId });
+    const rating: types.IRatingSchema = data.sights[obj.sightId - 1].rating;
+    const users: Array<types.IVotedUser> = rating.votedUsers;
+    if (!isVotedUser(users, obj.name)) {
+        data.sights[obj.sightId - 1].rating = changeRating(rating, obj);
+        setData(data, obj);
+
+        return data;
+    }
+
+    return null;
 }

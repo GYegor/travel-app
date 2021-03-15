@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   button: {
     transition: 'all 400ms ease',
   },
-  opened: {
+  closed: {
     transform: 'rotate(-90deg) '
   }
 
@@ -26,7 +26,7 @@ const MenuButton: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <Route exact path="/">
+    <Route exact path="/country/:id">
       <IconButton edge="start" 
         className={classes.root} 
         color="inherit" 
@@ -34,7 +34,7 @@ const MenuButton: React.FC = () => {
         onClick={() => dispatch(onToggleSideBar(!isSideBarOpened))}
       >
         <MenuIcon  
-          className={`${classes.button} ${!isSideBarOpened ? classes.opened : ''}`} 
+          className={`${classes.button} ${isSideBarOpened ? classes.closed : ''}`} 
         />
       </IconButton>
     </Route>

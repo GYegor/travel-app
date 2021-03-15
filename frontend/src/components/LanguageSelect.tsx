@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ListItemIcon, SvgIcon, Select, MenuItem } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import { AppState } from '../interfaces';
+import { AppState, Language } from '../interfaces';
 import { onLanguageChanged } from '../actions/language-action'
 import { useStyles } from '../styles/custom-select-style';
 import { ReactComponent as US } from '../assets/images/US.svg';
@@ -16,7 +16,8 @@ const LanguageSelect: React.FC = () => {
   const classes = useStyles();
   
   const dispatch = useDispatch()
-  const lang = useSelector<AppState>(state => state.lang);
+  
+  const lang = useSelector<AppState, Language>(state => state.lang);
 
   const handleChange = (event: any) => {
     dispatch(onLanguageChanged(event.target.value))

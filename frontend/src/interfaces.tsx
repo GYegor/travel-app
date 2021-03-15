@@ -8,10 +8,24 @@ export interface AppState {
 
 export interface ICountryCard {
   id: number;
-  name: string;
-  capital: string;
-  smallImageId: string;
-  localTimeDiff: number;
+  name: string,
+  capital: string,
+  smallImageId: string,
+  localTimeDiff?: number;
+}
+
+export interface ICountryAvatarProps {
+  name: string,
+  capital: string,
+  description: string,
+  imageUrl: string,
+}
+
+export interface ISightseeing {
+  name: string,
+  imageId: string,
+  description: string,
+  smallImageId: string,
 }
 
 export enum Language {
