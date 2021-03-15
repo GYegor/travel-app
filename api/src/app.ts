@@ -23,31 +23,12 @@ app.use(requestLogMiddleware);
 app.use('/favicon.ico', (req, res) => res.sendStatus(StatusCodes.NO_CONTENT));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
-// app.get('/api', (req,res) => {  console.log('api called!!!'); res.json({smth: 'WOW it works with API!!!'}); });
-
-
-// app.use('/', (req, res, next) => {
-//   if (req.originalUrl === '/') {
-//     res.send('Service is running! Yo comrades!');
-//     return;
-//   }
-//   next();
-// });
-
-
 // Routers
 import countryRouter = require('./modules/countries/country.router');
-import userRouter = require('./modules/users/users.router');
+import userRouter = require('./modules/users/user.router');
 
 app.use('/api/countries', countryRouter);
 app.use('/api/users', userRouter);
-
-// app.use('/smth', countryRouter);
-
-
-// app.use((req, res) => {
-//   res.status(StatusCodes.NOT_IMPLEMENTED).send(ReasonPhrases.NOT_IMPLEMENTED);
-// });
 
 app.use(errorMiddleware);
 

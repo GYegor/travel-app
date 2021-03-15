@@ -10,3 +10,8 @@ export const getOne = async(id: number, lang: number): Promise<types.ICountry> =
     const country = await countryRepo.getOneByLang(id, lang);
     return country;
 }
+
+export const putRating = async (obj: any) => {
+    const newRating = await countryRepo.putAndGetRating(obj);
+    return newRating;
+}

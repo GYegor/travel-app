@@ -7,15 +7,15 @@ const getBasicData = (country: types.ICountryDocument, lang: number) => ({
     smallImageId: country.smallImageId,
     name: country.localizations[lang].name,
     capital: country.localizations[lang].capital,
-    localTimeDiff: country.localTimeDiff,
+    utcOffset: country.utcOffset,
 });
 
 const getFullBasicData = (country: types.ICountryDocument) => ({
     id: country.countryId,
     imageId: country.imageId,
     videoUrl: country.videoUrl,
-    coordinates: country.coordinates,
-    localTimeDiff: country.localTimeDiff,
+    coords: country.coords,
+    utcOffset: country.utcOffset,
 });
 
 const getLocalization = (country: types.ICountryDocument, lang: types.Language) => ({
@@ -52,4 +52,46 @@ export const getOneByLang = async (id: number, lang: number): Promise<types.ICou
         ...getLocalization(data, lang - 1),
         ...getSights(data.sights, lang - 1),
     }
+}
+
+const isVotedUser = (users, name) => {
+    let isUser = false;
+    users.forEach((user) => {
+        if (user.name === name) isUser = true;
+    });
+
+    return isUser;
+}
+
+const changeRating = (rating, obj) => {
+    rating.points = (rating.points * rating.votes + obj.points) / (rating.votes + 1);
+        rating.votes += 1;
+        rating.votedUsers.push({
+            name: obj.name,
+            imageId: obj.imageId,
+            points: obj.points,
+        });
+
+    return rating;
+}
+
+const setData = async (newData, obj) => {
+    await model.CountryModel.updateOne(
+        { countryId: obj.countryId },
+        { $set: { "sights":newData.sights } }
+    );
+}
+
+export const putAndGetRating = async (obj: any) => {
+    const data = await model.CountryModel.findOne({ countryId: obj.countryId });
+    const rating = data.sights[obj.sightId - 1].rating;
+    const users = rating.votedUsers;
+    if (!isVotedUser(users, obj.name)) {
+        data.sights[obj.sightId - 1].rating = changeRating(rating, obj);
+        setData(data, obj);
+
+        return data;
+    }
+
+    return null;
 }
