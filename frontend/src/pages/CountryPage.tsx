@@ -68,7 +68,7 @@ const CountryPage: React.FC = () => {
 
         setImages(getImagesFromData());
         setAvatar(getAvatarFromData());
-        dispatch(onUtcOffsetChanged(data.localTimeDiff))
+        dispatch(onUtcOffsetChanged(data.utcOffset));
         setLoading(false);                       
       })
   }, [id, lang])
