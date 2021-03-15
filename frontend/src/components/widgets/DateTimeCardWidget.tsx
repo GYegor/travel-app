@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
     'border-radius': 8,
     color: 'white',
-    'background-color': fade(theme.palette.primary.light, 0.7),
+    'background-color': fade(theme.palette.primary.light, 0.8),
 
   },
   action: {

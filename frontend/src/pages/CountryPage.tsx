@@ -10,9 +10,14 @@ import { makeStyles } from '@material-ui/core';
 import { theme } from "../mui-style";
 import { Loader } from "../components/Loader";
 import { CountryAvatar } from "../components/CountryAvatar";
+<<<<<<< HEAD
 import { ICountryAvatarProps, ISightseeing, AppState, Language } from "../interfaces";
+=======
+import { ICountryAvatarProps, ISightseeing, AppState, Language, ICountryFull } from "../interfaces";
+>>>>>>> 3534575adaf003fedec192ae798f3bf3174a959c
 import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
+import { onWeatherParamsChanged } from "../actions/weather-params-action";
 
 const useStyles = makeStyles({
   container: {
@@ -20,6 +25,7 @@ const useStyles = makeStyles({
     overflowY: 'auto',
   },
   wrapper: {
+    positon: 'relative',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -43,8 +49,7 @@ const CountryPage: React.FC = () => {
   useEffect(() => {
     fetch(`/api/countries/${id}?lang=${Language[lang]}`)
       .then(response => response.json())
-      .then(data => {
-        console.log(data);        
+      .then((data: ICountryFull) => {
         const getImagesFromData = (): ReactImageGalleryItem[] => {
           return data.sights.map((elem: ISightseeing) => {
             return {
@@ -67,8 +72,13 @@ const CountryPage: React.FC = () => {
 
         setImages(getImagesFromData());
         setAvatar(getAvatarFromData());
+<<<<<<< HEAD
         dispatch(onUtcOffsetChanged(data.utcOffset));
         dispatch(onCountryChanged(data));
+=======
+        dispatch(onUtcOffsetChanged(data.utcOffset))
+        dispatch(onWeatherParamsChanged(data))
+>>>>>>> 3534575adaf003fedec192ae798f3bf3174a959c
         setLoading(false);                       
       })
   }, [id, lang])
