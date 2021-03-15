@@ -6,7 +6,7 @@ const getBasicData = (country: types.ICountryDocument, lang: number) => ({
     smallImageId: country.smallImageId,
     name: country.localizations[lang].name,
     capital: country.localizations[lang].capital,
-    utcOffset: country.utcOffset,
+    // utcOffset: country.utcOffset,
 });
 
 const getFullBasicData = (country: types.ICountryDocument) => ({
@@ -15,6 +15,7 @@ const getFullBasicData = (country: types.ICountryDocument) => ({
     videoUrl: country.videoUrl,
     coords: country.coords,
     utcOffset: country.utcOffset,
+    currencyCode: country.currencyCode,
 });
 
 const getLocalization = (country: types.ICountryDocument, lang: types.Language) => ({

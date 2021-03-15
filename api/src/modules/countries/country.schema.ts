@@ -46,6 +46,7 @@ const CountrySchema = new mongoose.Schema({
     },
     imageId: String,
     smallImageId: String,
+    currencyCode: String,
     videoUrl: String,
     utcOffset: {
         type: Number,
@@ -67,52 +68,3 @@ const CountrySchema = new mongoose.Schema({
 );
 
 export = CountrySchema;
-
-// const { Schema, model } = require('mongoose');
-
-// const localeSchema = new Schema({
-//   _id: false,
-//   name: {
-//     type: String,
-//     required: true,
-//   },
-//   capital: {
-//     type: String,
-//     required: true,
-//   },
-//   description: {
-//     type: String,
-//     required: true,
-//   },
-// });
-
-// const countrySchema = new Schema({
-//   imageId: String,
-//   videoUrl: String,
-//   currency: {
-//     type: String,
-//     required: true,
-//   },
-//   ISOCode: {
-//     type: String,
-//     uppercase: true,
-//     unique: true,
-//     required: true,
-//   },
-//   capitalLocation: {
-//     type: {
-//       type: String,
-//       enum: ['Point'],
-//       required: true,
-//     },
-//     coords: {
-//       type: [Number],
-//       required: true,
-//     },
-//   },
-//   localizations: [localeSchema],
-// });
-
-// const Country = model('Country', countrySchema);
-
-// module.exports = Country;
