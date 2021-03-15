@@ -12,6 +12,7 @@ import Header from './components/Header';
 import { CloudinaryContext } from 'cloudinary-react';
 import cloudName from './constants/cloudName';
 import SideBar from './components/SideBar';
+import Popup from './components/Popup';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,13 +38,14 @@ function App() {
     <CloudinaryContext cloudName={cloudName} className={classes.root}>
       <ThemeProvider theme={theme}>
         <Router>
+          <Popup />
           <Header />
           <div className={classes.pageWrapper}>
             <Switch>
 
               <Route path="/country/:id">
                 <CountryPage />
-                <SideBar />     
+                <SideBar />
               </Route>
 
               <Route path="/">

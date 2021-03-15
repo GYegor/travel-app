@@ -7,6 +7,8 @@ export const initialState: AppState = {
   filterString: '',
   utcOffset: 3,
   isSideBarOpened: false,
+  isPopup: false,
+  user: null,
 }
 
 const appReducer = (state = initialState, action: AnyAction) => {
@@ -23,13 +25,13 @@ const appReducer = (state = initialState, action: AnyAction) => {
         ...state,
         lang : action.lang
       })
-    
+
     case 'FILTER_STRING_CHANGED' :
       return ({
         ...state,
         filterString : action.filterString
       })
-  
+
     case 'UTC_OFFSET_CHANGE' :
       return ({
         ...state,
@@ -40,6 +42,18 @@ const appReducer = (state = initialState, action: AnyAction) => {
       return ({
         ...state,
         isSideBarOpened : action.isSideBarOpened
+      })
+
+    case 'TOGGLE_POPUP' :
+      return ({
+        ...state,
+        isPopup: action.isPopup
+      })
+
+    case 'REGISTRATION_USER' :
+      return ({
+        ...state,
+        user: action.user
       })
 
     default:

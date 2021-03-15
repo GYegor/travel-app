@@ -1,9 +1,17 @@
+export interface IUser {
+  name: string,
+  imageId: string,
+  lang: string,
+}
+
 export interface AppState {
   countryList: ICountryCard[];
   lang: Language;
   filterString: string;
   utcOffset: number;
   isSideBarOpened: boolean;
+  isPopup: boolean,
+  user: IUser | null
 }
 
 export interface ICountryCard {
