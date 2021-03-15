@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { onUtcOffsetChanged } from '../actions/utc-offset-action';
+import { onCountryChanged } from '../actions/country-action';
 import { useParams } from "react-router-dom";
 import "react-image-gallery/styles/scss/image-gallery.scss";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
-import ReactImageGallery from "react-image-gallery";
 import '../styles/ImageGallery.scss';
 import { makeStyles } from '@material-ui/core';
 import { theme } from "../mui-style";
 import { Loader } from "../components/Loader";
 import { CountryAvatar } from "../components/CountryAvatar";
-import SideBar from '../components/SideBar';
 import { ICountryAvatarProps, ISightseeing, AppState, Language } from "../interfaces";
 import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
@@ -69,6 +68,7 @@ const CountryPage: React.FC = () => {
         setImages(getImagesFromData());
         setAvatar(getAvatarFromData());
         dispatch(onUtcOffsetChanged(data.utcOffset));
+        dispatch(onCountryChanged(data));
         setLoading(false);                       
       })
   }, [id, lang])

@@ -4,6 +4,7 @@ export interface AppState {
   filterString: string;
   utcOffset: number;
   isSideBarOpened: boolean;
+  country: ICountry|null;
 }
 
 export interface ICountryCard {
@@ -32,4 +33,16 @@ export enum Language {
   en = 1,
   ru = 2,
   by = 3
+}
+export interface ICountry {
+  id: number;
+  name: string;
+  capital: string;
+  smallImageId?: string;
+  imageId: string;
+  videoUrl: string;
+  description: string;
+  coords: Array<number>;
+  currencyCode: string;
+  utcOffset: number;
 }

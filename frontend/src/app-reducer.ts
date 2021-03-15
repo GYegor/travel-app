@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux'
-import { AppState, Language } from './interfaces'
+import { AppState, Language, ICountry } from './interfaces'
 
 export const initialState: AppState = {
   countryList: [],
@@ -7,6 +7,7 @@ export const initialState: AppState = {
   filterString: '',
   utcOffset: 3,
   isSideBarOpened: false,
+  country: null,
 }
 
 const appReducer = (state = initialState, action: AnyAction) => {
@@ -16,6 +17,12 @@ const appReducer = (state = initialState, action: AnyAction) => {
       return ({
         ...state,
         countryList : action.countryList
+      })
+
+    case 'COUNTRY_CHANGE' :
+      return ({
+        ...state,
+        country : action.country
       })
 
     case 'LANGUAGE_CHANGE' :
