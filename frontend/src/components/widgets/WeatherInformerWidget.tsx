@@ -60,7 +60,7 @@ const WeatherInformerWidget: React.FC = () => {
     [Language.ru]: ['ощущается как', 'влажность','скорость ветра'],
     [Language.by]: ['адчуваецца як', 'вільготнасць','хуткасць ветру']
   }
-  console.log(process.env.WEATHER_API_BASE_URL);
+  // console.log(process.env.WEATHER_API_BASE_URL);
   const [city, setCity] = useState('Barnaul');
   const [weather, setWeather] = useState<IWheather | null>(null);
   useEffect(() => {
