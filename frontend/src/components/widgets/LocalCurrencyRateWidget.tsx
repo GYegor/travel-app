@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     'border-radius': 12,
     color: 'white',
     'background-color': fade(theme.palette.primary.light, 0.7),
-
   },
   action: {
     '&:hover': {
@@ -23,13 +22,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
   },
 }));
-
-// const TARGET_CURRENCY = 'EUR';
-
-// interface Irates {
-//   string: number; //так будет проблемно
-//   // динамически вставлять переменную тоже не очень.
-// }
 
 const LocalCurrencyRateWidget: React.FC = () => {
   const classes = useStyles();
@@ -66,13 +58,10 @@ const LocalCurrencyRateWidget: React.FC = () => {
       });
   }, [country]);
 
-
-  console.log('rates', rates);
-  console.log('ratesEuro', ratesEuro);
   const currencyRateInformation = {
-    [Language.en]: ['Currency rates', '1 USD', '1 EUR', '100 RUB'],
-    [Language.ru]: ['Курсы валют', '1 доллар США', '1 евро', '100 российских рублей'],
-    [Language.by]: ['Курсы валют', '1 долар ЗША', '1 еўра', '100 расійскіх рублёў']
+    [Language.en]: ['Currency rates'],
+    [Language.ru]: ['Курсы валют'],
+    [Language.by]: ['Курсы валют']
   }
 
   function getRate(currency: 'USD' | 'EUR' | 'RUB'): string {
