@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux'
-import { AppState, Language } from './interfaces'
+import { AppState, Language, ICountryFull } from './interfaces'
 
 export const initialState: AppState = {
   countryList: [],
@@ -8,6 +8,8 @@ export const initialState: AppState = {
   utcOffset: 3,
   isSideBarOpened: false,
   user: null,
+  weatherParams: null,
+  country: null,
 }
 
 const appReducer = (state = initialState, action: AnyAction) => {
@@ -17,6 +19,12 @@ const appReducer = (state = initialState, action: AnyAction) => {
       return ({
         ...state,
         countryList : action.countryList
+      })
+
+    case 'COUNTRY_CHANGE' :
+      return ({
+        ...state,
+        country : action.country
       })
 
     case 'LANGUAGE_CHANGE' :
@@ -35,6 +43,12 @@ const appReducer = (state = initialState, action: AnyAction) => {
       return ({
         ...state,
         utcOffset : action.utcOffset
+      })
+
+    case 'GET_WEATHER_PARAMS' :
+      return ({
+        ...state,
+        weatherParams : action.weatherParams
       })
 
     case 'TOGGLE_SIDE_BAR' :

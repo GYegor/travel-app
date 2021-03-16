@@ -6,7 +6,7 @@ export const getAll = async (lang: number): Promise<Array<types.ICountryBase>> =
     return countries;
 }
 
-export const getOne = async(id: number, lang: number): Promise<types.ICountry> => {
+export const getOne = async(id: number, lang: number): Promise<types.ICountryFull> => {
     const country = await countryRepo.getOneByLang(id, lang);
     return country;
 }

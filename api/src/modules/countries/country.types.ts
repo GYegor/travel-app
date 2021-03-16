@@ -45,7 +45,7 @@ export interface ICountryBase {
     smallImageId?: string;
 }
 
-export interface ICountry extends ICountryBase {
+export interface ICountryFull extends ICountryBase {
     imageId: string;
     videoUrl: string;
     description: string;

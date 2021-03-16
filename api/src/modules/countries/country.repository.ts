@@ -45,7 +45,7 @@ export const getAllByLang = async (lang: number): Promise<Array<types.ICountryBa
     })
 }
 
-export const getOneByLang = async (id: number, lang: number): Promise<types.ICountry> => {
+export const getOneByLang = async (id: number, lang: number): Promise<types.ICountryFull> => {
     const data = await model.CountryModel.findOne({ countryId: id });
     return {
         ...getFullBasicData(data),
