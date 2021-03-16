@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 const SightRating: React.FC<{points: number}> = ( { points } ) => {
   const classes = useStyles();
   
-  const [curPoints, setCurPoints] = React.useState<number | null>(null);
+  const [curPoints, setCurPoints] = useState<number | null>(points);
 
   useEffect(() => {
     setCurPoints(points);

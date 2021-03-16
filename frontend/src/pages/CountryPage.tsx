@@ -97,7 +97,7 @@ const CountryPage: React.FC = () => {
             showBullets={true}
             slideDuration={500}
             slideInterval={2000}
-            renderCustomControls={() => <SightRating points={(ratings[imgIndex] || {}).points}/>}
+            renderCustomControls={() => <SightRating points={ratings[imgIndex] ? ratings[imgIndex].points : 0}/>}
             onSlide={(curIndex) => {setImgIndex(curIndex)}}
           />
         }
