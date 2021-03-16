@@ -10,10 +10,11 @@ import { makeStyles } from '@material-ui/core';
 import { theme } from "../mui-style";
 import { Loader } from "../components/Loader";
 import { CountryAvatar } from "../components/CountryAvatar";
-import { ICountryAvatarProps, ISightseeing, AppState, Language, ICountryFull } from "../interfaces";
+import { ICountryAvatarProps, ISightseeing, AppState, Language, ICountryFull, IRating } from "../interfaces";
 import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
 import { onWeatherParamsChanged } from "../actions/weather-params-action";
+import SightRating from "../components/SightRating";
 
 const useStyles = makeStyles({
   container: {
@@ -33,12 +34,17 @@ const useStyles = makeStyles({
 
 const CountryPage: React.FC = () => {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
   const { id } = useParams<Record<string, string | undefined>>();
+
   const [loading, setLoading] = useState(true);
   const [images, setImages] = useState<ReactImageGalleryItem[]>([]);  
   const [avatar, setAvatar] = useState<ICountryAvatarProps | null>(null);
-  
-  const dispatch = useDispatch();
+  const [ratings, setRatings] = useState<IRating[] | []>([]);
+  const [ imgIndex, setImgIndex ] = useState(0);
+
 
   const lang = useSelector<AppState, Language>(state => state.lang);  
 
@@ -56,7 +62,7 @@ const CountryPage: React.FC = () => {
             };
           });
         };
-        
+
         const getAvatarFromData = (): ICountryAvatarProps => {
           return ({
             name: data.name,
@@ -66,8 +72,11 @@ const CountryPage: React.FC = () => {
           })
         }
 
+        const getRatingsFromData = (): IRating[] => data.sights.map((elem: ISightseeing) => elem.rating);
+        
         setImages(getImagesFromData());
         setAvatar(getAvatarFromData());
+        setRatings(getRatingsFromData());
         dispatch(onUtcOffsetChanged(data.utcOffset))
         dispatch(onWeatherParamsChanged(data))
         dispatch(onCountryChanged(data));
@@ -83,11 +92,13 @@ const CountryPage: React.FC = () => {
         { images.length !== 0 && <ImageGallery 
             items={images}
             thumbnailPosition={"bottom"}
-            infinite={false}
+            infinite={true}
             lazyLoad={true}
             showBullets={true}
-            slideDuration={700}
+            slideDuration={500}
             slideInterval={2000}
+            renderCustomControls={() => <SightRating points={(ratings[imgIndex] || {}).points}/>}
+            onSlide={(curIndex) => {setImgIndex(curIndex)}}
           />
         }
       </div>

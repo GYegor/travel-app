@@ -74,10 +74,10 @@ export interface IVotedUser extends IUser {
 }
 
 export interface IUser {
-  id: number;
+  id?: number;
   imageId: number;
   name: IVotedUser;
-  lang: Language;
+  lang?: Language;
 }
 
 export enum Language {
