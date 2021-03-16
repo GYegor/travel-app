@@ -45,11 +45,12 @@ export interface ICountryBase {
     smallImageId?: string;
 }
 
-export interface ICountry extends ICountryBase {
+export interface ICountryFull extends ICountryBase {
     imageId: string;
     videoUrl: string;
     description: string;
     coords: Array<number>;
+    currencyCode: string,
     utcOffset: number,
     sights: Array<ISight>;
 }
@@ -82,6 +83,7 @@ export interface ICountrySchema {
     countryId: number,
     imageId: string,
     smallImageId: string,
+    currencyCode: string,
     videoUrl: string,
     utcOffset: number,
     coords: Array<number>,

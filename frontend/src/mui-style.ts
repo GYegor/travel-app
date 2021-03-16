@@ -1,21 +1,21 @@
-import { teal } from "@material-ui/core/colors";
+import { lightGreen } from "@material-ui/core/colors";
 import { createMuiTheme, createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Translate } from "@material-ui/icons";
 
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: teal[400],
-      light: teal[300],
-      dark: teal[700]
+      main: lightGreen[800],
+      light: lightGreen[600],
+      dark: lightGreen[900]
     },
     secondary: {
       main: '#ffee58',
       light: '#ffff8b',
-      dark: '#c9bc1f' 
+      dark: '#c9bc1f'
     }
   },
-  spacing: 10, 
+  spacing: 10,
 })
 
 export const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -33,8 +33,8 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
         fontWeight: 600,
         'font-size': theme.spacing(3.1),
       }
-    }, 
+    },
     titleSpan: {
-      verticalAlign: '9%',
+      verticalAlign: '7%',
     },   
 }));

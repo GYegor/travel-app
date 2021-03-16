@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { onUtcOffsetChanged } from '../actions/utc-offset-action';
+import { onCountryChanged } from '../actions/country-action';
 import { useParams } from "react-router-dom";
 
 import "react-image-gallery/styles/scss/image-gallery.scss";
@@ -20,11 +21,11 @@ import { theme } from "../mui-style";
 
 import { Loader } from "../components/Loader";
 import { CountryAvatar } from "../components/CountryAvatar";
-import SideBar from '../components/SideBar';
-import { ICountryAvatarProps, ISightseeing, AppState, Language } from "../interfaces";
-
+import { ICountryAvatarProps, ISightseeing, AppState, Language, ICountryFull, IRating } from "../interfaces";
 import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
+import { onWeatherParamsChanged } from "../actions/weather-params-action";
+import SightRating from "../components/SightRating";
 
 const useStyles = makeStyles({
   container: {
@@ -32,6 +33,7 @@ const useStyles = makeStyles({
     overflowY: 'auto',
   },
   wrapper: {
+    positon: 'relative',
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
@@ -66,23 +68,27 @@ const useStyles = makeStyles({
 
 const CountryPage: React.FC = () => {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
   const { id } = useParams<Record<string, string | undefined>>();
+
   const [loading, setLoading] = useState(true);
   const [images, setImages] = useState<ReactImageGalleryItem[]>([]);  
   const [avatar, setAvatar] = useState<ICountryAvatarProps | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [coordinates, setCoordinates] = useState<number[] | null>(null);
-  const [geometry, setGeometry] = useState<any[][][] | any[][]>([]);
-  
-  const dispatch = useDispatch();
+  const [geometry, setGeometry] = useState<any[][][] | any[][]>([]);  
+  const [ratings, setRatings] = useState<IRating[] | []>([]);
+  const [ imgIndex, setImgIndex ] = useState(0);
+
 
   const lang = useSelector<AppState, Language>(state => state.lang);  
 
   useEffect(() => {
     fetch(`/api/countries/${id}?lang=${Language[lang]}`)
       .then(response => response.json())
-      .then(data => {
-        console.log(data);        
+      .then((data: ICountryFull) => {
         const getImagesFromData = (): ReactImageGalleryItem[] => {
           return data.sights.map((elem: ISightseeing) => {
             return {
@@ -93,7 +99,7 @@ const CountryPage: React.FC = () => {
             };
           });
         };
-        
+
         const getAvatarFromData = (): ICountryAvatarProps => {
           return ({
             name: data.name,
@@ -108,12 +114,17 @@ const CountryPage: React.FC = () => {
           return polygon!.geometry;
         }
 
+        const getRatingsFromData = (): IRating[] => data.sights.map((elem: ISightseeing) => elem.rating);
+
         setImages(getImagesFromData());
         setAvatar(getAvatarFromData());
         setVideoUrl(data.videoUrl);
         setCoordinates(data.coords);
-        setGeometry(getGeometryFromData());
-        dispatch(onUtcOffsetChanged(data.localTimeDiff))
+        setGeometry(getGeometryFromData()); 
+        setRatings(getRatingsFromData());
+        dispatch(onUtcOffsetChanged(data.utcOffset))
+        dispatch(onWeatherParamsChanged(data))
+        dispatch(onCountryChanged(data));
         setLoading(false);                       
       })
   }, [id, lang])
@@ -126,11 +137,13 @@ const CountryPage: React.FC = () => {
         { images.length !== 0 && <ImageGallery 
             items={images}
             thumbnailPosition={"bottom"}
-            infinite={false}
+            infinite={true}
             lazyLoad={true}
             showBullets={true}
-            slideDuration={700}
+            slideDuration={500}
             slideInterval={2000}
+            renderCustomControls={() => <SightRating points={ratings[imgIndex] ? ratings[imgIndex].points : 0}/>}
+            onSlide={(curIndex) => {setImgIndex(curIndex)}}
           />
         }
         {videoUrl &&

@@ -6,7 +6,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { theme } from '../mui-style';
 import { AppState } from '../interfaces';
 import DateTimeCardWidget from './widgets/DateTimeCardWidget';
-import WeatherInformerWidget from './widgets/WeatherInformerWidget'
+import WeatherInformerWidget from './widgets/WeatherInformerWidget';
+import LocalCurrencyRateWidget from './widgets/LocalCurrencyRateWidget'
 import { onToggleSideBar } from '../actions/side-bar-action';
 
 const useStyles = makeStyles({
@@ -21,7 +22,8 @@ const useStyles = makeStyles({
     top: 0,
     left: 0,
     bottom: 0,
-    transition: 'all 400ms ease'
+    transition: 'all 400ms ease',
+    zIndex: 10
   },
   closed: {
     transform: 'translateX(-100%)'
@@ -42,6 +44,7 @@ const SideBar: React.FC = () => {
     >
       <DateTimeCardWidget />
       <WeatherInformerWidget />
+      <LocalCurrencyRateWidget />
     </div>
   )
 }
