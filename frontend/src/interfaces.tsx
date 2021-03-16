@@ -5,6 +5,7 @@ export interface AppState {
   utcOffset: number;
   isSideBarOpened: boolean;
   weatherParams: IWeatherParams | null;
+  country: ICountryFull|null;
 }
 
 export interface IWeatherParams {
@@ -22,6 +23,18 @@ export interface ICountryCard {
 
 export interface ICountryFull {
   id: number;
+  name: string;
+  capital: string;
+  smallImageId?: string;
+  imageId: string;
+  videoUrl: string;
+  description: string;
+  coords: Array<number>;
+  currencyCode: string;
+  utcOffset: number;
+}
+export interface ICountryFull {
+  id: number;
   name: string,
   capital: string,
   imageId: string,
@@ -30,6 +43,8 @@ export interface ICountryFull {
   description: string;
   videoUrl: string;
   sights: ISightseeing[];
+  currencyCode: string;
+  smallImageId?: string;
 }
 
 export interface ICountryAvatarProps {

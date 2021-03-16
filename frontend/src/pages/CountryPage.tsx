@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { onUtcOffsetChanged } from '../actions/utc-offset-action';
+import { onCountryChanged } from '../actions/country-action';
 import { useParams } from "react-router-dom";
 import "react-image-gallery/styles/scss/image-gallery.scss";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
@@ -69,6 +70,7 @@ const CountryPage: React.FC = () => {
         setAvatar(getAvatarFromData());
         dispatch(onUtcOffsetChanged(data.utcOffset))
         dispatch(onWeatherParamsChanged(data))
+        dispatch(onCountryChanged(data));
         setLoading(false);                       
       })
   }, [id, lang])
