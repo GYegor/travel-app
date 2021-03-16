@@ -4,7 +4,7 @@ export interface AppState {
   filterString: string,
   utcOffset: number,
   isSideBarOpened: boolean,
-  user: IUser | null
+  user: IUser | null,
 }
 
 export interface ICountryCard {
