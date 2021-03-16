@@ -59,7 +59,7 @@ const LocalCurrencyRateWidget: React.FC = () => {
   }
 
   return (
-    country && (<Card className={classes.root}>
+    country && (<Card className={classes.root} onClick={(event) => event.stopPropagation()}>
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography variant="h5" component="h3">
