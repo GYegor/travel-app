@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
 import { ICountryCard } from "../interfaces";
+import { lightGreen } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     transition: 'all 0.3s;',
     '&:hover': {
       transform: 'scale(1.1)',
-      'background-color': 'rgb(250, 255, 240)',
+      backgroundColor: lightGreen[100],
     }
     
   },

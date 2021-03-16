@@ -22,7 +22,8 @@ const useStyles = makeStyles({
     top: 0,
     left: 0,
     bottom: 0,
-    transition: 'all 400ms ease'
+    transition: 'all 400ms ease',
+    zIndex: 10
   },
   closed: {
     transform: 'translateX(-100%)'
