@@ -12,7 +12,13 @@ router.post('/registration', wrap(async (req, res): Promise<void> => {
         res.status(201).json(result);
         return;
     }
-    res.status(409).json({ message: 'this user is already registered' });
+    res.status(409).json({
+        message: [
+            'this user is already registered',
+            'Указанный пользователь зарегистрирован',
+            'Ўказаны карыстальнік зарэгістраваны',
+            ]
+        });
 }));
 
 router.post('/login', wrap(async (req, res): Promise<void> => {
@@ -21,7 +27,13 @@ router.post('/login', wrap(async (req, res): Promise<void> => {
         res.json(result);
         return;
     }
-    res.status(401).json({ message: 'this user is no registered' });
+    res.status(401).json({
+        message: [
+            'this user is no registered',
+            'Указанный пользователь не зарегистрирован',
+            'Ўказаны карыстальнік не зарэгістраваны',
+        ]
+    });
 }));
 
 export = router;
