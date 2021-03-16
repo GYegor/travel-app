@@ -14,7 +14,6 @@ import MenuButton from './MenuButton';
 import SearchField from './SearchField';
 import Entry from './Entry';
 
-
 const Header: React.FC = () => {
   const classes = useStyles();
 

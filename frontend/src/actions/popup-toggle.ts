@@ -1,1 +1,0 @@
-export const onPopupToggle= (isPopup: boolean) => ({type: 'TOGGLE_POPUP', isPopup})

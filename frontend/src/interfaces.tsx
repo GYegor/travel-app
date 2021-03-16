@@ -1,16 +1,9 @@
-export interface IUser {
-  name: string,
-  imageId: string,
-  lang: string,
-}
-
 export interface AppState {
-  countryList: ICountryCard[];
-  lang: Language;
-  filterString: string;
-  utcOffset: number;
-  isSideBarOpened: boolean;
-  isPopup: boolean,
+  countryList: ICountryCard[],
+  lang: Language,
+  filterString: string,
+  utcOffset: number,
+  isSideBarOpened: boolean,
   user: IUser | null
 }
 
@@ -34,6 +27,12 @@ export interface ISightseeing {
   imageId: string,
   description: string,
   smallImageId: string,
+}
+
+export interface IUser {
+  name: string,
+  imageId: string,
+  lang: Language,
 }
 
 export enum Language {

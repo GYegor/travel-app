@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import { useDispatch } from "react-redux";
-import { AppState } from '../interfaces';
-import { onPopupToggle } from '../actions/popup-toggle';
+import Popup from './Popup';
 
 const Entry: React.FC = () => {
-    const dispatch = useDispatch();
-
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     const handleClick = () => {
-        dispatch(onPopupToggle(true))
+        setIsOpen(true);
     };
 
     return (
         <>
+            <Popup isOpen={isOpen} setIsOpen={setIsOpen} />
             <Button color="inherit" onClick={handleClick}>Log in</Button>
             <Button color="inherit" onClick={handleClick}>Sign up</Button>
         </>

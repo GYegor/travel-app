@@ -7,7 +7,6 @@ export const initialState: AppState = {
   filterString: '',
   utcOffset: 3,
   isSideBarOpened: false,
-  isPopup: false,
   user: null,
 }
 
@@ -44,13 +43,7 @@ const appReducer = (state = initialState, action: AnyAction) => {
         isSideBarOpened : action.isSideBarOpened
       })
 
-    case 'TOGGLE_POPUP' :
-      return ({
-        ...state,
-        isPopup: action.isPopup
-      })
-
-    case 'REGISTRATION_USER' :
+    case 'SET_USER' :
       return ({
         ...state,
         user: action.user

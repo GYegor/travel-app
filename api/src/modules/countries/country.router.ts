@@ -22,15 +22,15 @@ router.get('/', wrap(async (req, res): Promise<void> => {
 //     res.json({});
 // })
 
+router.put('/rating', wrap(async (req, res): Promise<void> => {
+    const data = await countryService.putRating(req.body);
+    res.json(data);
+}));
+
 router.get('/:id', wrap(async (req, res): Promise<void> => {
     const lang: string = req.query.lang || config.DEFAULT_LANG;
     const { id } = req.params;
     const data = await countryService.getOne(id, types.Language[lang]);
-    res.json(data);
-}));
-
-router.put('/rating', wrap(async (req, res): Promise<void> => {
-    const data = await countryService.putRating(req.body);
     res.json(data);
 }));
 
