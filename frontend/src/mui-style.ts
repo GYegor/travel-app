@@ -35,6 +35,6 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
       }
     }, 
     titleSpan: {
-      verticalAlign: '9%',
+      verticalAlign: '7%',
     },   
 }));
