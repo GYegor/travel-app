@@ -2,12 +2,13 @@
   "name": "travel-app-api",
   "version": "1.0.0",
   "description": "backend for travel-app",
-  "main": "bin/web-server.ts",
+  "main": "bin/index.ts.ts",
   "scripts": {
-    "start:dev": "nodemon ./src/bin/web-server.ts",
-    "start": "node --inspect=5858 -r ts-node/register ./src/bin/web-server",
-    "build": "tsc",
-    "script": "cd src/scripts && ts-node"
+    "postinstall": "tsc",
+    "start": "node dist/index.js",
+    "watch-node": "nodemon dist/index.js",
+    "watch-ts": "tsc -w",
+    "deploy": "git add . && git commit -m Heroku && git push heroku develop:master"
   },
   "repository": {
     "type": "git",

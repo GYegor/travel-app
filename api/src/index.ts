@@ -1,6 +1,6 @@
-import app = require('../app');
-import config = require('../common/config');
-import connectToDB = require('../common/db/mongodb');
+import app = require('./app');
+import config = require('./common/config');
+import connectToDB = require('./common/db/mongodb');
 
 const port = process.env.PORT || config.DEV_PORT;
 
