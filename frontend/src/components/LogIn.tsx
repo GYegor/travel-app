@@ -84,7 +84,7 @@ const LogIn: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                     variant="h4"
                     className={classes.heading}
                 >
-                    Sign up
+                    Log In
                 </Typography>
                 <form
                     method="post"
