@@ -21,7 +21,7 @@ router.post('/login', wrap(async (req, res): Promise<void> => {
         res.json(result);
         return;
     }
-    res.status(401).send({ message: 'this user is no registered' }).end();
+    res.status(401).json({ message: 'this user is no registered' });
 }));
 
 export = router;

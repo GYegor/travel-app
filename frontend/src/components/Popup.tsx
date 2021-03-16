@@ -6,6 +6,7 @@ import {
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
 import SignUp from './SignUp';
+import LogIn from './LogIn';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     container: {
@@ -23,10 +24,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 interface IProps {
     isOpen: boolean
+    isSignUp: boolean
     setIsOpen: (value: boolean) => void
 }
 
-const Popup: React.FC<IProps> = ({ isOpen, setIsOpen }: IProps) => {
+const Popup: React.FC<IProps> = ({ isOpen, isSignUp, setIsOpen }: IProps) => {
     const classes = useStyles();
 
     const onClose = () => {
@@ -40,7 +42,12 @@ const Popup: React.FC<IProps> = ({ isOpen, setIsOpen }: IProps) => {
                     className={classes.close}
                     onClick={onClose}
                 />
-                <SignUp setIsOpen={setIsOpen} />
+                { isSignUp
+                    ?
+                    <SignUp setIsOpen={setIsOpen} />
+                    :
+                    <LogIn setIsOpen={setIsOpen} />
+                }
             </Box>
         </Dialog>
     );

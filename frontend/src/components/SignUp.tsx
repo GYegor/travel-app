@@ -9,10 +9,6 @@ import { useDispatch } from "react-redux";
 import { setUser } from '../actions/set-user';
 import cloudName from '../constants/cloudName';
 
-interface IProps {
-    setIsOpen: (value: boolean) => void
-}
-
 const useStyles = makeStyles((theme: Theme) => createStyles({
     heading: {
         textAlign: 'center',
@@ -25,6 +21,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         height: 200,
     },
   }));
+
+  interface IProps {
+    setIsOpen: (value: boolean) => void
+  }
 
 const SignUp: React.FC<IProps> = ({ setIsOpen }: IProps) => {
     const classes = useStyles();
