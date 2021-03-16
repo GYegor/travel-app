@@ -74,8 +74,9 @@ export interface IVotedUser extends IUser {
   points: number;
 }
 export interface IUser {
+  id?: number;
+  imageId: number;
   name: string,
-  imageId: string,
   lang: Language,
 }
 
