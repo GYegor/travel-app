@@ -16,6 +16,7 @@ import Entry from './Entry';
 import LogOut from './LogOut';
 import { useSelector } from "react-redux";
 import { AppState, IUser } from '../interfaces';
+import User from './User';
 
 const Header: React.FC = () => {
   const classes = useStyles();
@@ -37,7 +38,10 @@ const Header: React.FC = () => {
         <HomeBtn />
         {
           user ?
-            <LogOut />
+            <>
+              <User />
+              <LogOut />
+            </>
             :
             <Entry />
         }
