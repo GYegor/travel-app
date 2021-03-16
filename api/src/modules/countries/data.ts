@@ -426,7 +426,7 @@ sights: [
   {
     sightId: 2,
     rating: {
-      points: 0,
+      points: 1.5,
       votes: 0,
       votedUsers: [],
     },
@@ -453,7 +453,7 @@ sights: [
   {
     sightId: 3,
     rating: {
-      points: 0,
+      points: 2,
       votes: 0,
       votedUsers: [],
     },
@@ -480,7 +480,7 @@ sights: [
   {
     sightId: 4,
     rating: {
-      points: 0,
+      points: 3.5,
       votes: 0,
       votedUsers: [],
     },
@@ -507,7 +507,7 @@ sights: [
   {
     sightId: 5,
     rating: {
-      points: 0,
+      points: 4,
       votes: 0,
       votedUsers: [],
     },
@@ -534,7 +534,7 @@ sights: [
   {
     sightId: 6,
     rating: {
-      points: 0,
+      points: 5,
       votes: 0,
       votedUsers: [],
     },

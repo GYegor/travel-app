@@ -9,10 +9,10 @@ const router = express.Router();
 router.post('/registration', wrap(async (req, res): Promise<void> => {
     const result = await userService.regUser(req.body);
     if (result) {
-        res.json(result);
+        res.status(201).json(result);
         return;
     }
-    res.status(409).send({ message: 'this user is already registered' }).end();
+    res.status(409).json({ message: 'this user is already registered' });
 }));
 
 router.post('/login', wrap(async (req, res): Promise<void> => {
@@ -21,7 +21,7 @@ router.post('/login', wrap(async (req, res): Promise<void> => {
         res.json(result);
         return;
     }
-    res.status(401).send({ message: 'this user is no registered' }).end();
+    res.status(401).json({ message: 'this user is no registered' });
 }));
 
 export = router;

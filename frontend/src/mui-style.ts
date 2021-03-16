@@ -12,10 +12,10 @@ export const theme = createMuiTheme({
     secondary: {
       main: '#ffee58',
       light: '#ffff8b',
-      dark: '#c9bc1f' 
+      dark: '#c9bc1f'
     }
   },
-  spacing: 10, 
+  spacing: 10,
 })
 
 export const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -33,7 +33,7 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
         fontWeight: 600,
         'font-size': theme.spacing(3.1),
       }
-    }, 
+    },
     titleSpan: {
       verticalAlign: '7%',
     },   
