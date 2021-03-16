@@ -1,12 +1,10 @@
 import React from "react";
 import { Container, Box, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { theme } from "../mui-style";
-import { teal } from "@material-ui/core/colors";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
   footer: {    
-    backgroundColor: teal[200],
+    backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(1, 0), 
   },
   container: {
@@ -38,7 +36,7 @@ const useStyles = makeStyles({
     cursor: "pointer",
     color: theme.palette.primary.contrastText,
   },
-})
+}))
 
 const Footer: React.FC = () => {
   const classes = useStyles();

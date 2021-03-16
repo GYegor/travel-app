@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     position: "absolute",
     top: 46,
     right: 84,
-    filter: 'sepia(400%) saturate(933%) hue-rotate(136deg) brightness(100%) contrast(90%)'
   }
 }));
 interface IWheather {
@@ -54,8 +53,6 @@ const WeatherInformerWidget: React.FC = () => {
   const classes = useStyles();
   const lang = useSelector<AppState>(state => state.lang);
   const weatherParams = useSelector<AppState, IWeatherParams | null>(state => state.weatherParams);
-  console.log(weatherParams);
-
 
   const api = {
     key: '1b49f5edda5dd68a6e6fa012bd990fb5',

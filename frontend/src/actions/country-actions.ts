@@ -6,7 +6,7 @@ export const getDataFromBE = (url: string) => {
       const countryList = await res.json(); 
       dispatch({ type: 'GET_COUNTRY_LIST', countryList });
     } catch (err) {
-      console.log('API failed');
+      alert('API failed');
     }
   }
 }
