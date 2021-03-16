@@ -13,9 +13,13 @@ import LanguageSelect from './LanguageSelect';
 import MenuButton from './MenuButton';
 import SearchField from './SearchField';
 import Entry from './Entry';
+import LogOut from './LogOut';
+import { useSelector } from "react-redux";
+import { AppState, IUser } from '../interfaces';
 
 const Header: React.FC = () => {
   const classes = useStyles();
+  const user = useSelector<AppState, IUser | null>(state => state.user);
 
   return (
     <AppBar position="static">
@@ -31,7 +35,12 @@ const Header: React.FC = () => {
         <Spacer />
         <LanguageSelect />
         <HomeBtn />
-        <Entry />
+        {
+          user ?
+            <LogOut />
+            :
+            <Entry />
+        }
       </Toolbar>
     </AppBar>
   )

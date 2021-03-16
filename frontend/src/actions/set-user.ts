@@ -1,3 +1,3 @@
 import { IUser } from '../interfaces';
 
-export const setUser = (user: IUser) => ({type: 'SET_USER', user})
+export const setUser = (user: IUser | null) => ({type: 'SET_USER', user})
