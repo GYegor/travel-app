@@ -8,8 +8,8 @@
     "server": "npm run start:dev --prefix api",
     "start": "npm start --prefix api",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "buid": "",
-    "heroku-postbuild": "npm install --prefix frontend  && npm run build --prefix frontend && npm install --prefix api && npm run build --prefix api"
+    "build": "",
+    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix api && npm run build --prefix api"
   },
   "devDependencies": {
     "concurrently": "^5.3.0"

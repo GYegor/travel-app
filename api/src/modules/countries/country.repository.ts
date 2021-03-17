@@ -63,8 +63,18 @@ const isVotedUser = (users: Array<types.IVotedUser>, name: string): boolean => {
     return isUser;
 }
 
+const calcPoints = (rating: types.IRatingSchema, obj: types.IRatingRequest): number => {
+    const sumPoints: number = (rating.points * rating.votes + obj.points);
+    const points: number = +(sumPoints / (rating.votes + 1)).toFixed(2);
+    const truncNumber: number = Math.trunc(points);
+    const rest: number = points - truncNumber;
+    if (rest < 0.25) return truncNumber;
+    if (rest <= 0.5) return truncNumber + 0.5;
+    return Math.ceil(points);
+}
+
 const changeRating = (rating: types.IRatingSchema, obj: types.IRatingRequest): types.IRatingSchema => {
-    rating.points = (rating.points * rating.votes + obj.points) / (rating.votes + 1);
+        rating.points = calcPoints(rating, obj);
         rating.votes += 1;
         rating.votedUsers.push({
             name: obj.name,
