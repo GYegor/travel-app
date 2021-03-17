@@ -8,6 +8,8 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { useDispatch } from "react-redux";
 import { setUser } from '../actions/set-user';
 import cloudName from '../constants/cloudName';
+import { AppState } from "../interfaces";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     heading: {
@@ -22,6 +24,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
   }));
 
+  const heading: Array<string> = ['Sign up', 'Зарегистрироваться', 'Зарэгістравацца'];
+  const btnText: Array<string> = ['upload photo', 'загрузить фото', 'загрузіць фота'];
+  const label: Array<string> = ['Nickname', 'Прозвище', 'Мянушку'];
+  const messageEmptyField: Array<string> = ['field is empty', 'поле не заполнено', 'поле пустое'];
+
   interface IProps {
     setIsOpen: (value: boolean) => void
   }
@@ -32,6 +39,7 @@ const SignUp: React.FC<IProps> = ({ setIsOpen }: IProps) => {
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [isError, setIsError] = useState<boolean>(false);
     const inputFile = useRef<HTMLInputElement>(null);
+    const { lang } = useSelector<AppState, AppState>(state => state);
     const dispatch = useDispatch();
 
     const requestToBackend = async (id: string) => {
@@ -89,11 +97,11 @@ const SignUp: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                 setIsOpen(false);
             } else {
                 const message = await result.json();
-                setErrorMessage(message.message);
+                setErrorMessage(message.message[lang - 1]);
                 setIsError(true);
             }
         } else {
-            setErrorMessage('field is empty');
+            setErrorMessage(messageEmptyField[lang - 1]);
             setIsError(true);
         }
     }
@@ -113,7 +121,7 @@ const SignUp: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                     variant="h4"
                     className={classes.heading}
                 >
-                    Sign up
+                    {heading[lang - 1]}
                 </Typography>
                 <form
                     method="post"
@@ -125,7 +133,7 @@ const SignUp: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                         onFocus={handleFocus}
                         value={value}
                         required
-                        label="Nickname"
+                        label={label[lang - 1]}
                         error={isError}
                         helperText={errorMessage}
                     />
@@ -144,7 +152,7 @@ const SignUp: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                             variant="contained"
                             style={{width: '100%'}}
                         >
-                          upload photo
+                          {btnText[lang - 1]}
                         </Button>
                     </label>
                     <Button
@@ -152,7 +160,7 @@ const SignUp: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                         color="primary"
                         onClick={handleClick}
                     >
-                        Sign up
+                        {heading[lang - 1]}
                     </Button>
                 </form>
         </>
