@@ -17,7 +17,8 @@ const appReducer = (state = initialState, action: AnyAction) => {
     case 'GET_COUNTRY_LIST' :
       return ({
         ...state,
-        countryList : action.countryList
+        countryList : action.countryList,
+        country: null,
       })
 
     case 'COUNTRY_CHANGE' :
