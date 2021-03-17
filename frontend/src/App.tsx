@@ -19,14 +19,17 @@ import SideBar from './components/SideBar';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      'height': '100%',
+      height: '100vh',
       display: 'flex',
-      'flex-direction': 'column'
+      'flex-direction': 'column',
     },
     pageWrapper: {
-      overflow: 'hidden',
+      marginTop: 64,
+      overflow: 'auto',
       position: 'relative',
-      height: 'calc(100% - 162px)'
+      minHeight: 'calc(100% - 64px)',
+      display: 'flex',
+      flexDirection: 'column',
     },
     input: {
       display: 'none',
@@ -64,7 +67,6 @@ function App() {
           </div>
 
 
-          <Footer />
         </Router>
       </ThemeProvider>
     </CloudinaryContext>

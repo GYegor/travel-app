@@ -30,21 +30,21 @@ import cloudName from '../constants/cloudName';
 import cloudUrl from '../constants/cloudUrl';
 import { onWeatherParamsChanged } from "../actions/weather-params-action";
 import SightRating from "../components/SightRating";
+import Footer from "../components/Footer";
 
 const useStyles = makeStyles({
   container: {
-    'max-width': '1400px',
-    height: '100%',
-    margin: '0 auto',
     overflowY: 'auto',
   },
   wrapper: {
+    minHeight: 'calc(100% - 64px)',
+    'max-width': '1200px',
     positon: 'relative',
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
     margin: theme.spacing(0, 'auto'),
-    padding: theme.spacing(0, 2, 3, 2)
+    padding: theme.spacing(0, 2)
   },
   playerWrapper: {
     flex: '0 1 100%',
@@ -59,7 +59,7 @@ const useStyles = makeStyles({
   },
   mapWrapper: {
     flex: '0 1 100%',
-    margin: theme.spacing(3, 'auto', 0, 'auto'),
+    margin: theme.spacing(3, 'auto', 3, 'auto'),
     position: 'relative',
     paddingTop: '56.25%',
   },
@@ -160,7 +160,7 @@ const CountryPage: React.FC = () => {
             showBullets={true}
             slideDuration={500}
             slideInterval={2000}
-            renderCustomControls={() => <SightRating points={ratings[imgIndex] ? ratings[imgIndex].points : 0}/>}
+            renderCustomControls={() => <SightRating rating={ratings[imgIndex] ? ratings[imgIndex] : {points: 0}}/>}
             onSlide={(curIndex) => {setImgIndex(curIndex)}}
           />
         }
@@ -189,6 +189,8 @@ const CountryPage: React.FC = () => {
           </div>
         }
       </div>
+      <Footer />
+
     </div>
   );
 };

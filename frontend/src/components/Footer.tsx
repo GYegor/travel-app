@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   footer: {    
     backgroundColor: theme.palette.primary.main,
     bottom: 0,
-    padding: theme.spacing(1, 0),
+    padding: theme.spacing(1.5, 0, 3.5),
   },
   container: {
     display: "flex",
@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     columnGap: theme.spacing(5),
   },  
   logo: {
-    width: "100px",
-    height: "75px",
+    width: "75px",
+    // height: "75px",
   },  
   logoLink: {
     cursor: "pointer",
@@ -30,12 +30,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     flexWrap: "wrap",
     columnGap: "10px",
     justifyContent: "center",
-    alignItems: "center",    
+    alignItems: "center", 
+    color: theme.palette.primary.contrastText,   
   },    
   author: {
     textDecoration: "none",
     cursor: "pointer",
     color: theme.palette.primary.contrastText,
+  },
+  year: {
+    textDecoration: "none",
+    color: theme.palette.primary.contrastText,
+    fontWeight: 600,
   },
 }))
 
@@ -56,40 +62,45 @@ const Footer: React.FC = () => {
           </a>
         </Box>
         <Box className={classes.creators}>
-          <Typography>Created by:</Typography>
+          <Typography></Typography>
           <a
             className={classes.author}
             href="https://github.com/GYegor"
             target="_blank"
             rel="noreferrer"
           >
-            <Typography>Yahor Hlushanko</Typography>
-          </a>          
+            <Typography>GYegor</Typography>
+          </a>  
+          <hr/>        
           <a
             className={classes.author}
             href="https://github.com/KseniyaShukevich"
             target="_blank"
             rel="noreferrer"
           >
-            <Typography>Kseniya Shukevich</Typography>
+            <Typography>KseniyaShukevich</Typography>
           </a>
+          <hr/>
           <a
             className={classes.author}
             href="https://github.com/pacetin"
             target="_blank"
             rel="noreferrer"
           >
-            <Typography>Palina Cetin</Typography>
+            <Typography>pacetin</Typography>
           </a>
+          <hr/>
           <a
             className={classes.author}
             href="https://github.com/MarinaYur"
             target="_blank"
             rel="noreferrer"
           >
-            <Typography>Marina Yurkevich</Typography>
+            <Typography>MarinaYur</Typography>
           </a>
-          <Typography> 2021</Typography>
+        </Box>
+        <Box>
+          <Typography className={classes.year}>&#169; 2021</Typography>
         </Box>
       </Container>
     </footer>

@@ -24,12 +24,14 @@ const Header: React.FC = () => {
   const tittle: Array<string> = ["et's go", 'оехали', 'аехалі'];
 
   return (
-    <AppBar position="static">
+    <AppBar position="absolute">
+
       <Toolbar>
         <MenuButton />
+        <HomeBtn />
         <Typography variant="h6" className={classes.title}>
-        {firstLetter[lang - 1]}<span className={classes.titleSpan}>{tittle[lang - 1]}</span>
-        </Typography>
+        &#2327;&nbsp;<span className={classes.titleSpan}>оехали</span>
+        </Typography>    
         <Route exact path="/">
           <SearchField />
           <IconButton color="secondary" aria-label="search" component="span">
@@ -37,8 +39,6 @@ const Header: React.FC = () => {
           </IconButton>
         </Route>
         <Spacer />
-        <LanguageSelect />
-        <HomeBtn />
         {
           user ?
             <>
@@ -48,6 +48,8 @@ const Header: React.FC = () => {
             :
             <Entry />
         }
+        <LanguageSelect />
+
       </Toolbar>
     </AppBar>
   )
