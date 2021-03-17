@@ -5,9 +5,10 @@
   "main": "bin/web-server.ts",
   "scripts": {
     "start:dev": "nodemon ./src/bin/web-server.ts",
-    "start": "node --inspect=5858 -r ts-node/register ./src/bin/web-server",
+    "start": "node --inspect=5858 -r ts-node/register ./build/bin/web-server",
     "build": "tsc",
-    "script": "cd src/scripts && ts-node"
+    "script": "cd src/scripts && ts-node",
+    "deploy": "git push heroku heroku:master"
   },
   "repository": {
     "type": "git",
