@@ -27,34 +27,31 @@ const LocalCurrencyRateWidget: React.FC = () => {
   const classes = useStyles();
   const { lang, country } = useSelector<AppState, AppState>(state => state);
   const api = {
-    key: '966802a9f2ca87f80cfe',
+    key: '1752709c76218c60e201',
     base: 'https://free.currconv.com/api/v7/'
   }
 
   const [rates, setRates] = useState<any>(null);
   const [ratesEuro, setRatesEuro] = useState<any>(null);
-  useEffect(() => {
-    if (!country) {
-      return;
-    }
-    const localCurrency = (country as ICountryFull).currencyCode;
-    fetch(`${api.base}convert?q=USD_${localCurrency},RUB_${localCurrency}&compact=ultra&apiKey=${api.key}`)
-      .then(res => res.json())
-      .then(result => {
-        setRates(result);
-      });
-  }, [country]);
 
   useEffect(() => {
     if (!country) {
       return;
     }
     const localCurrency = (country as ICountryFull).currencyCode;
+
+    console.log('get DATA by country', country);
 
     fetch(`${api.base}convert?q=EUR_${localCurrency}&compact=ultra&apiKey=${api.key}`)
       .then(res => res.json())
       .then(result => {
         setRatesEuro(result);
+      });
+
+    fetch(`${api.base}convert?q=USD_${localCurrency},RUB_${localCurrency}&compact=ultra&apiKey=${api.key}`)
+      .then(res => res.json())
+      .then(result => {
+        setRates(result);
       });
   }, [country]);
 
@@ -69,15 +66,26 @@ const LocalCurrencyRateWidget: React.FC = () => {
       return '';
     }
     const index = currency + '_' + (country as ICountryFull).currencyCode;
-    if(currency === 'EUR') {
+
+    if (currency === 'EUR' && !ratesEuro[index]) {
+      return '';
+    }
+
+    if (currency === 'EUR') {
+      console.log('index', index, 'ratesEuro', ratesEuro);
       return ratesEuro[index].toFixed(2) + ' ' + (country as ICountryFull).currencyCode;
     }
-    if(currency === 'RUB') {
+
+    if (!rates[index]) {
+      console.log('rates RUB or USD', rates);
+      return '';
+    }
+
+    if (currency === 'RUB') {
       return (rates[index] * 100).toFixed(2) + ' ' + (country as ICountryFull).currencyCode;
     }
     return rates[index].toFixed(2) + ' ' + (country as ICountryFull).currencyCode;
   }
-
   return (
     country && (<Card className={classes.root}>
       <CardActionArea className={classes.action}>
