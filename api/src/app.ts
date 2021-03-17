@@ -14,7 +14,7 @@ const app = express();
 
 app.use(cors());
 // { contentSecurityPolicy: (process.env.NODE_ENV === 'production') ? undefined : false }
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json());
 
 app.use(requestLogMiddleware);
