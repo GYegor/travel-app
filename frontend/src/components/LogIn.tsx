@@ -7,6 +7,8 @@ import {
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { useDispatch } from "react-redux";
 import { setUser } from '../actions/set-user';
+import { useSelector } from "react-redux";
+import { AppState } from "../interfaces";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     heading: {
@@ -21,6 +23,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
   }));
 
+  const heading: Array<string> = ['Log in', 'Войти', 'Увайсці'];
+  const label: Array<string> = ['Nickname', 'Прозвище', 'Мянушку'];
+  const messageEmptyField: Array<string> = ['field is empty', 'поле не заполнено', 'поле пустое'];
+
 interface IProps {
     setIsOpen: (value: boolean) => void
 }
@@ -30,6 +36,7 @@ const LogIn: React.FC<IProps> = ({ setIsOpen }: IProps) => {
     const [value, setValue] = useState<string>('');
     const [isError, setIsError] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState<string>('');
+    const { lang } = useSelector<AppState, AppState>(state => state);
     const dispatch = useDispatch();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,11 +71,11 @@ const LogIn: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                 setIsOpen(false);
             } else {
                 const message = await result.json();
-                setErrorMessage(message.message);
+                setErrorMessage(message.message[lang - 1]);
                 setIsError(true);
             }
         } else {
-            setErrorMessage('field is empty');
+            setErrorMessage(messageEmptyField[lang - 1]);
             setIsError(true);
         }
     }
@@ -84,7 +91,7 @@ const LogIn: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                     variant="h4"
                     className={classes.heading}
                 >
-                    Sign up
+                    {heading[lang - 1]}
                 </Typography>
                 <form
                     method="post"
@@ -96,7 +103,7 @@ const LogIn: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                         onFocus={handleFocus}
                         value={value}
                         required
-                        label="Nickname"
+                        label={label[lang - 1]}
                         error={isError}
                         helperText={errorMessage}
                     />
@@ -105,7 +112,7 @@ const LogIn: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                         color="primary"
                         onClick={handleClick}
                     >
-                        Log in
+                        {heading[lang - 1]}
                     </Button>
                 </form>
         </>

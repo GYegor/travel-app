@@ -15,10 +15,10 @@ router.get('/', wrap(async (req, res): Promise<void> => {
 }));
 
 // router.get('/create', async (req, res) => {
-//     // await model.CountryModel.create(dataCountry.Italy);
-//     // await model.CountryModel.create(dataCountry.China);
-//     // await model.CountryModel.create(dataCountry.Spain);
-//     // await model.CountryModel.create(dataCountry.Turkey);
+//     await model.CountryModel.create(dataCountry.Egypt);
+//     await model.CountryModel.create(dataCountry.England);
+//     await model.CountryModel.create(dataCountry.Germany);
+//     await model.CountryModel.create(dataCountry.Poland);
 //     res.json({});
 // })
 
