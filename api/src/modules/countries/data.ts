@@ -426,7 +426,7 @@ sights: [
   {
     sightId: 2,
     rating: {
-      points: 0,
+      points: 1.5,
       votes: 0,
       votedUsers: [],
     },
@@ -453,7 +453,7 @@ sights: [
   {
     sightId: 3,
     rating: {
-      points: 0,
+      points: 2,
       votes: 0,
       votedUsers: [],
     },
@@ -480,7 +480,7 @@ sights: [
   {
     sightId: 4,
     rating: {
-      points: 0,
+      points: 3.5,
       votes: 0,
       votedUsers: [],
     },
@@ -507,7 +507,7 @@ sights: [
   {
     sightId: 5,
     rating: {
-      points: 0,
+      points: 4,
       votes: 0,
       votedUsers: [],
     },
@@ -534,7 +534,7 @@ sights: [
   {
     sightId: 6,
     rating: {
-      points: 0,
+      points: 5,
       votes: 0,
       votedUsers: [],
     },
@@ -772,5 +772,781 @@ export const Turkey: types.ICountrySchema = {
       description:
         "Чым можа здзівіць Турцыя? Калі вам здаецца, што там акрамя пляжаў і гатэляў з сістэмай «усё ўключана» няма нічога прывабнага, значыць, вы не ведаеце сапраўдную Турцыю - з цудоўным Стамбулам, які калісьці быў візантыйскім Канстанцінопалем, старажытнымі хрысціянскім помнікамі і дзіўнымі цудамі прыроды, якія абавязкова варта ўбачыць. Турэцкая Рэспубліка знаходзіцца на стыку Захаду і Усходу. Мае выхад да чатырох мораў. Гэтая краіна з выдатнай прыродай, архітэктурай, гісторыяй. Для турыстаў і падарожнікаў Турцыя цікавая як месца, дзе можна атрымаць асалоду ад сонца, пляжаў, гаючых крыніц, пакатацца на лыжах, заняцца альпінізмам.",
       },
+  ],
+};
+
+export const Egypt: types.ICountrySchema = {
+  countryId: 8,
+  smallImageId: "travelApp/egypt_wufhue",
+  imageId: "travelApp/egypt_wufhue",
+  videoUrl: "https://youtu.be/N9sDBUqZeaI",
+  coords: [30.0507, 31.2469],
+  utcOffset: 2,
+  currencyCode: 'EGP',
+  sights: [
+    {
+      sightId: 1,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/1-The-Valley-of-the-Kings_c1phjm",
+      smallImageId: "travelApp/1-The-Valley-of-the-Kings_c1phjm",
+      localizations: [
+        {
+          name: "Valley of the Pharaohs (Luxor)",
+          description:
+            "In the 16th century BC. with the purpose of burying the rulers of Egypt, the Valley of the Kings was created - a place in a rocky gorge, where a number of tombs were organized. At one time, this place was secret and was strictly guarded by rangers who protected it from raids and robberies."
+        },
+        {
+          name: "Долина фараонов (г. Луксор)",
+          description:
+            "В 16 веке до н.э. с целью захоронения правителей Египта была создана Долина царей — место в скалистом ущелье, где был организован ряд гробниц. В своё время это место было тайным и строго охранялось смотрителями, которые защищали его от налётов и грабежа."
+        },
+        {
+          name: "Даліна фараонаў (г. Луксор)",
+          description:
+            "У 16 стагоддзі да н.э. з мэтай пахавання кіраўнікоў Егіпта была створана Даліна цароў - месца ў скалістым цясніну, дзе быў арганізаваны шэраг магільняў. У свой час гэта месца было таемным і строга ахоўвалася наглядчыкамі, якія абаранялі яго ад налётаў і рабавання."
+        },
+      ],
+    },
+    {
+      sightId: 2,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/2-Karnak-Temple-Complex_cuarcd",
+      smallImageId: "travelApp/2-Karnak-Temple-Complex_cuarcd",
+      localizations: [
+        {
+          name: "Temple of Karnak",
+          description:
+            "The Karnak Temple is a huge temple complex measuring 1.5 kilometers by 0.7 kilometers, which includes 33 temples and halls - all this looks more like a kind of city than a building. This entire complex has undergone a number of changes and additions over the course of 2 millennia, because each of the pharaohs strove to complement and transform this splendor in his own way, make his own contribution and leave some kind of memory about the period of his reign."
+        },
+        {
+          name: "Храм Карнака",
+          description:
+            "Храм Карнака представляет собой огромный храмовый комплекс размером 1,5 километра на 0,7 километра, куда входит 33 храма и зала — всё это больше напоминает своеобразный город, чем здание. Весь этот комплекс подвергался ряду изменений и дополнений на протяжении 2 тысячелетий, ведь каждый из фараонов стремился по-своему дополнить и преобразить это великолепие, внести свою лепту и оставить некую память о периоде его правления."
+        },
+        {
+          name: "Храм Карнака",
+          description:
+            "Храм Карнака ўяўляе сабой велізарны храмавы комплекс памерам 1,5 кіламетра на 0,7 кіламетра, куды ўваходзіць 33 храма і залы - усё гэта больш нагадвае своеасаблівы горад, чым будынак. Увесь гэты комплекс падвяргаўся шэрагу змяненняў і дапаўненняў на працягу 2 тысячагоддзяў, бо кожны з фараонаў імкнуўся па-свойму дапоўніць і змяніць гэта хараство, унесці сваю лепту і пакінуць нейкую памяць пра перыяд яго кіравання."
+        },
+      ],
+    },
+    {
+      sightId: 3,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/3-Saint-Catherines-Monastery_sg3br6",
+      smallImageId: "travelApp/3-Saint-Catherines-Monastery_sg3br6",
+      localizations: [
+        {
+          name: "Monastery of St. Catherine",
+          description:
+            "The monastery includes a large temple - the Basilica of the Transfiguration, as well as 12 small chapels, a garden, a refectory and a huge library of manuscripts, which is inferior in value only to the Vatican library."
+        },
+        {
+          name: "Монастырь Святой Екатерины",
+          description:
+            "В монастырь входит большой храм — Базилика Преображения, а также 12 небольших часовен, есть сад, трапезная и огромная библиотека рукописей, по своей ценности уступающая разве что ватиканской библиотеке."
+        },
+        {
+          name: "Манастыр Святой Кацярыны",
+          description:
+            "У манастыр ўваходзіць вялікі храм - Базыліка Праабражэння, а таксама 12 невялікіх капліц, ёсць сад, трапезная і велізарная бібліятэка рукапісаў, па сваёй каштоўнасці якая саступае хіба што ватыканскай бібліятэцы."
+        },
+      ],
+    },
+    {
+      sightId: 4,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/4-Bibliotheca-Alexandrina_qkxizt",
+      smallImageId: "travelApp/4-Bibliotheca-Alexandrina_qkxizt",
+      localizations: [
+        {
+          name: "Library Alexandrina",
+          description:
+            "The library building has an unusual glass and aluminum cylinder shape with a sloping dome. The library is designed for about 8 million books, and the collections of works stored in it are collected literally from all over the world. The main reading room has a huge area - about 70 thousand square meters. m on 11 levels cascading."
+        },
+        {
+          name: "Библиотека Александрина",
+          description:
+            "Здание библиотеки имеет необычную форму цилиндра из стекла и алюминия со скошенным куполом. Библиотека рассчитана примерно на 8 млн книг, а собрания трудов, хранящиеся в ней, собраны буквально со всех уголков света. Основной читальный зал имеет огромную площадь — около 70 тыс. кв. м на 11 уровнях, идущих каскадом."
+        },
+        {
+          name: "Бібліятэка Александрына",
+          description:
+            "Будынак бібліятэкі мае незвычайную форму цыліндру са шкла і алюмінія са скошаным купалам. Бібліятэка разлічана прыкладна на 8 млн кніг, а сходы прац, якія захоўваюцца ў ёй, сабраны літаральна з усіх куткоў святла. Асноўны чытальная зала мае велізарную плошчу - каля 70 тыс. Кв. м на 11 узроўнях, якія ідуць каскадам."
+        },
+      ],
+    },
+    {
+      sightId: 5,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/5-Coloured-Canyon_vmxgvw",
+      smallImageId: "travelApp/5-Coloured-Canyon_vmxgvw",
+      localizations: [
+        {
+          name: "Colored canyon",
+          description:
+            "The entire canyon consists of many labyrinths, and its total length is about 5 kilometers. The route starts at the top, and then a narrow winding path gradually descends you to the bottom of the gorge, the passage becomes narrower, and bizarre patterns created by nature itself are observed on the steep cliffs."
+        },
+        {
+          name: "Цветной каньон",
+          description:
+            "Весь каньон состоит из множества лабиринтов, а его общая протяжённость составляет около 5 километров. Маршрут начинается наверху, а затем узкая извилистая тропинка постепенно спускает вас на дно ущелья, проход становится всё более узким, а на отвесных скалах наблюдаются причудливые узоры, созданные самой природой."
+        },
+        {
+          name: "Каляровы каньён",
+          description:
+            "Увесь каньён складаецца з мноства лабірынтаў, а яго агульная працягласць складае каля 5 кіламетраў. Маршрут пачынаецца наверсе, а затым вузкая звілістая сцяжынка паступова спускае вас на дно цясніны, праход становіцца ўсё больш вузкім, а на стромых скалах назіраюцца мудрагелістыя ўзоры, створаныя самой прыродай."
+        },
+      ],
+    },
+    {
+      sightId: 6,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/6-Nile_River_Egypt_jejl9v",
+      smallImageId: "travelApp/6-Nile_River_Egypt_jejl9v",
+      localizations: [
+        {
+          name: "Nile river",
+          description:
+            "All settlements are located in the Nile Valley, where practically the entire population of the country lives, because the Nile is the main source of fresh water here. Among other things, the main tourist route runs along the Nile - after all, it is here that the vast majority of antiquities are concentrated. Cruises are constantly organized on the waters of the river: a comfortable boat trip is an ideal way to get to know the country, its values ​​and culture."
+        },
+        {
+          name: "Река Нил",
+          description:
+            "В долине Нила располагаются все населённые пункты, где проживает практически всё население страны, ведь Нил здесь является главным источником пресной воды. Помимо прочего, вдоль Нила пролегает основной туристический маршрут — ведь именно здесь сконцентрировано подавляющее большинство памятников древности. По водам реки постоянно организуются круизы: комфортабельное путешествие на теплоходе — идеальный способ познакомиться со страной, её ценностями и культурой."
+        },
+        {
+          name: " Рака Ніл",
+          description:
+            "У даліне Ніла размяшчаюцца ўсе населеныя пункты, дзе пражывае практычна ўсё насельніцтва краіны, бо Ніл тут з'яўляецца галоўнай крыніцай прэснай вады. Апроч іншага, уздоўж Ніла ідзе асноўны турыстычны маршрут - бо менавіта тут сканцэнтравана пераважная большасць помнікаў старажытнасці. Па водах ракі пастаянна арганізуюцца круізы: камфартабельнае падарожжа на цеплаходзе - ідэальны спосаб пазнаёміцца ​​з краінай, яе каштоўнасцямі і культурай."
+        },
+      ],
+    },
+  ],
+  localizations: [
+    {
+      name: "Egypt",
+      capital: "Cairo",
+      description:
+        "Egypt is a fabulous land of pyramids, mummies, temples, pharaohs. The sights of Egypt beckon into the depths of the centuries, forcing you to plunge into the history of antiquity and immerse yourself in the spirit of those times. Modernity and antiquity wonderfully coexist here with each other, giving this land a bewitching magical look. The country is distinguished by its originality, loyalty to traditions and a characteristic oriental flavor. The dry and hot climate allows you to come here on vacation in any season: even in the winter months, the sea water temperature is above 20 degrees."
+    },
+    {
+      name: "Египет",
+      capital: "Каир",
+      description:
+        "Египет — сказочная земля пирамид, мумий, храмов, фараонов. Достопримечательности Египта манят вглубь веков, заставляя окунуться в историю древности и проникнуться духом тех времен. Современность и старина удивительным образом уживаются здесь друг с другом, придавая этой земле завораживающе волшебный вид. Страну отличает самобытность, верность традициям и характерный восточный колорит. Сухой и жаркий климат позволяет приезжать сюда на отдых в любой сезон: даже в зимние месяцы температура воды в море держится выше 20 градусов."
+    },
+    {
+      name: "Егіпет",
+      capital: "Каір",
+      description:
+        "Егіпет - казачная зямля пірамід, мумій, храмаў, фараонаў. Славутасці Егіпта вабяць углыб стагоддзяў, прымушаючы акунуцца ў гісторыю старажытнасці і пранікнуцца духам тых часоў. Сучаснасць і даўніна дзіўным чынам ўжываюцца тут адзін з адным, надаючы гэтай зямлі зачаравальна чароўны выгляд. Краіну адрознівае самабытнасць, вернасць традыцыям і характэрны ўсходні каларыт. Сухі і гарачы клімат дазваляе прыязджаць сюды на адпачынак у любы сезон: нават у зімовыя месяцы тэмпература вады ў моры трымаецца вышэй за 20 градусаў."
+    },
+  ],
+};
+
+export const England: types.ICountrySchema = {
+  countryId: 7,
+  smallImageId: "travelApp/england_ov1lri",
+  imageId: "travelApp/england_ov1lri",
+  videoUrl: "https://youtu.be/Uy9sXRk7its",
+  coords: [51.5074, -0.1277],
+  utcOffset: 0,
+  currencyCode: 'GBP',
+  sights: [
+    {
+      sightId: 1,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/1-windsor-castle_p5xhif",
+      smallImageId: "travelApp/1-windsor-castle_p5xhif",
+      localizations: [
+        {
+          name: "Windsor castle",
+          description:
+            "The residence of the British monarchs, towering on a hill in the Thames Valley, is not accidental. It was built in 1070, and today it is considered the most romantic building in the country. Moreover, due to the size of 580 m. By 165 m., Windsor Castle got into the Guinness Book of Records as the largest castle in the world. If you don't know what to see in England in 1 day, head here - you will not be disappointed."
+        },
+        {
+          name: "Виндзорский замок",
+          description:
+            "Резиденция британских монархов, возвышающаяся на холме в долине Темзы, не случайна. Он был возведен в 1070 году, и сегодня считается самой романтической постройкой страны. Более того, благодаря размерам в 580 м. на 165 м., Виндзорский замок попал в Книгу Рекордов Гиннеса в качестве крупнейшего замка всего мира. Если вы не знаете, что посмотреть в Англии за 1 день, отправляйтесь сюда – вы не будете разочарованы."
+        },
+        {
+          name: "Віндзорскі замак",
+          description:
+            "Рэзідэнцыя брытанскіх манархаў, якая ўзвышаецца на ўзгорку ў даліне Тэмзы, не выпадковая. Ён быў узведзены ў 1070 годзе, і сёння лічыцца самай рамантычнай пабудовай краіны. Больш за тое, дзякуючы памерах у 580 м. На 165 м., Віндзорскія замак трапіў у Кнігу Рэкордаў Гінэса ў якасці найбуйнейшага замка усяго свету. Калі вы не ведаеце, што паглядзець у Англіі за 1 дзень, адпраўляйцеся сюды - вы не будзеце расчараваныя."
+        },
+      ],
+    },
+    {
+      sightId: 2,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/2-big-ben_fhdj1r",
+      smallImageId: "travelApp/2-big-ben_fhdj1r",
+      localizations: [
+        {
+          name: "London Big-Ben",
+          description:
+            "The commemorative clock proclaims the most important events of the state: the coming of the New Year, the Minutes of Silence, etc. Until recently, it was Big Ben that had the largest dial on Earth - not a single photo or description can convey all the greatness of the main symbol of London."
+        },
+        {
+          name: "Лондонский Биг-Бен",
+          description:
+            "Памятные часы провозглашают о самых важных событиях государства: наступлении Нового года, Минутах Молчания и т.д. До недавнего времени именно у Биг-Бена был самый громадный циферблат на Земле – ни одно фото или описание не способны передать всего величия главного символа Лондона;"
+        },
+        {
+          name: "Лонданскі Біг-Бэн",
+          description:
+            "Памятныя гадзіны абвяшчаюць пра самыя важныя падзеі дзяржавы: надыходзе Новага года, Хвілінах Маўчання і г.д. Да нядаўняга часу менавіта ў Біг-Бэна быў самы велічэзны цыферблат на Зямлі - ні адно фота або апісанне не здольныя перадаць усяго велічы галоўнага сімвала Лондана."
+        },
+      ],
+    },
+    {
+      sightId: 3,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/3-lakeland_mmipaa",
+      smallImageId: "travelApp/3-lakeland_mmipaa",
+      localizations: [
+        {
+          name: "Lake District National Park",
+          description:
+            "The Lake District is famous for its superb panoramic views and flourishing countryside, mountainous and lakeside landscapes. The nature here is so unpredictable that in one day it can show all 4 seasons."
+        },
+        {
+          name: "Национальный парк Озерный край",
+          description:
+            "Озерный край знаменит благодаря своим превосходным панорамным видам и цветущей сельской местности, горным и озерным ландшафтам. Природа тут настолько непредсказуема, что за одни сутки может показать все 4 времени года."
+        },
+        {
+          name: "Нацыянальны парк Азёрны край",
+          description:
+            "Азёрны край знакаміты дзякуючы сваім выдатным панарамным відах і квітнеючай сельскай мясцовасці, горных і азёрным ландшафтам. Прырода тут настолькі непрадказальная, што за адны суткі можа паказаць усе 4 пары года."
+        },
+      ],
+    },
+    {
+      sightId: 4,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/4-hadrians-wall_bojrhu",
+      smallImageId: "travelApp/4-hadrians-wall_bojrhu",
+      localizations: [
+        {
+          name: "Hadrian's Val",
+          description:
+            "This historic landmark in England is 117 km long. It was erected in the years 122-128 by the Romans to protect against the raids of brigants and picts."
+        },
+        {
+          name: "Вал Адриана",
+          description:
+            "Длина этой исторической достопримечательности Англии составляет 117 км. Она возводилась в 122-128 годах римлянами для защиты от набегов бригантов и пиктов."
+        },
+        {
+          name: "вал Адрыяна",
+          description:
+            "Даўжыня гэтай гістарычнай славутасці Англіі складае 117 км. Яна ўзводзілася ў 122-128 гадах рымлянамі для абароны ад набегаў Брыгантыя і піктаў."
+        },
+      ],
+    },
+    {
+      sightId: 5,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/5-the-British-Museum_i2v3aq",
+      smallImageId: "travelApp/5-the-British-Museum_i2v3aq",
+      localizations: [
+        {
+          name: "British museum",
+          description:
+            "The British Museum, located in London, is the second most visited art museum, second only to the Louvre. You will see both mysterious exhibits and ancient artifacts, as well as the most famous objects of history."
+        },
+        {
+          name: "Британский музей",
+          description:
+            "Расположенный в Лондоне Британский музей является вторым по посещаемости художественным музеем, уступая только Лувру. Вы увидите как загадочные экспонаты и древнейшие артефакты, так и самые знаменитые объекты истории."
+        },
+        {
+          name: "Брытанскі музей",
+          description:
+            "Размешчаны ў Лондане Брытанскі музей з'яўляецца другім па наведвальнасці мастацкім музеем, саступаючы толькі Луўру. Вы ўбачыце як загадкавыя экспанаты і старажытныя артэфакты, так і самыя знакамітыя аб'екты гісторыі."
+        },
+      ],
+    },
+    {
+      sightId: 6,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/6-Tower-Bridge_eef2ve",
+      smallImageId: "travelApp/6-Tower-Bridge_eef2ve",
+      localizations: [
+        {
+          name: "Tower Bridge",
+          description:
+            "A partly drawbridge, partly a neo-Gothic suspension bridge over the Thames is located near the Tower. Another symbol of Britain, which lights up in the dark with hundreds of lights. From the bridge, you can watch the slowly sailing ships and take memorable photos."
+        },
+        {
+          name: "Тауэрский мост",
+          description:
+            "Частично разводной, частично подвесной мост в неоготическом стиле, проведенный над Темзой, расположен поблизости от Тауэра. Еще один символ Британии, загорающийся в темное время суток сотнями огней. С моста можно наблюдать за неспешно идущими суднами и делать памятные фото."
+        },
+        {
+          name: "Таўэрскі мост",
+          description:
+            "Часткова развадны, часткова падвясны мост у неагатычным стылі, праведзены над Тэмзы, размешчаны паблізу ад Таўара. Яшчэ адзін сімвал Брытаніі, загараю ў цёмны час сутак сотнямі агнёў. З моста можна назіраць за павольна ідучымі суднамі і рабіць памятныя фота."
+        },
+      ],
+    },
+  ],
+  localizations: [
+    {
+      name: "England",
+      capital: "London",
+      description:
+        "England is an amazing country. The largest historical part of the United Kingdom, a state within a state. Homeland of the language, which has won international status, and the flag, which has become a cult art object. The cradle of the monarchy turned into a rating show. A land full of sights, with a long history living everywhere: on the streets of ancient cities, within the walls of ancient castles and fortresses. A fashionable Mecca with iconic boutiques and galleries. Concentration of megacities: London, Liverpool, Manchester, Birmingham - bright, boiling, modern, each with its own unique face."
+    },
+    {
+      name: "Англия",
+      capital: "Лондон",
+      description:
+        "Англия — страна удивительная. Крупнейшая историческая часть Соединенного Королевства, государство в государстве. Родина языка, завоевавшего статус международного, и флага, ставшего культовым арт-объектом. Колыбель монархии, превратившейся в рейтинговое шоу. Земля, переполненная достопримечательностями, с многовековой историей, живущей повсюду: на улицах старинных городов, в стенах древних замков и крепостей. Модная Мекка с культовыми бутиками и галереями. Сосредоточение мегаполисов: Лондон, Ливерпуль, Манчестер, Бирмингем — яркие, кипящие, современные, каждый — со своим уникальным лицом."
+    },
+    {
+      name: "Англія",
+      capital: "Лондон",
+      description:
+        "Англія - ​​краіна дзіўная. Найбуйнейшая гістарычная частка Злучанага Каралеўства, дзяржава ў дзяржаве. Радзіма мовы, які заваяваў статус міжнароднага, і сцяга, які стаў культавым арт-аб'ектам. Калыска манархіі, якая ператварылася ў рэйтынгавае шоў. Зямля, перапоўненая славутасцямі, з шматвяковай гісторыяй, якая жыве паўсюль: на вуліцах старадаўніх гарадоў, у сценах старажытных замкаў і крэпасцяў. Модная Мека з культавымі буцікамі і галерэямі. Засяроджванне мегаполісаў: Лондан, Ліверпуль, Манчэстар, Бірмінгем - яркія, кіпячыя, сучасныя, кожны - са сваім унікальным тварам."
+    },
+  ],
+};
+
+export const Germany: types.ICountrySchema = {
+	countryId: 4,
+	smallImageId: "travelApp/germany_aix8gw",
+	imageId: "travelApp/germany_aix8gw",
+	videoUrl: "https://youtu.be/_7Zytt5SZek",
+	coords: [52.5187, 13.3747],
+	utcOffset: 1,
+  currencyCode: 'EUR',
+	sights: [
+		{
+			sightId: 1,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+			imageId: "travelApp/1-reichstag_building-kopiya_mgmf4l",
+			smallImageId: "travelApp/1-reichstag_building-kopiya_mgmf4l",
+			localizations: [
+				{
+					name: "Reichstag building",
+					description:
+						"The majestic palace of German statehood, built in 1894, has witnessed all the historical events that shaped the fate of modern Germany. The building of the German Parliament was destroyed more than once, it was badly damaged in a fire in 1933, and as a result of the bombing in 1945 it was practically destroyed. However, after several reconstructions, the structure acquired its original appearance, and a grandiose glass dome was also restored, where a unique observation deck is located, accessible to tourists. From here, in clear weather, you can see the surrounding sights of Berlin in all its glory."
+				},
+				{
+					name: "Здание Рейхстага",
+					description:
+						"Величественный дворец немецкой государственности, построенный в 1894 году, стал свидетелем всех исторических событий, сформировавших судьбу современной Германии. Здание немецкого Парламента не раз подвергалось разрушениям, оно сильно пострадало при пожаре в 1933 году, а в результате бомбардировок в 1945 году было практически разгромлено. Однако, после нескольких реконструкций сооружение обрело первоначальный облик, также был восстановлен грандиозный стеклянный купол, где расположена уникальная смотровая площадка, доступная для туристов. Отсюда в ясную погоду можно увидеть окрестные достопримечательности Берлина во всей красе."
+				},
+				{
+					name: "Будынак Рэйхстага",
+					description:
+						"Велічны палац нямецкай дзяржаўнасці, пабудаваны ў 1894 годзе, стаў сведкам усіх гістарычных падзей, што сфармавалі лёс сучаснай Германіі. Будынак нямецкага Парламента не раз падвяргалася разбурэнняў, яно моцна пацярпела пры пажары ў 1933 годзе, а ў выніку бамбаванняў ў 1945 годзе было практычна разгромлена. Аднак, пасля некалькіх рэканструкцый збудаванне здабыла першапачатковае аблічча, таксама быў адноўлены грандыёзны шкляны купал, дзе размешчана унікальная назіральная пляцоўка, даступная для турыстаў. Адсюль у яснае надвор'е можна ўбачыць навакольныя славутасці Берліна ва ўсёй красе."
+				},
+			],
+		},
+		{
+			sightId: 2,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+			imageId: "travelApp/2-brandenbur_gate_uq9rfb",
+			smallImageId: "travelApp/2-brandenbur_gate_uq9rfb",
+			localizations: [
+				{
+					name: "Brandenburg Gate",
+					description:
+						"The classic arch of the Brandenburg Gate, as conceived by the architects, is the Gate of Peace, but ironically, German soldiers went through them to fight. Four horses, ruled by the goddess of victory, are crowned with twelve columns. In this form, the Brandenburg Gate became a symbol of a united Germany and was replicated on millions of postcards that were scattered around the world. Tourists contemplating what to visit in Berlin head through these gates to the famous Linden Alley and move along it, exploring the historical sites. In the photographs of this part of the city, the Brandenburg Gate is sure to get into the frame, bringing the flavor of the German capital to the landscape."
+				},
+				{
+					name: "Бранденбургские ворота",
+					description:
+						"Классическая арка Бранденбургских ворот по замыслу архитекторов являет собой Врата мира, но по иронии судьбы через них немецкие солдаты отправлялись воевать. Четверка лошадей, управляемая богиней победы, венчает двенадцать колонн. В таком виде Бранденбургские ворота стали символом объединенной Германии и были растиражированы на миллионах открыток, разлетевшихся по всему миру. Туристы, размышляющие, что посетить в Берлине, направляются через эти ворота к знаменитой Липовой аллее и продвигаются по ней, осматривая исторические места. На фотоснимках этой части города Бранденбургские ворота обязательно попадают в кадр, привнося в пейзаж колорит немецкой столицы."
+				},
+				{
+					name: "Brandenburg Gate",
+					description:
+						"Класічная арка Брадэнбургскіх варот паводле задумы архітэктараў уяўляе сабой Брама свету, але па іроніі лёсу праз іх нямецкія салдаты адпраўляліся ваяваць. Чацвёрка коней, кіраваная багіняй перамогі, вянчае дванаццаць калон. У такім выглядзе Брадэнбургскіх вароты сталі сімвалам аб'яднанай Германіі і былі растыражаваныя на мільёнах паштовак, рассыпаныя па ўсім свеце. Турысты, разважала, што наведаць у Берліне, накіроўваюцца праз гэтую браму да знакамітай Ліпавым алеі і прасоўваюцца па ёй, аглядаючы гістарычныя месцы. На фотаздымках гэтай частцы горада Брадэнбургскіх вароты абавязкова трапляюць у кадр, прыўносячы ў пейзаж каларыт нямецкай сталіцы."
+				},
+			],
+		},
+		{
+			sightId: 3,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+			imageId: "travelApp/3-museum_island_mhg4gf",
+			smallImageId: "travelApp/3-museum_island_mhg4gf",
+			localizations: [
+				{
+					name: "Museum Island",
+					description:
+						"On an island in the middle of the Spree River, there are 5 Berlin museums. This historical complex began its development from the first building, built in 1830, called the Old Museum, which displays an exhibition of antique statues, weapons and ancient Greek jewelry. Later, a New Museum was built, where samples of papyri and exhibits of ancient Egyptian art are exhibited. The Old National Gallery, opened in 1876, will be of interest to lovers of impressionism."
+				},
+				{
+					name: "Музейный остров",
+					description:
+						"На острове посреди реки Шпрее расположились 5 берлинских музеев. Этот исторический комплекс начал свое развитие от первого построенного в 1830 году здания, названного Старым музеем, в котором представлена экспозиция античных статуй, оружия и древнегреческих украшений. Позднее был построен и Новый музей, где выставлены образцы папирусов и экспонаты древнеегипетского искусства. Старая национальная галерея, открытая в 1876 году, будет интересна любителям импрессионизма."
+				},
+				{
+					name: "Музейны востраў",
+					description:
+						"На востраве пасярод ракі Шпрее размясціліся 5 берлінскіх музеяў. Гэты гістарычны комплекс пачаў сваё развіццё ад першага пабудаванага ў 1830 годзе будынка, названага Старым музеем, у якім прадстаўлена экспазіцыя антычных статуй, зброі і старажытнагрэцкіх упрыгожванняў. Пазней быў пабудаваны і Новы музей, дзе выстаўлены ўзоры папірусаў і экспанаты старажытнаегіпецкага мастацтва. Старая нацыянальная галерэя, адкрытая ў 1876 годзе, будзе цікавая аматарам імпрэсіянізму."
+				},
+			],
+		},
+		{
+			sightId: 4,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+			imageId: "travelApp/4-berlin_cathedra_pxpmci",
+			smallImageId: "travelApp/4-berlin_cathedra_pxpmci",
+			localizations: [
+				{
+					name: "Berlin Cathedral",
+					description:
+						"The majestic Protestant temple was built for 11 years. He was assigned the role of the main church of all Lutherans. The baroque building of the cathedral solemnly rises on the Museum Island, and the interior decoration does not overwhelm, as in most Catholic cathedrals, but encourages you to carefully examine the details of sculptures, stained glass windows, paintings with scenes from the Bible. Representatives of the Hohenzollern dynasty are buried in the tomb of the cathedral."
+				},
+				{
+					name: "Берлинский кафедральный собор",
+					description:
+						"Величественный протестантский храм возводили 11 лет. Ему отводилась роль главной церкви всех лютеран. Барочное здание собора торжественно возвышается на Музейном острове, а внутреннее убранство не подавляет, как в большинстве католических соборов, а побуждает внимательно разглядеть детали скульптур, витражей, картин с сюжетами из библии. В усыпальнице собора покоятся представители династии Гогенцоллернов."
+				},
+				{
+					name: "Берлінскі кафедральны сабор",
+					description:
+						"Велічны пратэстанцкі храм ўзводзілі 11 гадоў. Яму адводзілася роля галоўнай царквы ўсіх лютэран. Барочнай будынак саборы ўрачыста узвышаецца на Музейным востраве, а ўнутранае ўбранне не падаўляе, як у большасці каталіцкіх сабораў, а падахвочвае ўважліва разгледзець дэталі скульптур, вітражоў, карцін з сюжэтамі з бібліі. У магільным склепе сабора спачываюць прадстаўнікі дынастыі Гогенцолернаў."
+				},
+			],
+		},
+		{
+			sightId: 5,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+			imageId: "travelApp/5-alte_nationalgaleriel_ydxpcl",
+			smallImageId: "travelApp/5-alte_nationalgaleriel_ydxpcl",
+			localizations: [
+				{
+					name: "Old National Gallery",
+					description:
+						"In the antique building of the old national gallery, painting lovers can get acquainted with the richest collection of paintings of various directions, created in the 19th century. The names of Menzel, beloved by the Germans, as well as Manet and Monet, Liebermann, Beklin attract specialists and those interested in the gallery like a magnet. The works of European sculptors also have a significant place in the collection of this museum."
+				},
+				{
+					name: "Старая Национальная галерея",
+					description:
+						"В античном здании старой национальной галереи любители живописи смогут ознакомиться с богатейшей коллекцией картин различных направлений, созданных в XIX веке. Имена любимого немцами Менцеля, а также Мане и Моне, Либерманна, Беклина притягивают в галерею специалистов и интересующихся словно магнит. Работам европейских скульпторов также отводится значительное место в собрании этого музея."
+				},
+				{
+					name: "Старая Нацыянальная галерэя",
+					description:
+						"У антычным будынку старой нацыянальнай галерэі аматары жывапісу змогуць азнаёміцца ​​з найбагатай калекцыяй карцін розных напрамкаў, створаных у XIX стагоддзі. Імёны любімага немцамі Менцаля, а таксама Мане і Моне, Ліберманам, Беклина прыцягваюць у галерэю спецыялістаў і цікавяцца нібы магніт. Прац еўрапейскіх скульптараў таксама адводзіцца значнае месца ў сходзе гэтага музея."
+				},
+			],
+		},
+		{
+			sightId: 6,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+			imageId: "travelApp/6-AquaDom_up28py",
+			smallImageId: "travelApp/6-AquaDom_up28py",
+			localizations: [
+				{
+					name: "AquaDom",
+					description:
+						"It is in Berlin that the world's largest salt water aquarium is located - a giant cylindrical tank called the Aquadom. Particularly lucky are the guests of the five-star Radisson Blu Hotel, whose windows overlook the courtyard-well with this incredible aquarium. The spectacle is impressive - 2,500 fish swim smoothly among realistic corals, caves, rocks and algae, illuminated by a pleasant blue light. The height of the glass structure is 25 meters, the diameter is 11 meters, and through the thick 19-centimeter glass you can observe the inhabitants not only from the outside, but also in the inner cylinder, from the transparent elevator passing here."
+				},
+				{
+					name: "АкваДом",
+					description:
+						"Именно в Берлине располагается крупнейший в мире аквариум с солёной водой — гигантский цилиндрический резервуар под названием Аквадом. Особенно повезло постояльцам пятизвёздочного отеля Рэдиссон Блу, окна которого выходят во внутренний двор-колодец с этим невероятным аквариумом. Зрелище впечатляющее — 2,5 тысячи рыб плавно проплывают среди реалистичных кораллов, пещер, скал и водорослей, подсвеченных приятным голубым светом. Высота стеклянного сооружения составляет 25 метров, диаметр 11 метров, а сквозь толстое 19-сантиметровое стекло можно наблюдать обитателей не только снаружи, но и во внутреннем цилиндре, из проходящего здесь прозрачного лифта."
+				},
+				{
+					name: "АкваДом",
+					description:
+						"Менавіта ў Берліне размяшчаецца найбуйнейшы ў свеце акварыум з салёнай вадой - гіганцкі цыліндрычны рэзервуар пад назвай Аквадзіў. Асабліва пашанцавала пастаяльцам пяцізоркавага гатэля Рэдиссон Блу, вокны якога выходзяць ва ўнутраны двор-калодзеж з гэтым неверагодным акварыумам. Відовішча ўражлівае - 2,5 тысячы рыб плаўна праплываюць сярод рэалістычных каралаў, пячор, скал і водарасцяў, падсветленых прыемным блакітным святлом. Вышыня шклянога збудаванні складае 25 метраў, дыяметр 11 метраў, а скрозь тоўстае 19-сантыметровы шкло можна назіраць насельнікаў не толькі звонку, але і ва ўнутраным цыліндры, з які праходзіць тут празрыстага ліфта."
+				},
+			],
+		},
+	],
+	localizations: [
+		{
+			name: "Germany",
+			capital: "Berlin",
+			description:
+				"Germany is a state in Western Europe with forests, rivers, mountain ranges and beach resorts in the North Sea. The history of the country covers a period of more than two thousand years. The capital, Berlin, is full of cultural and nightlife. Many sights of the city, in particular the Brandenburg Gate, remind of the events of the Second World War. Munich is famous for its Oktoberfest and beer restaurants. The most famous of them is the Hofbräuhaus, which opened in the 16th century. Frankfurt is a city of skyscrapers, it is here that the headquarters of the European Central Bank is located."
+		},
+		{
+			name: "Германия",
+			capital: "Берлин",
+			description:
+				"Германия – государство в Западной Европе с лесами, реками, горными хребтами и пляжными курортами Северного моря. История страны охватывает период в более чем две тысячи лет. В столице, Берлине, кипит культурная и ночная жизнь. Многие достопримечательности города, в частности Бранденбургские ворота, напоминают о событиях Второй мировой войны. Мюнхен знаменит фестивалем Октоберфест и пивными ресторанами. Самый известный из них – 'Хофбройхаус', открывшийся ещё в XVI веке. Франкфурт – город небоскребов, именно здесь находится штаб-квартира Европейского центрального банка."
+		},
+		{
+			name: "Германія",
+			capital: "Берлін",
+			description:
+				"Германія - дзяржава ў Заходняй Еўропе з лясамі, рэкамі, горнымі хрыбтамі і пляжнымі курортамі Паўночнага мора. Гісторыя краіны ахоплівае перыяд у больш чым дзве тысячы гадоў. У сталіцы, Берліне, кіпіць культурная і начное жыццё. Многія славутасці горада, у прыватнасці Брадэнбургскіх вароты, нагадваюць пра падзеі Другой сусветнай вайны. Мюнхен знакаміты фестывалем Октоберфест і піўнымі рэстаранамі. Самы вядомы з іх - 'Хофбройхаус', які адкрыўся яшчэ ў XVI стагоддзі. Франкфурт - горад хмарачосаў, менавіта тут знаходзіцца штаб-кватэра Еўрапейскага цэнтральнага банка."
+		},
+	],
+};
+
+export const Poland: types.ICountrySchema = {
+  countryId: 3,
+  smallImageId: "travelApp/poland-full_jdzym7",
+  imageId: "travelApp/poland-full_jdzym7",
+  videoUrl: "https://youtu.be/QAsT2d7IP3c",
+  coords: [52.2321, 21.0071],
+  utcOffset: 1,
+  currencyCode: 'PLN',
+  sights: [
+    {
+      sightId: 1,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/1-malbork_castle_rxnjmw",
+      smallImageId: "travelApp/1-malbork_castle_rxnjmw",
+      localizations: [
+        {
+          name: "Marienburg castle",
+          description:
+            "'Nest' of German knights. The brick bulk of this castle rises on the banks of the Nogat River, which flows 80 km from the border with the Kaliningrad region of the Russian Federation. Its history began 700 years ago, when the Teutonic residence was officially moved from Venice to Marienburg. The fortress was repeatedly completed and decorated. In 1945, the castle was severely damaged, but after the end of World War II, it was literally rebuilt from scratch. Now there is a museum within the walls of the building, where interesting weapons collections, amber jewelry, and armor are presented."
+        },
+        {
+          name: "Замок Мариенбург",
+          description:
+            "«Гнездо» немецких рыцарей. Кирпичная громада этого замка возвышается на берегу реки Ногат, которая протекает в 80 км от границы с Калининградской областью РФ. Его история началась еще 700 лет назад, когда резиденция тевтонов официально была перенесена из Венеции в Мариенбург. Крепость неоднократно достраивалась, украшалась. В 1945 году замок подвергся большим разрушениям, но после окончания Второй мировой войны его отстроили буквально заново. Сейчас в стенах здания функционирует музей, там представлены интересные оружейные коллекции, янтарные украшения, доспехи."
+        },
+        {
+          name: "замак Марыенбург",
+          description:
+            "«Гняздо» нямецкіх рыцараў. Цагляная грамада гэтага замка ўзвышаецца на беразе ракі Ногат, якая працякае ў 80 км ад мяжы з Калінінградскай вобласцю РФ. Яго гісторыя пачалася яшчэ 700 гадоў таму, калі рэзідэнцыя тэўтонаў афіцыйна была перанесена з Венецыі ў Марыенбург. Крэпасць неаднаразова дабудоўвалася, ўпрыгожвалася. У 1945 годзе замак падвергнуўся вялікім разбурэнняў, але пасля заканчэння Другой сусветнай вайны яго адбудавалі літаральна зноўку. Зараз у сценах будынка функцыянуе музей, там прадстаўлены цікавыя зброевыя калекцыі, бурштынавыя ўпрыгожванні, даспехі."
+        },
+      ],
+    },
+    {
+      sightId: 2,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/2-tatry_dps2pk",
+      smallImageId: "travelApp/2-tatry_dps2pk",
+      localizations: [
+        {
+          name: "Tatras",
+          description:
+            "This is the name of the mountain system of the Carpathians, the highest point of which reaches 2499 m. This place attracts tourists not only with heights within 1800-2500 m, but also with glacial circuses, mountain lakes in large numbers, deep valleys. The rating of this attraction in Poland is assessed as high, all because there is still a ski resort here, known as Zakopane. You can get here from the capital by train. The Tatras are also famous for their caves, of which there are really many."
+        },
+        {
+          name: "Татры",
+          description:
+            "Так называется горная система Карпат, высшая точка которой достигает 2499 м. Это место привлекает туристов не только высотами в пределах 1800-2500 м, но еще ледниковыми цирками, горными озерами в большом количестве, глубокими долинами. Рейтинг этой достопримечательности Польши оценивается как высокий, все потому что здесь еще есть горнолыжный курорт, известный под названием Закопане. Из столицы сюда можно добраться на поезде. Еще Татры известны пещерами, которых здесь действительно много."
+        },
+        {
+          name: "Татры",
+          description:
+            "Так завецца горная сістэма Карпат, вышэйшая кропка якой дасягае 2499 м. Гэта месца прыцягвае турыстаў не толькі вышынямі ў межах 1800-2500 м, але яшчэ ледавіковымі цыркамі, горнымі азёрамі ў вялікай колькасці, глыбокімі далінамі. Рэйтынг гэтай славутасці Польшчы ацэньваецца як высокі, усё таму што тут яшчэ ёсць гарналыжны курорт, вядомы пад назвай Закапанэ. Са сталіцы сюды можна дабрацца на цягніку. Яшчэ Татры вядомыя пячорамі, якіх тут сапраўды шмат."
+        },
+      ],
+    },
+    {
+      sightId: 3,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/3-krakow_old_town_dbhkqs",
+      smallImageId: "travelApp/3-krakow_old_town_dbhkqs",
+      localizations: [
+        {
+          name: "Krakow Old Town",
+          description:
+            "If you are planning to go exactly to Krakow, it is better to start its survey from the Old Town, all roads from which lead to the market square. It is a 'front living room', both locals and guests of the country are used to gathering there. Krakow residents are proud of their square, because it is considered one of the largest in Europe, occupying 200 * 200 m. A trip to the Old Town is worth it, because the market ensemble has preserved in detail the planning of the times when trade with all of Europe was carried out."
+        },
+        {
+          name: "Старый город Кракова",
+          description:
+            "Если вы планируете отправиться именно в Краков, начать его обзор лучше со Старого города, все дороги с которого ведут к рыночной площади. Она представляет собой «парадную гостиную», на ней привыкли собираться как местные жители, так и гости страны. Краковцы гордятся своей площадью, потому что она считается одной из самых больших в Европе, занимает 200*200 м. Путешествие в Старый город стоит того, потому что рыночный ансамбль сохранил в деталях планировку времен, когда торговля осуществлялась со всей Европой."
+        },
+        {
+          name: "Стары горад Кракава",
+          description:
+            "Калі вы плануеце адправіцца менавіта ў Кракаў, пачаць яго агляд лепш са Старога горада, усе дарогі з якога вядуць да рынкавай плошчы. Яна ўяўляе сабой «парадную гасціную», на яе прывыклі збірацца як мясцовыя жыхары, так і госці краіны. Краковцы ганарацца сваёй плошчай, таму што яна лічыцца адной з самых вялікіх у Еўропе, займае 200 * 200 м. Падарожжа ў Стары горад варта таго, таму што рынкавы ансамбль захаваў у дэталях планіроўку часоў, калі гандаль ажыццяўлялася з усёй Еўропай."
+        },
+      ],
+    },
+    {
+      sightId: 4,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/4-wooden_churches_of_southern_little_poland_mbipja",
+      smallImageId: "travelApp/4-wooden_churches_of_southern_little_poland_mbipja",
+      localizations: [
+        {
+          name: "Wooden churches in the south of Lesser Poland",
+          description:
+            "Interesting places are located in the south and east of the Lesser Poland Voivodeship, there is a whole group of churches made of natural wood that are historically valuable from an architectural point of view. Most of them look like a log house, and some represent different architectural styles. The buildings fit perfectly into the picturesque mountain landscape. From the description of this sight of Poland, you can find out that it is included in the UNESCO list."
+        },
+        {
+          name: "Деревянные костелы юга Малой Польши",
+          description:
+            "Интересные места находятся на юге и востоке Малопольского воеводства, там есть целая группа исторически ценных с архитектурной точки зрения костелов из натурального дерева. Большинство из них имеют вид сруба, а некоторые представляют различные архитектурные стили. Постройки идеально вписываются в живописный горный пейзаж. Из описания этой достопримечательности Польши можно узнать, что она внесена в список ЮНЕСКО."
+        },
+        {
+          name: "Драўляныя касцёлы поўдня Малой Польшчы",
+          description:
+            "Цікавыя месцы знаходзяцца на поўдні і ўсходзе Малапольскага ваяводства, там ёсць цэлая група гістарычна каштоўных з архітэктурнай пункту гледжання касцёлаў з натуральнага дрэва. Большасць з іх маюць выгляд зруба, а некаторыя ўяўляюць розныя архітэктурныя стылі. Пабудовы ідэальна ўпісваюцца ў маляўнічы горны пейзаж. З апісання гэтай славутасці Польшчы можна даведацца, што яна занесеная ў спіс ЮНЕСКА."
+        },
+      ],
+    },
+    {
+      sightId: 5,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/5-the_masurian_lake_district_p9oisw",
+      smallImageId: "travelApp/5-the_masurian_lake_district_p9oisw",
+      localizations: [
+        {
+          name: "Masurian Lake District",
+          description:
+            "This landmark of Poland is one of the most beautiful; tourists are delighted with the beauty of the local nature. Mazury is a historical and ethnographic region in the northern part of the country. There are about 4 thousand lakes in this region, most of which are connected by canals and rivers. The total area of ​​the Mazury is about 1,700 km2. Here you can ride sailboats, kayaks."
+        },
+        {
+          name: "Мазурское поозёрье",
+          description:
+            "Эта достопримечательность Польши относится к числу самых красивых, от красоты местной природы туристы приходят в восторг. Мазуры представляют собой исторический и этнографический район в северной части страны. В этом регионе насчитывается около 4 тысяч озер, большая часть которых соединена каналами, реками. Общая площадь Мазуров составляет около 1700 км2. Здесь можно покататься на парусниках, байдарках."
+        },
+        {
+          name: "Мазурскае поозёрье",
+          description:
+            "Гэтая славутасць Польшчы адносіцца да ліку самых прыгожых, ад прыгажосці мясцовай прыроды турысты прыходзяць у захапленне. Мазуры ўяўляюць сабой гістарычны і этнаграфічны раён у паўночнай частцы краіны. У гэтым рэгіёне налічваецца каля 4 тысяч азёр, вялікая частка якіх злучаная каналамі, рэкамі. Агульная плошча Мазураў складае каля 1700 км2. Тут можна пакатацца на ветразніках, байдарках."
+        },
+      ],
+    },
+    {
+      sightId: 6,
+      rating: {
+        points: 0,
+        votes: 0,
+        votedUsers: [],
+      },
+      imageId: "travelApp/6-slowinski_national_park_uhgqq5",
+      smallImageId: "travelApp/6-slowinski_national_park_uhgqq5",
+      localizations: [
+        {
+          name: "Slovinsky National Park",
+          description:
+            "Wondering what to visit in Poland? Head to the town of eba, where there is an interesting place in the form of a parkland in the central part of the Polish coast. It was founded with the aim of preserving the natural beauty of the area. Meadows, a system of lakes, coastal forests, and unique dunes also needed protection. Reviews about this place are full of admiration; the park has picturesque lakes, into which sea water falls during strong storms. The tourist infrastructure here is assessed as well developed."
+        },
+        {
+          name: "Словинский национальный парк",
+          description:
+            "Раздумываете над тем, что посетить в Польше? Отправляйтесь в город Леба, где есть интересное место в виде парковой зоны в центральной части польского побережья. Он был основан с целью сохранения природной красоты местности. В защите нуждались также луга, система озер, приморские леса, уникальные в своем роде дюны. Отзывы об этом месте полны восхищения, в парке есть живописные озера, в которые морская вода попадает во время сильных бурь. Туристическая инфраструктура здесь оценивается как хорошо развитая."
+        },
+        {
+          name: "Словинский нацыянальны парк",
+          description:
+            "Разважаеце над тым, што наведаць у Польшчы? Адпраўляйцеся ў горад Леба, дзе ёсць цікавае месца ў выглядзе паркавай зоны ў цэнтральнай частцы польскага ўзбярэжжа. Ён быў заснаваны з мэтай захавання прыроднай прыгажосці мясцовасці. У абароне мелі патрэбу таксама лугі, сістэма азёр, прыморскія лесу, унікальныя ў сваім родзе выдмы. Водгукі аб гэтым месцы поўныя захаплення, у парку ёсць маляўнічыя азёры, у якія марская вада трапляе падчас моцных бур. Турыстычная інфраструктура тут ацэньваецца як добра развітая."
+        },
+      ],
+    },
+  ],
+  localizations: [
+    {
+      name: "Poland",
+      capital: "Warsaw",
+      description:
+        "Poland is an amazing country that has always conquered with its hospitality, rich history and ancient monuments. The Baltic coast of Poland will delight people who do not like the sweltering heat with its mild climate and sandy beaches, about 500 kilometers long and European service. Fans of skiing holidays in Poland will undoubtedly enjoy rest in the resorts of Zakopane and Karkonosze, Beskids and Tatras. You can plunge into the rich history of Poland by visiting numerous museums, including Nikolai Kapernik, cultural and natural monuments, of which 13 are included in the UNESCO World Heritage List."
+    },
+    {
+      name: " Польша",
+      capital: "Варшава",
+      description:
+        "Польша – это удивительная  страна, которая всегда покоряла своим гостеприимством, богатой историей и памятниками старины. Балтийское побережье Польши порадует людей, которые не любят изнуряющую жару своим мягким климатом и песчаными пляжами, протяженностью около 500 километров и европейским сервисом. Любителям горнолыжного отдыха в Польше без сомнения окажется по душе отдых на курортах Закопане и Карконоше, Бескидах и Татрах. Окунуться в богатую историю Польши вы сможете при посещении многочисленных музеев, в том числе Николая Каперника, памятников культуры и природы, из которых 13 занесены в  список Мирового наследия ЮНЕСКО."
+    },
+    {
+      name: "Польшча",
+      capital: "Варшава",
+      description:
+        "Польшча - гэта дзіўная краіна, якая заўсёды пакарала сваёй гасціннасцю, багатай гісторыяй і помнікамі даўніны. Балтыйскае ўзбярэжжа Польшчы парадуе людзей, якія не любяць гарачыню сваім мяккім кліматам і пясчанымі пляжамі, працягласцю каля 500 кіламетраў і еўрапейскім сэрвісам. Аматарам гарналыжнага адпачынку ў Польшчы без сумневу апынецца па душы адпачынак на курортах Закапанэ і Карконоше, Бескидах і Татрах. Акунуцца ў багатую гісторыю Польшчы вы зможаце пры наведванні шматлікіх музеяў, у тым ліку Мікалая Каперника, помнікаў культуры і прыроды, з якіх 13 занесены ў спіс Сусветнай спадчыны ЮНЕСКА."
+    },
   ],
 };

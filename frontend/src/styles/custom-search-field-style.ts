@@ -1,5 +1,5 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
-import { teal } from '@material-ui/core/colors';
+import { lightGreen } from '@material-ui/core/colors';
 
 export default {
     useLabelStyles: makeStyles((theme: Theme) => createStyles({
@@ -20,7 +20,7 @@ export default {
         border: '1px solid',
         borderColor: theme.palette.primary.main,
         overflow: 'hidden',
-        backgroundColor: teal[100],
+        backgroundColor: lightGreen[300],
         '&:hover:not($disabled)': {
           borderColor: theme.palette.primary.main,
         },

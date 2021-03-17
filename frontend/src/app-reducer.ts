@@ -7,6 +7,7 @@ export const initialState: AppState = {
   filterString: '',
   utcOffset: 3,
   isSideBarOpened: false,
+  user: null,
   weatherParams: null,
   country: null,
 }
@@ -32,13 +33,13 @@ const appReducer = (state = initialState, action: AnyAction) => {
         ...state,
         lang : action.lang
       })
-    
+
     case 'FILTER_STRING_CHANGED' :
       return ({
         ...state,
         filterString : action.filterString
       })
-  
+
     case 'UTC_OFFSET_CHANGE' :
       return ({
         ...state,
@@ -55,6 +56,12 @@ const appReducer = (state = initialState, action: AnyAction) => {
       return ({
         ...state,
         isSideBarOpened : action.isSideBarOpened
+      })
+
+    case 'SET_USER' :
+      return ({
+        ...state,
+        user: action.user
       })
 
     default:

@@ -4,6 +4,7 @@ export interface AppState {
   filterString: string;
   utcOffset: number;
   isSideBarOpened: boolean;
+  user: IUser | null;
   weatherParams: IWeatherParams | null;
   country: ICountryFull|null;
 }
@@ -72,12 +73,11 @@ export interface IRating {
 export interface IVotedUser extends IUser {
   points: number;
 }
-
 export interface IUser {
-  id: number;
+  id?: number;
   imageId: number;
-  name: IVotedUser;
-  lang: Language;
+  name: string,
+  lang: Language,
 }
 
 export enum Language {

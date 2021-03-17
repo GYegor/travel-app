@@ -11,10 +11,10 @@ import { AppState, ICountryFull, Language } from "../../interfaces";
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     maxWidth: 300,
-    width: 260,
-    'border-radius': 12,
+    width: 240,
+    borderRadius: 8,
     color: 'white',
-    'background-color': fade(theme.palette.primary.light, 0.7),
+    backgroundColor: fade(theme.palette.primary.light, 0.8),
   },
   action: {
     '&:hover': {
@@ -27,33 +27,23 @@ const LocalCurrencyRateWidget: React.FC = () => {
   const classes = useStyles();
   const { lang, country } = useSelector<AppState, AppState>(state => state);
   const api = {
-    key: '1752709c76218c60e201',
-    base: 'https://free.currconv.com/api/v7/'
+    base: 'https://v6.exchangerate-api.com/v6/66412dc229d14c0839a3b6b2/latest/'
   }
 
   const [rates, setRates] = useState<any>(null);
-  const [ratesEuro, setRatesEuro] = useState<any>(null);
-
   useEffect(() => {
-    if (!country) {
-      return;
-    }
+    if (!country) { return; }
+
     const localCurrency = (country as ICountryFull).currencyCode;
 
-    console.log('get DATA by country', country);
-
-    fetch(`${api.base}convert?q=EUR_${localCurrency}&compact=ultra&apiKey=${api.key}`)
+    fetch(`${api.base}${localCurrency}`)
       .then(res => res.json())
       .then(result => {
-        setRatesEuro(result);
+        setRates(result.conversion_rates);
+      }).catch((err) => {
+        alert(err);
       });
-
-    fetch(`${api.base}convert?q=USD_${localCurrency},RUB_${localCurrency}&compact=ultra&apiKey=${api.key}`)
-      .then(res => res.json())
-      .then(result => {
-        setRates(result);
-      });
-  }, [country]);
+  }, [ country ]);
 
   const currencyRateInformation = {
     [Language.en]: ['Currency rates'],
@@ -61,33 +51,15 @@ const LocalCurrencyRateWidget: React.FC = () => {
     [Language.by]: ['Курсы валют']
   }
 
-  function getRate(currency: 'USD' | 'EUR' | 'RUB'): string {
-    if (!country || !rates || !ratesEuro) {
+  function getRate(currency: 'USD' | 'EUR' | 'BYN'): string {
+    if (!country || !rates) {
       return '';
     }
-    const index = currency + '_' + (country as ICountryFull).currencyCode;
-
-    if (currency === 'EUR' && !ratesEuro[index]) {
-      return '';
-    }
-
-    if (currency === 'EUR') {
-      console.log('index', index, 'ratesEuro', ratesEuro);
-      return ratesEuro[index].toFixed(2) + ' ' + (country as ICountryFull).currencyCode;
-    }
-
-    if (!rates[index]) {
-      console.log('rates RUB or USD', rates);
-      return '';
-    }
-
-    if (currency === 'RUB') {
-      return (rates[index] * 100).toFixed(2) + ' ' + (country as ICountryFull).currencyCode;
-    }
-    return rates[index].toFixed(2) + ' ' + (country as ICountryFull).currencyCode;
+    return (1/rates[currency]).toFixed(2) + ' ' + (country as ICountryFull).currencyCode;
   }
+
   return (
-    country && (<Card className={classes.root}>
+    country && (<Card className={classes.root} onClick={(event) => event.stopPropagation()}>
       <CardActionArea className={classes.action}>
         <CardContent>
           <Typography variant="h5" component="h3">
@@ -98,10 +70,12 @@ const LocalCurrencyRateWidget: React.FC = () => {
             {getRate('USD')}
           </Typography>
           <Typography variant="body1" component="h3">
-            <span style={{ color: "rgba(0, 0, 0, 0.54)" }}>1 EUR = </span>{getRate('EUR')}
+            <span style={{ color: "rgba(0, 0, 0, 0.54)" }}>1 EUR = </span>
+            {getRate('EUR')}
           </Typography>
           <Typography variant="body1" component="h3">
-            <span style={{ color: "rgba(0, 0, 0, 0.54)" }}>100 RUB = </span>{getRate('RUB')}
+            <span style={{ color: "rgba(0, 0, 0, 0.54)" }}>1 BYN = </span>
+            {getRate('BYN')}
           </Typography>
         </CardContent>
       </CardActionArea>
