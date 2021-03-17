@@ -8,7 +8,7 @@
     "start": "node --inspect=5858 -r ts-node/register ./build/bin/web-server",
     "build": "tsc",
     "script": "cd src/scripts && ts-node",
-    "deploy": "git push heroku heroku:master"
+    "deploy": "git add . && git commit -m Heroku && git push heroku heroku:master"
   },
   "repository": {
     "type": "git",
