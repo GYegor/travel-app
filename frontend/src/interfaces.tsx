@@ -36,6 +36,7 @@ export interface ICountryFull {
 }
 export interface ICountryFull {
   id: number;
+  countryId: number;
   name: string,
   capital: string,
   imageId: string,
@@ -56,6 +57,7 @@ export interface ICountryAvatarProps {
 }
 
 export interface ISightseeing {
+  sightId: number;
   id: number;
   name: string;
   imageId: string;
@@ -68,6 +70,7 @@ export interface IRating {
   points: number;
   votes: number;
   votedUsers: IVotedUser[];
+  sightId?: number
 }
 
 export interface IVotedUser extends IUser {
@@ -75,9 +78,17 @@ export interface IVotedUser extends IUser {
 }
 export interface IUser {
   id?: number;
-  imageId: number;
+  imageId: string;
   name: string,
-  lang: Language,
+  lang: Language | string,
+}
+
+export interface IRatingRequest {
+  countryId: number,
+  sightId: number,
+  name: string,
+  imageId: string,
+  points: number,
 }
 
 export enum Language {

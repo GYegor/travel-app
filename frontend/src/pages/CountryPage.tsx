@@ -38,13 +38,24 @@ const useStyles = makeStyles({
   },
   wrapper: {
     minHeight: 'calc(100% - 64px)',
-    'max-width': '1200px',
+    'max-width': '60vmax',
     positon: 'relative',
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
     margin: theme.spacing(0, 'auto'),
     padding: theme.spacing(0, 2)
+  },
+  loaderWrapper: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: '#E5F6EB'
   },
   playerWrapper: {
     flex: '0 1 100%',
@@ -62,6 +73,8 @@ const useStyles = makeStyles({
     margin: theme.spacing(3, 'auto', 3, 'auto'),
     position: 'relative',
     paddingTop: '56.25%',
+  },
+  galeryWrapper: {
   },
   leafletMap: {     
     position: 'absolute',
@@ -87,6 +100,8 @@ const CountryPage: React.FC = () => {
 
   const dispatch = useDispatch();
 
+  const { country, lang  } = useSelector<AppState, AppState>(state => state);
+
   const { id } = useParams<Record<string, string | undefined>>();
 
   const [loading, setLoading] = useState(true);
@@ -97,7 +112,6 @@ const CountryPage: React.FC = () => {
   const [geometry, setGeometry] = useState<any[][][] | any[][]>([]);  
   const [ratings, setRatings] = useState<IRating[] | []>([]);
   const [ imgIndex, setImgIndex ] = useState(0);
-  const lang = useSelector<AppState, Language>(state => state.lang);
   const [ mapTile, setMapTile ] = useState(lang === 1 ? engMapTile : ruMapTile);    
 
   useEffect(() => {
@@ -129,7 +143,7 @@ const CountryPage: React.FC = () => {
           return polygon!.geometry;
         }
 
-        const getRatingsFromData = (): IRating[] => data.sights.map((elem: ISightseeing) => elem.rating);
+        const getRatingsFromData = (): IRating[] => data.sights.map((elem: ISightseeing) => ({ ...elem.rating, sightId: elem.sightId || elem.id }));
 
         setImages(prev => getImagesFromData());
         setAvatar(prev => getAvatarFromData());
@@ -147,12 +161,21 @@ const CountryPage: React.FC = () => {
       })
   }, [id, lang])
 
+  useEffect(() => {
+    if (country) {
+      console.log(country);
+      const getRatingsFromData = (): IRating[] => country!.sights.map((elem: ISightseeing) => ({ ...elem.rating, sightId: elem.sightId || elem.id }));
+      console.log(getRatingsFromData());
+      setRatings(prev => getRatingsFromData());
+    }
+  }, [ country ])
+
     return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
-        { loading && <Loader />}
+        { loading && <div className={classes.loaderWrapper}><Loader/></div>}
         { avatar && <CountryAvatar {...avatar} />}        
-        { images.length !== 0 && <ImageGallery 
+        { images.length !== 0 && <ImageGallery
             items={images}
             thumbnailPosition={"bottom"}
             infinite={true}
@@ -160,7 +183,7 @@ const CountryPage: React.FC = () => {
             showBullets={true}
             slideDuration={500}
             slideInterval={2000}
-            renderCustomControls={() => <SightRating rating={ratings[imgIndex] ? ratings[imgIndex] : {points: 0}}/>}
+            renderCustomControls={() => <SightRating rating={ratings[imgIndex]}/>}
             onSlide={(curIndex) => {setImgIndex(curIndex)}}
           />
         }

@@ -22,3 +22,13 @@ export const checkAndLogin = async (obj: any): Promise<types.IUserSchema | null>
     const data: types.IUserDocument = await model.UserModel.findOne({ name: obj.name });
     return data;
 };
+
+export const changeLang = async (obj: any) => {
+    const data: types.IUserDocument = await model.UserModel.findOneAndUpdate(
+        { name: obj.name },
+        { $set: { "lang":obj.lang } }
+    );
+    data.lang = obj.lang;
+    console.log(obj.lang);
+    return data;
+}

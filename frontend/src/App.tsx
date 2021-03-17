@@ -7,7 +7,7 @@ import { theme } from './mui-style';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Footer from './components/Footer';
 import Header from './components/Header';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from './actions/set-user';
 import getUser from './getUser';
 
@@ -15,6 +15,8 @@ import getUser from './getUser';
 import { CloudinaryContext } from 'cloudinary-react';
 import cloudName from './constants/cloudName';
 import SideBar from './components/SideBar';
+import { onLanguageChanged } from './actions/language-action';
+import { AppState } from './interfaces';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,10 +42,19 @@ const useStyles = makeStyles((theme: Theme) =>
 function App() {
   const classes = useStyles();
   const dispatch = useDispatch()
+  const { user } = useSelector<AppState, AppState>(state => state);
 
   useEffect(() => {
     dispatch(setUser(getUser()));
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      const langs = ['en', 'ru', 'by'];
+      const number = langs.indexOf(user.lang as string);
+      dispatch(onLanguageChanged(number + 1));
+    }
+  }, [user]);
 
   return (
     <CloudinaryContext cloudName={cloudName} className={classes.root}>

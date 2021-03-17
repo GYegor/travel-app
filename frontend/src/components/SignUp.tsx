@@ -123,7 +123,8 @@ const SignUp: React.FC<IProps> = ({ setIsOpen }: IProps) => {
                 >
                     {heading[lang - 1]}
                 </Typography>
-                <form
+                <form 
+                    onSubmit={e => { e.preventDefault(); }}
                     method="post"
                     encType="multipart/form-data"
                     className={classes.form}

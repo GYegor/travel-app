@@ -29,7 +29,7 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
       marginRight: theme.spacing(2),
 
       '&:first-letter': {
-        color: theme.palette.secondary.light,
+        color: theme.palette.secondary.main,
         fontWeight: 600,
         'font-size': theme.spacing(3.1),
       }

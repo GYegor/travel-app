@@ -36,4 +36,9 @@ router.post('/login', wrap(async (req, res): Promise<void> => {
     });
 }));
 
+router.put('/lang', wrap(async (req, res): Promise<void> => {
+    const result = await userService.changeLang(req.body);
+    res.json(result);
+}));
+
 export = router;

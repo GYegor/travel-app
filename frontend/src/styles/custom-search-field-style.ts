@@ -20,7 +20,7 @@ export default {
         border: '1px solid',
         borderColor: theme.palette.primary.main,
         overflow: 'hidden',
-        backgroundColor: lightGreen[300],
+        backgroundColor: lightGreen[200],
         '&:hover:not($disabled)': {
           borderColor: theme.palette.primary.main,
         },

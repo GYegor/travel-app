@@ -18,7 +18,7 @@ function CircularIndeterminate() {
 
   return (
     <div className={classes.root}>
-      <CircularProgress />      
+      <CircularProgress size={100}/>      
     </div>
   );
 }

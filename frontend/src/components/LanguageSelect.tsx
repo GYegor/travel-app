@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { ListItemIcon, SvgIcon, Select, MenuItem } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -9,7 +9,7 @@ import { useStyles } from '../styles/custom-select-style';
 import { ReactComponent as US } from '../assets/images/US.svg';
 import { ReactComponent as BY } from '../assets/images/BY.svg';
 import { ReactComponent as RU } from '../assets/images/RU.svg';
-
+import { setUser } from '../actions/set-user';
 
 // Original design here: https://github.com/siriwatknp/mui-treasury/issues/540
 const LanguageSelect: React.FC = () => {
@@ -17,8 +17,28 @@ const LanguageSelect: React.FC = () => {
   
   const dispatch = useDispatch()
   
-  const lang = useSelector<AppState, Language>(state => state.lang);
+  const { lang, user } = useSelector<AppState, AppState>(state => state);
 
+  const requestToBackend = async () => {
+    const response = await fetch("/api/users/lang", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ ...user, lang: Language[lang] }),
+    });
+
+    const refUser = await response.json();
+    dispatch(setUser(refUser));
+  }
+
+  useEffect(() => {
+    if (user) {
+      requestToBackend();
+    }
+  }, [lang]);
+    
   const handleChange = (event: any) => {
     dispatch(onLanguageChanged(event.target.value))
   };

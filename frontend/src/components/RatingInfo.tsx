@@ -1,25 +1,56 @@
 import React from 'react';
 import {
-    Typography,
+    Box,
     Dialog,
   } from '@material-ui/core';
-import { useDispatch, useSelector } from "react-redux";
-// import { onPopupToggle } from '../actions/popup-toggle';
-import { AppState } from '../interfaces';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import CloseIcon from '@material-ui/icons/Close';
+import SignUp from './SignUp';
+import LogIn from './LogIn';
 
-const Popup: React.FC = () => {
-  const isPopup = useSelector<AppState, boolean>(state => false);
-  const dispatch = useDispatch();
+const useStyles = makeStyles((theme: Theme) => createStyles({
+    container: {
+        padding: theme.spacing(3),
+    },
+    close: {
+        position: 'absolute',
+        top: 5,
+        right: 5,
+        '&:hover': {
+            cursor: 'pointer',
+        },
+    }
+  }));
 
-  const onClose = () => {
-    // dispatch(onPopupToggle(false))
-  }
+interface IProps {
+    isOpen: boolean
+    isSignUp: boolean
+    setIsOpen: (value: boolean) => void
+}
 
-  return (
-    <Dialog open={isPopup} onClose={onClose}>
-        <Typography variant="subtitle1">Theme</Typography>
-    </Dialog>
-  );
+const Popup: React.FC<IProps> = ({ isOpen, isSignUp, setIsOpen }: IProps) => {
+    const classes = useStyles();
+
+    const onClose = () => {
+        setIsOpen(false);
+    }
+
+    return (
+        <Dialog open={isOpen} onClose={onClose}>
+            <Box className={classes.container}>
+                <CloseIcon
+                    className={classes.close}
+                    onClick={onClose}
+                />
+                { isSignUp
+                    ?
+                    <SignUp setIsOpen={setIsOpen} />
+                    :
+                    <LogIn setIsOpen={setIsOpen} />
+                }
+            </Box>
+        </Dialog>
+    );
 }
 
 export default Popup;
