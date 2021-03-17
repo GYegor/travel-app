@@ -19,6 +19,7 @@ code {
   min-height: 100vh;  
 }
 
-.fake {
-  color: rgb(248, 255, 247);
+.custom-icon {
+  filter: hue-rotate(90deg);
+  margin-top: -28px;
 }

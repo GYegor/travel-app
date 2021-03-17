@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux'
-import { AppState, Language, ICountryFull } from './interfaces'
+import { AppState, Language } from './interfaces'
 
 export const initialState: AppState = {
   countryList: [],
