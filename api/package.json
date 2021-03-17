@@ -5,7 +5,7 @@
   "main": "bin/web-server",
   "scripts": {
     "start:dev": "nodemon ./src/bin/web-server",
-    "start": "node ./build/bin/web-server",
+    "start": "tsc && node ./build/bin/web-server",
     "build": "tsc",
     "script": "cd src/scripts && ts-node"
   },
