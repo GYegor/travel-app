@@ -4,7 +4,7 @@
   "description": "backend for travel-app",
   "main": "bin/web-server",
   "scripts": {
-    "start:dev": "nodemon ./src/bin/web-server",
+    "start:dev": "nodemon ./src/bin/web-server.ts",
     "start": "node ./build/bin/web-server",
     "build": "tsc",
     "script": "cd src/scripts && ts-node"
