@@ -28,7 +28,9 @@ const SearchField = () => {
 
   const dispatch = useDispatch();
 
-  const filterString = useSelector<AppState, string>(state => state.filterString);
+  const { filterString, lang } = useSelector<AppState, AppState>(state => state);
+
+  const text: Array<string> = ['Country or capital', 'Страна или столица', 'Краіна або сталіца'];
 
   return  (
     <div>
@@ -36,13 +38,13 @@ const SearchField = () => {
         className={classes.root}
         color={'secondary'}
         // label={'Куда направишься?'}
-        placeholder={'Страна или столица'}
+        placeholder={text[lang - 1]}
         margin={'normal'}
         value={filterString}
-        onChange={(event) => {dispatch(onFilterStringChanged(event.target.value))}}  
+        onChange={(event) => {dispatch(onFilterStringChanged(event.target.value))}}
         InputLabelProps={{ shrink: true, classes: inputLabelStyles }}
-        InputProps={{ 
-          classes: inputBaseStyles, 
+        InputProps={{
+          classes: inputBaseStyles,
           disableUnderline: true,
           endAdornment: (
             <IconButton className={classes.buttonRoot} onClick={() => {filterString && dispatch(onFilterStringChanged())}}>

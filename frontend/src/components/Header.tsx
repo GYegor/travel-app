@@ -20,15 +20,17 @@ import User from './User';
 
 const Header: React.FC = () => {
   const classes = useStyles();
-  const user = useSelector<AppState, IUser | null>(state => state.user);
+  const { lang, user } = useSelector<AppState, AppState>(state => state);
+  const firstLetter: Array<string> = ['L', 'П', 'П'];
+  const tittle: Array<string> = ["et's go", 'оехали', 'аехалі'];
 
   return (
     <AppBar position="static">
       <Toolbar>
         <MenuButton />
         <Typography variant="h6" className={classes.title}>
-        П<span className={classes.titleSpan}>оехали</span>
-        </Typography>    
+        {firstLetter[lang - 1]}<span className={classes.titleSpan}>{tittle[lang - 1]}</span>
+        </Typography>
         <Route exact path="/">
           <SearchField />
         </Route>
