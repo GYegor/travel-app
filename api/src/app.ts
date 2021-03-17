@@ -10,7 +10,6 @@ import requestLogMiddleware = require('./middleware/request-logger');
 import countryRouter = require('./modules/countries/country.router');
 import userRouter = require('./modules/users/user.router');
 
-
 const app = express();
 
 app.use(cors());
