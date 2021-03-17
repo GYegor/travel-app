@@ -1,3 +1,7 @@
+
+html {
+  font-size: 16px;
+}
 body {
   margin: 0;
   background: azure;
@@ -25,22 +29,27 @@ code {
 }
 
 html, body {
-  scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
   scrollbar-width: auto;  /* толщина */
 }
 
 ::-webkit-scrollbar {
-  width: 1.5rem; /* ширина для вертикального скролла */
+  width: 1rem; /* ширина для вертикального скролла */
   height: 8px; /* высота для горизонтального скролла */
-  background-color: #558b2f;;
+  // background-color: transparent;
+  opacity: 0;
 }
 /* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
-  background-color: #54dede;
+  background-color: #7CB343;
   border-radius: 9em;
-  box-shadow: inset 1px 1px 10px #f3faf7;
+  box-shadow: inset 1px 1px 2px #f3faf7;
+  opacity: 0.2;
+  transition: color .3s ease;
+  &:hover {
+    background-color: #558B30;
+  }
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #253861;
+  background-color: #33691E;
 }

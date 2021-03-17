@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
+import { useSelector } from 'react-redux';
+import { AppState, IRating } from '../interfaces';
+import RatingPopup from './RatingPopup';
 
 const useStyles = makeStyles({
   root: {
@@ -11,17 +13,26 @@ const useStyles = makeStyles({
   },
 });
 
-const SightRating: React.FC<{points: number}> = ( { points } ) => {
+
+const SightRating: React.FC<{rating: IRating | { points: number}}> = ( { rating } ) => {
   const classes = useStyles();
+
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { user } = useSelector<AppState, AppState>(state => state);
+
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
   
-  const [curPoints, setCurPoints] = useState<number | null>(points);
+  const [curPoints, setCurPoints] = useState<number | null>(rating!.points);
 
   useEffect(() => {
-    setCurPoints(points);
-  }, [ points ])
+    setCurPoints(rating!.points);
+  }, [ rating ])
   
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick ={handleClick}>
       <Rating
         name="half-rating-read"
         value={curPoints}
@@ -29,8 +40,9 @@ const SightRating: React.FC<{points: number}> = ( { points } ) => {
         onChange={(_e, newValue) => {
           setCurPoints(newValue);
         }} 
-        readOnly={true}
+        readOnly={!(user && user.id)}
       />
+      <RatingPopup isOpen={isOpen} setIsOpen={setIsOpen} rating={rating}/>
     </div>
   );
 }

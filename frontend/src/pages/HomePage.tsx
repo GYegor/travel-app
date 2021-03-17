@@ -5,6 +5,7 @@ import { theme } from "../mui-style";
 import { AppState, ICountryCard, Language } from '../interfaces';
 import { getDataFromBE } from '../actions/country-actions';
 import CountryCard from '../components/CountryCard';
+import Footer from '../components/Footer';
 
 const useStyles = makeStyles({
   root: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles({
     padding: theme.spacing(3, 1.5)
   },
   contentWrapper: {
-    // height: 'calc(100hv - 162px)',
+    flex: 1,
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
@@ -57,6 +58,7 @@ const HomePage: React.FC<any> = () => {
           <CountryCard {...card} key={card.smallImageId} />
         ))}
       </div>      
+        <Footer />
     </>
   );
 }

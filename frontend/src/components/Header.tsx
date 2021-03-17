@@ -23,18 +23,18 @@ const Header: React.FC = () => {
   const user = useSelector<AppState, IUser | null>(state => state.user);
 
   return (
-    <AppBar position="static">
+    <AppBar position="absolute">
+
       <Toolbar>
         <MenuButton />
+        <HomeBtn />
         <Typography variant="h6" className={classes.title}>
-        П<span className={classes.titleSpan}>оехали</span>
+        &#2327;&nbsp;<span className={classes.titleSpan}>оехали</span>
         </Typography>    
         <Route exact path="/">
           <SearchField />
         </Route>
         <Spacer />
-        <LanguageSelect />
-        <HomeBtn />
         {
           user ?
             <>
@@ -44,6 +44,8 @@ const Header: React.FC = () => {
             :
             <Entry />
         }
+        <LanguageSelect />
+
       </Toolbar>
     </AppBar>
   )

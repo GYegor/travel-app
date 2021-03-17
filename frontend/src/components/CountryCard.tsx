@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     maxWidth: 400,
     width: 300,
+    maxHeight: 284.38,
     'border-radius': 8,
     transition: 'all 0.3s;',
     '&:hover': {
@@ -25,9 +26,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
   },
   action: {
+    textAlign: 'center',
     '&:hover': {
-      color: theme.palette.primary.main,
-    }
+      color: theme.palette.primary.dark,
+      fontWeight: 600,
+    },
+
+  },
+  content: {
   },
   media: {
     height: 180,
@@ -48,11 +54,11 @@ const CountryCard: React.FC<ICountryCard> = (props) => {
             style={{ backgroundImage: `url('${cloudUrl}/${cloudName}/image/upload/h_500/${smallImageId}')` }}
             className={classes.media}
           />
-          <CardContent>
+          <CardContent className={classes.content}>
             <Typography gutterBottom variant="h5" component="h2">
               {name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="h6" color="textSecondary" component="p">
               {capital}
             </Typography>
           </CardContent>
