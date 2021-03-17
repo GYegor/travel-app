@@ -14,7 +14,7 @@ import userRouter = require('./modules/users/user.router');
 const app = express();
 
 app.use(cors());
-app.use(helmet({ contentSecurityPolicy: (process.env.NODE_ENV === 'production') ? undefined : false }));
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json());
 
 app.use(requestLogMiddleware);

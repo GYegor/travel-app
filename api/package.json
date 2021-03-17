@@ -2,12 +2,13 @@
   "name": "travel-app-api",
   "version": "1.0.0",
   "description": "backend for travel-app",
-  "main": "bin/web-server",
+  "main": "bin/web-server.ts",
   "scripts": {
     "start:dev": "nodemon ./src/bin/web-server.ts",
-    "start": "node ./build/bin/web-server",
+    "start": "node --inspect=5858 -r ts-node/register ./build/bin/web-server",
     "build": "tsc",
-    "script": "cd src/scripts && ts-node"
+    "script": "cd src/scripts && ts-node",
+    "deploy": "git add . && git commit -m Heroku && git push heroku heroku:master"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,10 @@
     "eslint-plugin-prettier": "^3.3.1",
     "nodemon": "^2.0.7",
     "prettier": "2.2.1",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "ts-node": "^9.1.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -43,6 +44,6 @@
     "yamljs": "^0.3.0"
   },
   "engines": {
-    "node": "12.13.1"
+    "node": ">=12"
   }
 }
