@@ -3,9 +3,6 @@ import { Route } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from '../mui-style';
 import Spacer from './Spacer';
 import HomeBtn from './HomeBtn';
@@ -15,8 +12,10 @@ import SearchField from './SearchField';
 import Entry from './Entry';
 import LogOut from './LogOut';
 import { useSelector } from "react-redux";
-import { AppState, IUser } from '../interfaces';
+import { AppState } from '../interfaces';
 import User from './User';
+import { Search } from '@material-ui/icons';
+import IconButton from '@material-ui/core/IconButton';
 
 const Header: React.FC = () => {
   const classes = useStyles();
@@ -33,6 +32,9 @@ const Header: React.FC = () => {
         </Typography>
         <Route exact path="/">
           <SearchField />
+          <IconButton color="secondary" aria-label="search" component="span">
+            <Search />
+          </IconButton>
         </Route>
         <Spacer />
         <LanguageSelect />
