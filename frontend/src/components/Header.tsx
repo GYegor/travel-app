@@ -28,8 +28,7 @@ const Header: React.FC = () => {
         <MenuButton />
         <Typography variant="h6" className={classes.title}>
         П<span className={classes.titleSpan}>оехали</span>
-        </Typography>
-        <HomeBtn />
+        </Typography>    
         <Route exact path="/">
           <SearchField />
         </Route>
