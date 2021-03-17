@@ -33,7 +33,9 @@ import SightRating from "../components/SightRating";
 
 const useStyles = makeStyles({
   container: {
+    'max-width': '1400px',
     height: '100%',
+    margin: '0 auto',
     overflowY: 'auto',
   },
   wrapper: {

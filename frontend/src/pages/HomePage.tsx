@@ -8,7 +8,7 @@ import CountryCard from '../components/CountryCard';
 
 const useStyles = makeStyles({
   root: {
-    'min-height': '100%',
+    // 'min-height': '100%',
     position: 'relative',
     display: 'flex',
     'flex-direction': 'column',
@@ -18,9 +18,12 @@ const useStyles = makeStyles({
     padding: theme.spacing(3, 1.5)
   },
   contentWrapper: {
+    // height: 'calc(100hv - 162px)',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    'max-width': 1600,
+    margin: '0 auto',
     rowGap: theme.spacing(4),
     columnGap: theme.spacing(3),
     padding: theme.spacing(3, 1.5)

@@ -12,7 +12,7 @@ import { onFilterStringChanged } from '../actions/filter-action';
 const useStyles = makeStyles({
   root: {
     maxWidth: 400,
-    width: 400,
+    // width: 400,
     display: 'flex',
     margin: theme.spacing(0.8)
   },
