@@ -23,3 +23,24 @@ code {
   filter: hue-rotate(90deg);
   margin-top: -28px;
 }
+
+html, body {
+  scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: auto;  /* толщина */
+}
+
+::-webkit-scrollbar {
+  width: 1.5rem; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: #558b2f;;
+}
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: #54dede;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #253861;
+}
