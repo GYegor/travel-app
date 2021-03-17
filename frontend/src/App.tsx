@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     pageWrapper: {
       position: 'relative',
-      height: 'calc(100vh - 162px)'
+      minHeight: 'calc(100vh - 162px)'
     },
     input: {
       display: 'none',
