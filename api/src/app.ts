@@ -23,7 +23,6 @@ app.use(express.static(path.join(__dirname, '../../frontend/build')));
 app.use('/favicon.ico', (req, res) => res.sendStatus(StatusCodes.NO_CONTENT));
 
 // Routers
-
 app.use('/api/countries', countryRouter);
 app.use('/api/users', userRouter);
 

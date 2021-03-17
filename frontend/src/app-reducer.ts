@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux'
-import { AppState, Language, ICountryFull } from './interfaces'
+import { AppState, Language } from './interfaces'
 
 export const initialState: AppState = {
   countryList: [],
@@ -18,7 +18,8 @@ const appReducer = (state = initialState, action: AnyAction) => {
     case 'GET_COUNTRY_LIST' :
       return ({
         ...state,
-        countryList : action.countryList
+        countryList : action.countryList,
+        country: null,
       })
 
     case 'COUNTRY_CHANGE' :

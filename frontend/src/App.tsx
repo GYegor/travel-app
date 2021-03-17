@@ -19,13 +19,14 @@ import SideBar from './components/SideBar';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      'min-height': '100vh',
+      'height': '100%',
       display: 'flex',
       'flex-direction': 'column'
     },
     pageWrapper: {
+      overflow: 'hidden',
       position: 'relative',
-      height: 'calc(100vh - 162px)'
+      height: 'calc(100% - 162px)'
     },
     input: {
       display: 'none',
