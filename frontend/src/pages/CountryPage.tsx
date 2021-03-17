@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { onUtcOffsetChanged } from '../actions/utc-offset-action';
 import { onCountryChanged } from '../actions/country-action';
@@ -12,9 +12,13 @@ import '../styles/ImageGallery.scss';
 import ReactPlayer from 'react-player/youtube';
 
 import { MapContainer, TileLayer, Marker, Polygon } from 'react-leaflet';
-import polygons from '../data/polygon';
-//import 'react-leaflet-fullscreen/dist/styles.css';
-// import FullscreenControl from 'react-leaflet-fullscreen';
+import polygons from '../data/polygon';  
+import L from 'leaflet';
+import 'leaflet-fullscreen/dist/Leaflet.fullscreen.js';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-fullscreen/dist/leaflet.fullscreen.css';
+import 'leaflet/dist/images/marker-icon.png';
+import mapMarker from '../assets/images/marker.png';
 
 import { makeStyles } from '@material-ui/core';
 import { theme } from "../mui-style";
@@ -63,7 +67,17 @@ const useStyles = makeStyles({
     left: 0,
     width: '100%',
     height: '100%',
-  }
+  }  
+});
+
+const mapboxAccessToken = 'pk.eyJ1IjoicGFjZXRpbiIsImEiOiJja21kZWlub3MyOHR1Mnptem55aHlyZDc5In0.hXmXtrE6Pl0aZsmlXBlLMg';
+const engMapTile = `https://api.mapbox.com/styles/v1/pacetin/ckmdggt0nig7l17qo7uqcq0mp/tiles/{z}/{x}/{y}?access_token=${mapboxAccessToken}`;  
+const ruMapTile = `https://api.mapbox.com/styles/v1/pacetin/ckmdb9xlo16au17p0ma60oqnx/tiles/{z}/{x}/{y}?access_token=${mapboxAccessToken}`;
+
+const pointerIcon = new L.Icon({
+  iconUrl: mapMarker,  
+  iconSize: [32, 32],
+  className: 'custom-icon'
 });
 
 const CountryPage: React.FC = () => {
@@ -81,9 +95,8 @@ const CountryPage: React.FC = () => {
   const [geometry, setGeometry] = useState<any[][][] | any[][]>([]);  
   const [ratings, setRatings] = useState<IRating[] | []>([]);
   const [ imgIndex, setImgIndex ] = useState(0);
-
-
-  const lang = useSelector<AppState, Language>(state => state.lang);  
+  const lang = useSelector<AppState, Language>(state => state.lang);
+  const [ mapTile, setMapTile ] = useState(lang === 1 ? engMapTile : ruMapTile);    
 
   useEffect(() => {
     fetch(`/api/countries/${id}?lang=${Language[lang]}`)
@@ -116,20 +129,23 @@ const CountryPage: React.FC = () => {
 
         const getRatingsFromData = (): IRating[] => data.sights.map((elem: ISightseeing) => elem.rating);
 
-        setImages(getImagesFromData());
-        setAvatar(getAvatarFromData());
-        setVideoUrl(data.videoUrl);
-        setCoordinates(data.coords);
-        setGeometry(getGeometryFromData()); 
-        setRatings(getRatingsFromData());
+        setImages(prev => getImagesFromData());
+        setAvatar(prev => getAvatarFromData());
+        setVideoUrl(prev => data.videoUrl);
+        setCoordinates(prev => data.coords);
+        setGeometry(prev => getGeometryFromData()); 
+        setRatings(prev => getRatingsFromData());
         dispatch(onUtcOffsetChanged(data.utcOffset))
         dispatch(onWeatherParamsChanged(data))
         dispatch(onCountryChanged(data));
-        setLoading(false);                       
+        setMapTile(prev => { 
+          return (lang === 1) ? engMapTile : ruMapTile;
+        });  
+        setLoading(prev => false);                       
       })
   }, [id, lang])
 
-  return (
+    return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
         { loading && <Loader />}
@@ -157,17 +173,16 @@ const CountryPage: React.FC = () => {
             />
           </div>
         }
-        {coordinates && geometry &&
+        {coordinates && geometry && mapTile &&
           <div className={classes.mapWrapper}>
-            <MapContainer className={classes.leafletMap} center={[coordinates[0], coordinates[1]]} zoom={5} scrollWheelZoom={false}>
+            <MapContainer className={classes.leafletMap} fullscreenControl={true} center={[coordinates[0], coordinates[1]]} zoom={5} scrollWheelZoom={false}>
               <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors,  Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
+                url={mapTile}
               />
-              <Marker  position={[coordinates[0], coordinates[1]]}>       
+              <Marker  position={[coordinates[0], coordinates[1]]} icon={pointerIcon}>       
               </Marker>
-              <Polygon pathOptions={{ color: '#c9bc1f' }} positions={geometry} />
-              {/*<FullscreenControl position="topright" />*/}      
+              <Polygon pathOptions={{ color: '#c9bc1f' }} positions={geometry} />                   
             </MapContainer>
           </div>
         }
