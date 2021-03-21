@@ -13,7 +13,7 @@ go into each of them (```cd frontend``` or ```cd api``` respectivly) and perform
 
 ### START
 * Go into __travel-app__ directory
-* ```npm start```
+* ```npm run dev```
 * enjoy!
 
 ### !!! IMPORTANT !!!
